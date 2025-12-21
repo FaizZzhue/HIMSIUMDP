@@ -1,0 +1,83 @@
+"use client";
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+export default function NavBar() { 
+    const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    const navItems = [
+        { name: "Home", href: "/" },
+        { name: "Tentang", href: "/about" },
+        { name: "Kabinet", href: "/contact" },
+        { name: "Aspirasi", href: "/aspirasi" },
+    ];
+
+
+    useEffect(() => {
+        const onScroll = () => {
+            setIsScrolled(window.scrollY > 20);
+        };
+
+        onScroll(); 
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+
+    return (
+        <nav className={cn(
+                "flex top-0 z-50 fixed w-full items-center justify-between py-4 md:py-6 transition-all duration-300"
+                , isScrolled 
+                ? "bg-white/90 backdrop-blur-md shadow-md" 
+                : "bg-transparent"
+            )}
+        >
+            <div className="mx-4 md:mx-8 lg:mx-40 flex items-center justify-between w-full font-medium">
+                <div className="text-black">Himsi</div>
+
+                <div className="hidden md:flex gap-8 items-center">
+                    {navItems.map((item, key) => (
+                        <a 
+                            key={key} 
+                            href={item.href} 
+                            className="text-black hover:text-[#2464A8] transition-colors duration-300"
+                        >
+                            {item.name}
+                        </a>
+                    ))}
+                </div>
+
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors duration-300 text-white z-50 relative"
+                >
+                    {isOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+
+                <div 
+                className={cn(
+                    "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-start transition-colors",
+                    "transition-all duration-300 md:hidden",
+                    isOpen 
+                    ? "opacity-100 pointer-events-auto " 
+                    : "opacity-0 pointer-events-none"
+                )}
+                    >
+                    <div className="absolute top-16 flex flex-col space-y-8 text-xl">
+                        {navItems.map((item, key) => (
+                            <a 
+                                key={key} 
+                                href={item.href} 
+                                className="text-foreground/80 hover:text-primary transition-color duration-300"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {item.name}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </nav>
+    )
+}
