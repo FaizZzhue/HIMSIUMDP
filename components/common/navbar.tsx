@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function NavBar() { 
     const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +15,6 @@ export default function NavBar() {
         { name: "Kabinet", href: "/contact" },
         { name: "Aspirasi", href: "/aspirasi" },
     ];
-
 
     useEffect(() => {
         const onScroll = () => {
@@ -27,16 +28,26 @@ export default function NavBar() {
 
     return (
         <nav className={cn(
-                "flex top-0 z-50 fixed w-full items-center justify-between py-4 md:py-6 transition-all duration-300"
+                "flex top-0 z-50 fixed w-full items-center justify-between py-4 md:py-4 transition-all duration-300"
                 , isScrolled 
-                ? "bg-white/90 backdrop-blur-md shadow-md" 
+                ? "bg-white/20 backdrop-blur-md shadow-md" 
                 : "bg-transparent"
             )}
         >
             <div className="mx-4 md:mx-8 lg:mx-40 flex items-center justify-between w-full font-medium">
-                <div className="text-black">Himsi</div>
+                <Link href="/" className="flex items-center gap-3">
+                    <Image
+                        src="/icon.png"
+                        alt="Logo HIMSI"
+                        width={42}
+                        height={42}
+                        priority
+                        className="rounded-2xl"
+                    />
+                <span className="hidden sm:inline text-black font-semibold hover:text-[#2464A8] transition-colors duration-300">HIMSI</span>
+                </Link>
 
-                <div className="hidden md:flex gap-8 items-center">
+                <div className="hidden md:flex gap-8 items-center font-semibold">
                     {navItems.map((item, key) => (
                         <a 
                             key={key} 

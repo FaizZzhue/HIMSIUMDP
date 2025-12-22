@@ -210,18 +210,101 @@
   }
 
   .bg-himsi-gradient {
-  background-color: #ffffff;
-  background-image:
-    radial-gradient(1200px circle at 20% 10%, rgba(36, 100, 168, 0.22) 0%, rgba(36, 100, 168, 0.08) 35%, transparent 60%),
-    radial-gradient(900px circle at 80% 35%, rgba(10, 55, 99, 0.18) 0%, rgba(10, 55, 99, 0.06) 40%, transparent 65%),
-    linear-gradient(180deg, #ffffff 0%, #f3f8ff 32%, #e2f0ff 60%, #d3e8ff 100%),
-    radial-gradient(rgba(10, 55, 99, 0.10) 1px, transparent 1px);
+    background-color: #ffffff;
+    background-image:
+      radial-gradient(1200px circle at 20% 10%, rgba(36, 100, 168, 0.22) 0%, rgba(36, 100, 168, 0.08) 35%, transparent 60%),
+      radial-gradient(900px circle at 80% 35%, rgba(10, 55, 99, 0.18) 0%, rgba(10, 55, 99, 0.06) 40%, transparent 65%),
+      linear-gradient(180deg, #ffffff 0%, #f3f8ff 32%, #e2f0ff 60%, #d3e8ff 100%),
+      radial-gradient(rgba(10, 55, 99, 0.10) 1px, transparent 1px);
 
-  /* 3 layer pertama no-repeat, dot repeat */
-  background-size: auto, auto, auto, 26px 26px;
-  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
-  background-position: center, center, center, 0 0;
-}
+    background-size: auto, auto, auto, 26px 26px;
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+    background-position: center, center, center, 0 0;
+  }
+  /* .bg-himsi-hero {
+    background:
+      radial-gradient(900px 600px at 18% 28%, rgba(36, 100, 168, .28), transparent 60%),
+      radial-gradient(900px 600px at 82% 30%, rgba(211, 163, 45, .30), transparent 60%),
+      linear-gradient(90deg,
+        rgba(36, 100, 168, .42) 0%,
+        rgba(255, 255, 255, .88) 48%,
+        rgba(211, 163, 45, .46) 100%);
+  } */
+  .bg-himsi-hero {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(90deg,
+      #8DB7E4 0%,
+      #F7F8FC 48%,
+      #F2B33A 100%
+    );
+  }
+
+  .bg-himsi-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+
+    background:
+      radial-gradient(900px 650px at 46% 22%,
+        rgba(255,255,255,0.95) 0%,
+        rgba(255,255,255,0.55) 30%,
+        rgba(255,255,255,0.0) 70%
+      ),
+
+      radial-gradient(850px 700px at 18% 36%,
+        rgba(36,100,168,0.45) 0%,
+        rgba(36,100,168,0.18) 42%,
+        rgba(36,100,168,0.0) 74%
+      ),
+
+      radial-gradient(980px 760px at 82% 44%,
+        rgba(211,163,45,0.62) 0%,
+        rgba(211,163,45,0.24) 52%,
+        rgba(211,163,45,0.0) 80%
+      ),
+
+      linear-gradient(-12deg,
+        rgba(255,255,255,0.0) 36%,
+        rgba(255,255,255,0.22) 49%,
+        rgba(255,255,255,0.0) 63%
+      );
+  }
+
+  .bg-himsi-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+
+    background:
+      radial-gradient(circle at 72% 26%, rgba(255,255,255,0.12) 0 1px, transparent 2px),
+      radial-gradient(circle at 84% 52%, rgba(255,255,255,0.11) 0 1px, transparent 2px),
+      radial-gradient(circle at 64% 64%, rgba(255,255,255,0.10) 0 1px, transparent 2px),
+      radial-gradient(circle at 30% 72%, rgba(255,255,255,0.10) 0 1px, transparent 2px);
+
+    background-size: 140px 140px;
+    opacity: 0.45;
+    mix-blend-mode: overlay;
+  }
+
+  .bg-himsi-about {
+    background:
+      radial-gradient(900px 600px at 18% 26%, rgba(36, 100, 168, 0.40), transparent 62%),
+      radial-gradient(1000px 700px at 82% 30%, rgba(211, 163, 45, 0.52), transparent 64%),
+      radial-gradient(900px 600px at 50% 18%, rgba(255,255,255,0.95), rgba(255,255,255,0) 65%),
+      linear-gradient(
+        90deg,
+        rgba(36, 100, 168, 0.48) 0%,
+        rgba(255, 255, 255, 0.92) 46%,
+        rgba(211, 163, 45, 0.62) 100%
+      );
+  }
 }
 
 @layer base {
