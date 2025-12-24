@@ -305,6 +305,29 @@
         rgba(211, 163, 45, 0.62) 100%
       );
   }
+  .about-objects{
+    background:
+      radial-gradient(900px 600px at 18% 26%, rgba(36, 100, 168, 0.18), transparent 62%),
+      radial-gradient(1000px 700px at 82% 30%, rgba(211, 163, 45, 0.18), transparent 64%),
+      radial-gradient(circle at 2px 2px, rgba(255,255,255,0.35) 1.2px, transparent 2px);
+    background-size: auto, auto, 22px 22px;
+    background-repeat: no-repeat, no-repeat, repeat;
+    mix-blend-mode: overlay;
+  }
+  .speech-objects {
+    background:
+      radial-gradient(720px 520px at 78% 22%, rgba(211, 163, 45, 0.22), transparent 62%),
+      radial-gradient(680px 520px at 22% 78%, rgba(36, 100, 168, 0.18), transparent 64%),
+      conic-gradient(from 210deg at 85% 25%, rgba(255,255,255,0.28), transparent 55%),
+      repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,0.16) 0 1px,
+        transparent 1px 14px
+      );
+
+    mask-image: radial-gradient(closest-side at 65% 45%, rgba(0,0,0,1), rgba(0,0,0,0));
+    -webkit-mask-image: radial-gradient(closest-side at 65% 45%, rgba(0,0,0,1), rgba(0,0,0,0));
+  }
 }
 
 @layer base {

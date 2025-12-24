@@ -7,8 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-himsi-hero">
-      
+    <section className="relative w-full overflow-hidden bg-transparent">
       <div aria-hidden className="pointer-events-none absolute inset-0 opacity-50">
         <svg className="h-full w-full" viewBox="0 0 1400 800" fill="none">
           <g stroke="white" strokeOpacity="0.35" strokeWidth="1.2">
