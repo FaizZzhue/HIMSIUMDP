@@ -73,9 +73,10 @@ export default function AboutSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.5 }}
                         transition={{ duration: 0.55, delay: 0.05 }}
-                        className="mt-6 text-4xl font-semibold tracking-tight text-[#D3A32D] sm:text-5xl"
+                        className="mt-6 text-4xl font-semibold tracking-tight text-[#0A3763] sm:text-5xl"
                     >
-                        Tentang HIMSI
+                        Tentang 
+                        <span className="text-[#D3A32D]"> HIMSI</span>
                     </motion.h2>
 
                     <motion.p

@@ -128,9 +128,10 @@
   html {
     @apply scroll-smooth;
   }
-  /* body {
-    @apply text-white min-h-screen antialiased;
-  } */
+  /* body { */
+    /* background: #071227; */
+    /* @apply text-white min-h-screen antialiased; */
+  /* } */
 }
 
 @layer utilities {
@@ -336,5 +337,6 @@
     }
     body {
       @apply bg-background text-foreground;
+      background: #071227;
     }
 }

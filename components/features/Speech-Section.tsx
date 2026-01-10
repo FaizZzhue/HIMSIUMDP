@@ -94,7 +94,8 @@ export default function SpeechSection() {
             transition={{ duration: 0.55, delay: 0.05 }}
             className="mt-6 text-4xl font-semibold tracking-tight text-[#0A3763] sm:text-5xl"
           >
-            Sambutan Ketua HIMSI
+            Sambutan Ketua    
+            <span className="text-[#D3A32D]"> HIMSI</span>
           </motion.h1>
         </div>
 
