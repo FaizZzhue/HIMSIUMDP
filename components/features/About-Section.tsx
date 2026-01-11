@@ -17,13 +17,11 @@ export default function AboutSection() {
             <div aria-hidden className="pointer-events-none absolute inset-0 about-objects opacity-40">
                 <svg className="h-full w-full" viewBox="0 0 1400 800" fill="none">
                     <g stroke="white" strokeOpacity="0.45" strokeWidth="1.2">
-                        {/* kanan atas */}
                         <path d="M880 90 L1020 140 L1160 110 L1320 180" />
                         <path d="M900 240 L1020 140 L1110 260 L1320 180" />
                         <path d="M980 360 L1110 260 L1230 380" />
                         <path d="M1120 520 L1230 380 L1340 520" />
 
-                        {/* kiri tengah */}
                         <path d="M80 260 L210 210 L360 280 L520 240" />
                         <path d="M130 520 L260 440 L410 520 L560 460" />
                     </g>

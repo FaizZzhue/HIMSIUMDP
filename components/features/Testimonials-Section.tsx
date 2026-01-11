@@ -30,7 +30,7 @@ const data: Testimonial[] = [
         quoteTitle: "Keputusan yang tepat",
         quoteText:
             "Merupakan keputusan tepat bagi saya untuk bergabung dengan HIMSI. Tidak hanya mendapat relasi yang luas tetapi juga pengalaman baru yang menyenangkan.",
-        note: "",
+        note: "Banyak hal yang saya pelajari, terutama tentang kepemimpinan dan teamwork.",
         name: "Wasilah",
         role: "Sekretaris Umum 2",
         avatar: "/images/testimonials/2.jpg",
@@ -40,7 +40,7 @@ const data: Testimonial[] = [
         quoteTitle: "Riset & inovasi",
         quoteText:
             "Di HIMSI UMDP, saya merasakan bagaimana riset dan inovasi berpadu dalam harmoni, menantang batas konvensional dan mengubah gagasan menjadi kenyataan.",
-        note: "",
+        note: " Banyak hal yang saya pelajari, terutama tentang kepemimpinan dan teamwork.",
         name: "Adit Jans",
         role: "Kepala Bidang",
         avatar: "/images/testimonials/3.jpg",

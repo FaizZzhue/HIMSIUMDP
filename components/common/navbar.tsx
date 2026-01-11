@@ -4,8 +4,10 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "../ui/button";
 
 export default function NavBar() { 
+    const THEME_KEY = "himsi-theme";
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -44,7 +46,9 @@ export default function NavBar() {
                         priority
                         className="rounded-2xl"
                     />
-                <span className="hidden sm:inline text-black font-semibold hover:text-[#2464A8] transition-colors duration-300">HIMSI</span>
+                    <span className="hidden sm:inline text-white font-semibold hover:text-[#2464A8] transition-colors duration-300">
+                        HIMSI
+                    </span>
                 </Link>
 
                 <div className="hidden md:flex gap-8 items-center font-semibold">
@@ -52,12 +56,16 @@ export default function NavBar() {
                         <a 
                             key={key} 
                             href={item.href} 
-                            className="text-black hover:text-[#2464A8] transition-colors duration-300"
+                            className="text-white hover:text-[#2464A8] transition-colors duration-300"
                         >
                             {item.name}
                         </a>
                     ))}
                 </div>
+
+                <Button>
+                    
+                </Button>
 
                 <button
                     onClick={() => setIsOpen(!isOpen)}
