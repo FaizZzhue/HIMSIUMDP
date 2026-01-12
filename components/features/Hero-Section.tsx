@@ -72,7 +72,7 @@ export default function HeroSection() {
               className="inline-flex items-center gap-3 rounded-full border border-white/40 bg-white/25 px-6 py-2.5 text-sm text-[#0A3763] backdrop-blur"
             >
               <span className="h-2.5 w-2.5 rounded-full bg-[#D3A32D]" />
-                <span className="text-white"> Selamat Datang di HIMSI UMDP </span>
+                <span className="text-foreground"> Selamat Datang di HIMSI UMDP </span>
             </motion.div>
 
             <motion.h1
@@ -91,7 +91,7 @@ export default function HeroSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.6, delay: 0.12 }}
-              className="mt-7 max-w-[600px] text-[16px] leading-relaxed text-white sm:text-[17px]"
+              className="mt-7 max-w-[600px] text-[16px] leading-relaxed text-foreground sm:text-[17px]"
             >
               HIMSI UMDP adalah organisasi mahasiswa di Universitas Multi Data Palembang
               yang menghimpun seluruh mahasiswa dalam program studi Sistem Informasi.
@@ -110,7 +110,7 @@ export default function HeroSection() {
 
               <Button
                 variant="outline"
-                className="h-12 rounded-full border-white/50 bg-white/25 px-9 text-white hover:bg-white/45"
+                className="h-12 rounded-full border-white/50 bg-white/25 px-9 text-foreground hover:bg-white/45"
                 asChild
               >
                 <Link href="/about">Tentang HIMSI</Link>
@@ -133,7 +133,7 @@ export default function HeroSection() {
                   ].map((s, idx) => (
                     <div key={s.label} className={["px-3 py-2", idx ? "border-l border-white/35" : ""].join(" ")}>
                       <p className="text-[28px] font-semibold leading-none text-[#D3A32D]">{s.value}</p>
-                      <p className="mt-2 text-sm text-white">{s.label}</p>
+                      <p className="mt-2 text-sm text-foreground">{s.label}</p>
                     </div>
                   ))}
                 </div>

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +10,7 @@ export default function NavBar() {
     const THEME_KEY = "himsi-theme";
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [theme, setTheme] = useState<"light" | "dark">("light");
 
     const navItems = [
         { name: "Home", href: "/" },
@@ -17,6 +18,12 @@ export default function NavBar() {
         { name: "Kabinet", href: "/contact" },
         { name: "Aspirasi", href: "/aspirasi" },
     ];
+
+    useEffect(() => {
+        const saved = (localStorage.getItem(THEME_KEY) as "light" | "dark") || "light";
+        setTheme(saved);
+        document.documentElement.classList.toggle("dark", saved === "dark");
+    }, []);
 
     useEffect(() => {
         const onScroll = () => {
@@ -27,6 +34,15 @@ export default function NavBar() {
         window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
+
+    const toggleTheme = () => {
+        setTheme((prev) => {
+            const next = prev === "dark" ? "light" : "dark";
+            document.documentElement.classList.toggle("dark", next === "dark");
+            localStorage.setItem(THEME_KEY, next);
+            return next;
+        });
+    };
 
     return (
         <nav className={cn(
@@ -46,7 +62,7 @@ export default function NavBar() {
                         priority
                         className="rounded-2xl"
                     />
-                    <span className="hidden sm:inline text-white font-semibold hover:text-[#2464A8] transition-colors duration-300">
+                    <span className="hidden sm:inline text-foreground font-semibold hover:text-[#2464A8] transition-colors duration-300">
                         HIMSI
                     </span>
                 </Link>
@@ -56,20 +72,29 @@ export default function NavBar() {
                         <a 
                             key={key} 
                             href={item.href} 
-                            className="text-white hover:text-[#2464A8] transition-colors duration-300"
+                            className="text-foreground hover:text-[#2464A8] transition-colors duration-300"
                         >
                             {item.name}
                         </a>
                     ))}
                 </div>
 
-                <Button>
-                    
+                <Button
+                    type="button"
+                    onClick={toggleTheme}
+                    variant="outline"
+                    className={cn(
+                        "hidden md:inline-flex h-10 rounded-full px-4",
+                        "border-white/35 bg-white/15 text-foreground hover:bg-white/25",
+                        "dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
+                    )}
+                >
+                    {theme === "dark" ? <Moon size={16} /> : <Sun size={16} />}
                 </Button>
 
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors duration-300 text-white z-50 relative"
+                    className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors duration-300 text-foreground z-50 relative"
                 >
                     {isOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
@@ -94,6 +119,15 @@ export default function NavBar() {
                                 {item.name}
                             </a>
                         ))}
+
+                        <Button
+                            type="button"
+                            onClick={toggleTheme}
+                            variant="outline"
+                            className="h-11 rounded-full"
+                        >
+                            {theme === "dark" ? <Moon size={16} /> : <Sun size={16} />}
+                        </Button>
                     </div>
                 </div>
             </div>
