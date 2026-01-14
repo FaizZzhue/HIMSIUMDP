@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-transparent">
+    <section className="relative w-full overflow-hidden bg-himsi-hero">
       {/* network lines */}
       <div aria-hidden className="pointer-events-none absolute inset-0 opacity-50">
         <svg className="h-full w-full" viewBox="0 0 1400 800" fill="none">
@@ -51,13 +51,20 @@ export default function HeroSection() {
           </g>
         </svg>
       </div>
+      
+      {/* <div aria-hidden className="pointer-events-none absolute inset-0 hidden dark:block">
+        <div className="absolute -left-[22%] -top-[28%] h-[820px] w-[820px] rounded-full bg-fuchsia-500/14 blur-3xl mix-blend-screen" />
+        <div className="absolute left-[6%] top-[18%] h-[720px] w-[720px] rounded-full bg-violet-500/12 blur-3xl mix-blend-screen" />
 
-      {/* glow */}
-      <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute right-[-12%] top-[6%] h-[640px] w-[640px] rounded-full bg-[#D3A32D]/22 blur-3xl" />
-        <div className="absolute right-[4%] top-[44%] h-[420px] w-[420px] rounded-full bg-[#D3A32D]/16 blur-3xl" />
-        <div className="absolute right-[14%] top-[30%] h-[2px] w-[620px] -rotate-12 rounded-full bg-white/25 blur-[1px]" />
-      </div>
+        <div className="absolute left-[38%] top-[6%] h-[680px] w-[680px] rounded-full bg-white/6 blur-3xl" />
+
+        <div className="absolute -right-[20%] top-[6%] h-[900px] w-[900px] rounded-full bg-amber-400/12 blur-3xl mix-blend-screen" />
+
+        <div className="absolute right-[8%] -bottom-[30%] h-[760px] w-[760px] rounded-full bg-sky-500/10 blur-3xl mix-blend-screen" />
+
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#071227]/55" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071227]/35 via-transparent to-[#071227]/45" />
+      </div> */}
 
       {/* CONTENT WRAPPER */}
       <div className="relative z-10 mx-auto min-h-screen w-full max-w-[1480px] px-6 pb-16 pt-24 sm:px-10 lg:px-12 lg:pb-24 lg:pt-28 xl:pt-32">
@@ -150,10 +157,10 @@ export default function HeroSection() {
               transition={{ duration: 0.65, delay: 0.1 }}
               className="relative h-[420px] w-full max-w-[640px] sm:h-[520px] lg:h-[640px] lg:max-w-[760px] lg:translate-x-6"
             >
-              <div
+              {/* <div
                 aria-hidden
                 className="pointer-events-none absolute -inset-8 rounded-[44px] bg-gradient-to-r from-[#2464A8]/25 via-white/10 to-[#D3A32D]/30 blur-2xl"
-              />
+              /> */}
 
               <div className="absolute left-0 top-[18%] h-[60%] w-[70%] rotate-[-4deg] rounded-[28px] border border-white/60 bg-white/20 p-2 shadow-[0_18px_50px_rgba(0,0,0,0.18)] backdrop-blur">
                 <div className="relative h-full w-full overflow-hidden rounded-[22px]">
