@@ -27,6 +27,7 @@
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0.625rem;
+
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -35,8 +36,10 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --background: #ffffff;    
+
+  --background: #ffffff;
   --foreground: #071227;
+
   --himsi-blue-900: #0A3763;
   --himsi-blue-600: #2464A8;
   --himsi-gold: #D3A32D;
@@ -46,28 +49,37 @@
 .dark {
   --background: #071227;
   --foreground: oklch(0.985 0 0);
+
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
+
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
+
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
+
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
+
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
+
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.637 0.237 25.331);
+
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
+
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
+
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -80,7 +92,6 @@
 
 @theme inline {
   --font-sans: "Montserrat";
-  /* --font-mono: "Geist Mono", "Geist Mono Fallback"; */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -100,23 +111,11 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 @layer base {
@@ -124,252 +123,252 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    @apply border-border outline-ring/50;
   }
-  html {
-    @apply scroll-smooth;
-  }
-  /* body { */
-    /* background: #071227; */
-    /* @apply text-white min-h-screen antialiased; */
-  /* } */
+  html { @apply scroll-smooth; }
+  body { @apply bg-background text-foreground; }
 }
 
 @layer utilities {
-  .safe-x {
-    padding-left: max(env(safe-area-inset-left), 1rem);
-    padding-right: max(env(safe-area-inset-right), 1rem);
+  /* =========================
+     1) GLASS: biar di white theme tetap kelihatan
+     ========================= */
+  :root{
+    --glass-bg: rgba(255,255,255,0.68);
+    --glass-border: rgba(7,18,39,0.14);
+    --glass-shadow: 0 18px 60px rgba(7,18,39,0.14);
+    --glass-blur: 18px;
+  }
+  .dark{
+    --glass-bg: rgba(255,255,255,0.10);
+    --glass-border: rgba(255,255,255,0.16);
+    --glass-shadow: 0 20px 80px rgba(0,0,0,0.45);
+    --glass-blur: 22px;
   }
 
-  .glass-effect {
-    background-color: rgba(255, 255, 255, 0.1);
-    /* backdrop-filter: blur(40px); */
-    border: 1px solid rgba(255, 255, 255, 0.15);
+  .glass-effect{
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--glass-bg) 92%, white) 0%,
+      color-mix(in srgb, var(--glass-bg) 92%, transparent) 55%,
+      color-mix(in srgb, var(--glass-bg) 85%, transparent) 100%
+    );
+    border: 1px solid var(--glass-border);
     border-radius: 40px;
-    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
   }
 
-  .glass-effect-sm {
-    background-color: rgba(255, 255, 255, 0.1);
-    /* backdrop-filter: blur(30px); */
-    border: 1px solid rgba(255, 255, 255, 0.15);
+  .glass-effect-sm{
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--glass-bg) 88%, white) 0%,
+      color-mix(in srgb, var(--glass-bg) 86%, transparent) 100%
+    );
+    border: 1px solid color-mix(in srgb, var(--glass-border) 92%, transparent);
     border-radius: 24px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 12px 44px rgba(0,0,0,0.12);
+    backdrop-filter: blur(calc(var(--glass-blur) - 4px));
+    -webkit-backdrop-filter: blur(calc(var(--glass-blur) - 4px));
   }
 
-  .btn-primary {
-    border-radius: 9999px;
-    padding: 1rem 2rem;
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: white;
-    background: linear-gradient(to right, #2563eb, #0ea5e9);
-    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.45);
-    transition: opacity 0.3s;
-    cursor: pointer;
-    outline: none;
-  }
-
-  .btn-primary:hover {
-    background: linear-gradient(to right, #1d4ed8, #0284c7);
-    opacity: 0.95;
-  }
-
-  .btn-primary:focus-visible {
-    outline: 2px solid rgba(147, 197, 253, 0.5);
-    outline-offset: 2px;
-  }
-
-  .btn-primary-sm {
-    border-radius: 9999px;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: white;
-    background: linear-gradient(to right, #2563eb, #0ea5e9);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.3s;
-    cursor: pointer;
-    outline: none;
-  }
-
-  .btn-primary-sm:hover {
-    background: linear-gradient(to right, #1d4ed8, #0284c7);
-    opacity: 0.95;
-  }
-
-  .btn-primary-sm:focus-visible {
-    outline: 2px solid rgba(147, 197, 253, 0.5);
-    outline-offset: 2px;
-  }
-
-  .glass-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    /*backdrop-filter: blur(40px);
-    */border: 1px solid rgba(255, 255, 255, 0.15);
+  .glass-card{
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--glass-bg) 92%, white) 0%,
+      color-mix(in srgb, var(--glass-bg) 88%, transparent) 100%
+    );
+    border: 1px solid var(--glass-border);
     border-radius: 40px;
-    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
   }
 
-  .bg-himsi-gradient {
-    background-color: #ffffff;
-    background-image:
-      radial-gradient(1200px circle at 20% 10%, rgba(36, 100, 168, 0.22) 0%, rgba(36, 100, 168, 0.08) 35%, transparent 60%),
-      radial-gradient(900px circle at 80% 35%, rgba(10, 55, 99, 0.18) 0%, rgba(10, 55, 99, 0.06) 40%, transparent 65%),
-      linear-gradient(180deg, #ffffff 0%, #f3f8ff 32%, #e2f0ff 60%, #d3e8ff 100%),
-      radial-gradient(rgba(10, 55, 99, 0.10) 1px, transparent 1px);
-
-    background-size: auto, auto, auto, 26px 26px;
-    background-repeat: no-repeat, no-repeat, no-repeat, repeat;
-    background-position: center, center, center, 0 0;
-  }
-
-  .bg-himsi-hero{
+  /* =========================
+     2) ONE BACKGROUND SYSTEM: semua section nyatu
+     ========================= */
+  .himsi-surface{
     position: relative;
     overflow: hidden;
 
-    background:
-      linear-gradient(90deg,
-        #EAF3FF 0%,
-        #FFFFFF 48%,
-        #FFF2D8 100%
-      );
+    /* warna dasar (WHITE theme) */
+    --bg-angle: 90deg;
+    --bg-c1: #EAF3FF;
+    --bg-c2: #FFFFFF;
+    --bg-c3: #FFF2D8;
+
+    background: linear-gradient(
+      var(--bg-angle),
+      var(--bg-c1) 0%,
+      var(--bg-c2) 48%,
+      var(--bg-c3) 100%
+    );
   }
 
-  .bg-himsi-hero::before{
+  /* glow layer (white/blue/gold + streak) */
+  .himsi-surface::before{
     content:"";
     position:absolute;
     inset:0;
     pointer-events:none;
     z-index:0;
 
+    /* default mapping (HERO) */
+    --w-pos: 46% 20%;
+    --w-a0: 0.92;
+    --w-a1: 0.55;
+
+    --b-pos: 18% 38%;
+    --b-a0: 0.30;
+    --b-a1: 0.12;
+
+    --g-pos: 82% 44%;
+    --g-a0: 0.30;
+    --g-a1: 0.12;
+
+    --streak-a: 0.35;
+
+    /* penting: bikin tiap section “nyatu” (fade atas/bawah) */
+    mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+
     background:
-      radial-gradient(900px 650px at 46% 20%,
-        rgba(255,255,255,0.92) 0%,
-        rgba(255,255,255,0.55) 30%,
-        rgba(255,255,255,0.0) 72%
+      radial-gradient(900px 650px at var(--w-pos),
+        rgb(255 255 255 / var(--w-a0)) 0%,
+        rgb(255 255 255 / var(--w-a1)) 30%,
+        rgb(255 255 255 / 0) 72%
       ),
-      radial-gradient(900px 700px at 18% 38%,
-        rgba(36,100,168,0.30) 0%,
-        rgba(36,100,168,0.12) 45%,
-        rgba(36,100,168,0.0) 75%
+      radial-gradient(900px 700px at var(--b-pos),
+        rgb(36 100 168 / var(--b-a0)) 0%,
+        rgb(36 100 168 / var(--b-a1)) 45%,
+        rgb(36 100 168 / 0) 75%
       ),
-      radial-gradient(980px 760px at 82% 44%,
-        rgba(211,163,45,0.30) 0%,
-        rgba(211,163,45,0.12) 55%,
-        rgba(211,163,45,0.0) 82%
+      radial-gradient(980px 760px at var(--g-pos),
+        rgb(211 163 45 / var(--g-a0)) 0%,
+        rgb(211 163 45 / var(--g-a1)) 55%,
+        rgb(211 163 45 / 0) 82%
       ),
       linear-gradient(-12deg,
-        rgba(255,255,255,0.0) 36%,
-        rgba(255,255,255,0.35) 49%,
-        rgba(255,255,255,0.0) 63%
+        rgb(255 255 255 / 0) 36%,
+        rgb(255 255 255 / var(--streak-a)) 49%,
+        rgb(255 255 255 / 0) 63%
       );
   }
 
-  .bg-himsi-hero::after{
+  /* dot/pattern layer */
+  .himsi-surface::after{
     content:"";
     position:absolute;
     inset:0;
     pointer-events:none;
     z-index:0;
 
+    --dot: rgb(10 55 99 / 0.10);
+    --dot-opacity: 0.30;
+    --dot-mode: multiply;
+
+    mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+
     background:
-      radial-gradient(circle at 72% 26%, rgba(10,55,99,0.10) 0 1px, transparent 2px),
-      radial-gradient(circle at 84% 52%, rgba(10,55,99,0.09) 0 1px, transparent 2px),
-      radial-gradient(circle at 64% 64%, rgba(10,55,99,0.08) 0 1px, transparent 2px),
-      radial-gradient(circle at 30% 72%, rgba(10,55,99,0.08) 0 1px, transparent 2px);
+      radial-gradient(circle at 72% 26%, var(--dot) 0 1px, transparent 2px),
+      radial-gradient(circle at 84% 52%, rgb(10 55 99 / 0.09) 0 1px, transparent 2px),
+      radial-gradient(circle at 64% 64%, rgb(10 55 99 / 0.08) 0 1px, transparent 2px),
+      radial-gradient(circle at 30% 72%, rgb(10 55 99 / 0.08) 0 1px, transparent 2px);
+
     background-size: 140px 140px;
-    opacity: 0.30;
-    mix-blend-mode: multiply;
+    opacity: var(--dot-opacity);
+    mix-blend-mode: var(--dot-mode);
   }
 
-  .dark .bg-himsi-hero{
-    background:
-      linear-gradient(180deg,
-        #071227 0%,
-        #081A33 55%,
-        #071227 100%
-      );
+  /* =========================
+     3) DARK THEME: glow jangan terang + white glow dimatikan
+     ========================= */
+  .dark .himsi-surface{
+    --bg-angle: 180deg;
+    --bg-c1: #071227;
+    --bg-c2: #081A33;
+    --bg-c3: #071227;
   }
 
-  .dark .bg-himsi-hero::before{
-    background:
-      radial-gradient(900px 650px at 22% 30%,
-        rgba(36,100,168,0.28) 0%,
-        rgba(36,100,168,0.10) 48%,
-        rgba(36,100,168,0.0) 74%
-      ),
-      radial-gradient(980px 760px at 82% 44%,
-        rgba(211,163,45,0.22) 0%,
-        rgba(211,163,45,0.08) 55%,
-        rgba(211,163,45,0.0) 82%
-      ),
-      /* radial-gradient(900px 650px at 52% 18%,
-        rgba(10,55,99,0.20) 0%,
-        rgba(10,55,99,0.0) 72%
-      ),
-      radial-gradient(780px 520px at 52% 18%,
-        rgba(255,255,255,0.06) 0%,
-        rgba(255,255,255,0.0) 72%
-      ),
-      linear-gradient(-12deg,
-        rgba(255,255,255,0.0) 36%,
-        rgba(255,255,255,0.08) 49%,
-        rgba(255,255,255,0.0) 63%
-      ); */
+  .dark .himsi-surface::before{
+    /* MATIKAN glow putih (yang bikin “terang” & nggak dark) */
+    --w-a0: 0;
+    --w-a1: 0;
+
+    /* lembutin blue/gold */
+    --b-a0: 0.18;
+    --b-a1: 0.06;
+
+    --g-a0: 0.14;
+    --g-a1: 0.05;
+
+    /* streak putih diperkecil */
+    --streak-a: 0.06;
+
+    /* sedikit redup biar “dark” berasa */
+    filter: saturate(0.92) brightness(0.88);
   }
 
-  .dark .bg-himsi-hero::after{
-    background:
-      radial-gradient(circle at 72% 26%, rgba(255,255,255,0.12) 0 1px, transparent 2px),
-      radial-gradient(circle at 84% 52%, rgba(255,255,255,0.11) 0 1px, transparent 2px),
-      radial-gradient(circle at 64% 64%, rgba(255,255,255,0.10) 0 1px, transparent 2px),
-      radial-gradient(circle at 30% 72%, rgba(255,255,255,0.10) 0 1px, transparent 2px);
-    opacity: 0.22;
-    mix-blend-mode: overlay;
+  .dark .himsi-surface::after{
+    --dot: rgb(255 255 255 / 0.10);
+    --dot-opacity: 0.16;
+    --dot-mode: overlay;
   }
 
-  .bg-himsi-about {
-    background:
-      radial-gradient(900px 600px at 18% 26%, rgba(36, 100, 168, 0.40), transparent 62%),
-      radial-gradient(1000px 700px at 82% 30%, rgba(211, 163, 45, 0.52), transparent 64%),
-      radial-gradient(900px 600px at 50% 18%, rgba(255,255,255,0.95), rgba(255,255,255,0) 65%),
-      linear-gradient(
-        90deg,
-        rgba(36, 100, 168, 0.48) 0%,
-        rgba(255, 255, 255, 0.92) 46%,
-        rgba(211, 163, 45, 0.62) 100%
-      );
+  /* =========================
+     4) PER-SECTION MAPPING (beda posisi aja)
+     ========================= */
+  .himsi-map-hero{
+    --w-pos: 46% 20%;
+    --b-pos: 18% 38%;
+    --g-pos: 82% 44%;
   }
-  .about-objects{
-    background:
-      radial-gradient(900px 600px at 18% 26%, rgba(36, 100, 168, 0.18), transparent 62%),
-      radial-gradient(1000px 700px at 82% 30%, rgba(211, 163, 45, 0.18), transparent 64%),
-      radial-gradient(circle at 2px 2px, rgba(255,255,255,0.35) 1.2px, transparent 2px);
-    background-size: auto, auto, 22px 22px;
-    background-repeat: no-repeat, no-repeat, repeat;
-    mix-blend-mode: overlay;
-  }
-  .speech-objects {
-    background:
-      radial-gradient(720px 520px at 78% 22%, rgba(211, 163, 45, 0.22), transparent 62%),
-      radial-gradient(680px 520px at 22% 78%, rgba(36, 100, 168, 0.18), transparent 64%),
-      conic-gradient(from 210deg at 85% 25%, rgba(255,255,255,0.28), transparent 55%),
-      repeating-linear-gradient(
-        135deg,
-        rgba(255,255,255,0.16) 0 1px,
-        transparent 1px 14px
-      );
 
-    mask-image: radial-gradient(closest-side at 65% 45%, rgba(0,0,0,1), rgba(0,0,0,0));
-    -webkit-mask-image: radial-gradient(closest-side at 65% 45%, rgba(0,0,0,1), rgba(0,0,0,0));
+  .himsi-map-about{
+    --w-pos: 50% 18%;
+    --b-pos: 18% 26%;
+    --g-pos: 82% 30%;
+    --streak-a: 0.22;
+  }
+
+  .himsi-map-speech{
+    --w-pos: 55% 26%;
+    --b-pos: 22% 78%;
+    --g-pos: 78% 22%;
+    --streak-a: 0.16;
+  }
+
+  .himsi-map-testimonials{
+    --w-pos: 48% 24%;
+    --b-pos: 22% 20%;
+    --g-pos: 80% 52%;
+    --streak-a: 0.18;
+  }
+
+  .himsi-map-contact{
+    --w-pos: 52% 22%;
+    --b-pos: 18% 55%;
+    --g-pos: 84% 40%;
+    --streak-a: 0.16;
+  }
+
+  /* Footer: di dark lebih “deep” tapi tetap nyatu (bukan potong) */
+  .dark .himsi-map-footer{
+    --bg-angle: 180deg;
+    --bg-c1: #081A33;
+    --bg-c2: #071227;
+    --bg-c3: #050B18;
+
+    --b-a0: 0.14;
+    --b-a1: 0.05;
+    --g-a0: 0.10;
+    --g-a1: 0.04;
+
+    --streak-a: 0.04;
+    --dot-opacity: 0.14;
   }
 }
 
-@layer base {
-  * {
-      @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}

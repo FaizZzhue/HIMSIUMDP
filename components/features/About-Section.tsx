@@ -13,7 +13,10 @@ const STATS: Stat[] = [
 
 export default function AboutSection() {
     return (
-        <section id="about" className="relative overflow-hidden bg-transparent">
+        <section 
+            id="about" 
+            className="relative overflow-hidden himsi-map-about py-20"
+        >
             <div aria-hidden className="pointer-events-none absolute inset-0 about-objects opacity-40">
                 <svg className="h-full w-full" viewBox="0 0 1400 800" fill="none">
                     <g stroke="white" strokeOpacity="0.45" strokeWidth="1.2">
