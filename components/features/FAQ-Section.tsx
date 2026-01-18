@@ -65,9 +65,9 @@ export default function FAQSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <section className="relative w-full overflow-hidden bg-transparent py-16 sm:py-20">
+        <section className="relative w-full overflow-hidden min-h-screen">
         {/* dotted overlay */}
-            <div
+            {/* <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0 opacity-25"
                 style={{
@@ -75,7 +75,28 @@ export default function FAQSection() {
                         "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.55) 1px, transparent 2px)",
                     backgroundSize: "20px 20px",
                 }}
-            />
+            /> */}
+            <div aria-hidden className="pointer-events-none absolute inset-0 opacity-40">
+                <svg className="h-full w-full" viewBox="0 0 1400 800" fill="none">
+                    <g stroke="white" strokeOpacity="0.35" strokeWidth="1.15">
+                        <path d="M90 180 L280 120 L470 190 L660 140 L850 210 L1040 160 L1250 220" />
+                        <path d="M120 520 L320 440 L520 520 L720 450 L920 540 L1120 470 L1320 560" />
+                        <path d="M280 120 L220 260 L340 380 L520 520" />
+                        <path d="M1040 160 L980 290 L1120 420 L1250 560" />
+                    </g>
+
+                    <g fill="white" fillOpacity="0.45">
+                        {[
+                            [90,180],[280,120],[470,190],[660,140],[850,210],[1040,160],[1250,220],
+                            [120,520],[320,440],[520,520],[720,450],[920,540],[1120,470],[1320,560],
+                            [220,260],[340,380],[980,290],[1120,420],
+                        ].map(([x, y], i) => (
+                            <circle key={i} cx={x} cy={y} r="4.5" />
+                        ))}
+                    </g>
+                </svg>
+            </div>
+
 
             <div className="relative z-10 mx-auto w-full max-w-[1240px] px-5 sm:px-7 lg:px-10">
                 {/* header */}

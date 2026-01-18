@@ -70,9 +70,9 @@ export default function TestimonialsSection() {
     }, [active, slides]);
 
     return (
-        <section className="relative w-full overflow-hidden bg-transparent py-16 sm:py-20">
+        <section className="relative w-full overflow-hidden min-h-screen">
         {/* dotted overlay */}
-            <div
+            {/* <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0 opacity-30"
                 style={{
@@ -80,14 +80,41 @@ export default function TestimonialsSection() {
                     "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.55) 1px, transparent 2px)",
                 backgroundSize: "20px 20px",
                 }}
-            />
+            /> */}
+            <div aria-hidden className="pointer-events-none absolute inset-0 opacity-45">
+                <svg className="h-full w-full" viewBox="0 0 1400 800" fill="none">
+                    <g stroke="white" strokeOpacity="0.40" strokeWidth="1.2">
+                        <path d="M120 120 L300 90 L460 160 L640 120 L820 190" />
+                        <path d="M160 280 L340 230 L520 300 L700 250" />
+                        <path d="M120 520 L320 440 L520 520 L720 460" />
+                        <path d="M460 160 L340 320 L520 460" />
+
+                        <path d="M880 140 L1040 190 L1180 160 L1320 220" />
+                        <path d="M920 280 L1040 190 L1120 300 L1320 220" />
+                    </g>
+
+                    <g fill="white" fillOpacity="0.50">
+                        {[
+                            [120,120],[300,90],[460,160],[640,120],[820,190],
+                            [160,280],[340,230],[520,300],[700,250],
+                            [120,520],[320,440],[520,520],[720,460],
+                            [460,160],[340,320],[520,460],
+                            [880,140],[1040,190],[1180,160],[1320,220],
+                            [920,280],[1120,300],
+                        ].map(([x, y], i) => (
+                            <circle key={i} cx={x} cy={y} r="4.8" />
+                        ))}
+                    </g>
+                </svg>
+            </div>
+
 
             <div className="relative z-10 mx-auto w-full max-w-[1240px] px-5 sm:px-7 lg:px-10">
                 {/* Header */}
                 <div className="text-center">
                     <h2 className="mt-5 text-4xl font-semibold tracking-tight text-[#0A3763] sm:text-5xl">
                         Apa Kata 
-                        <span className="text-[#D3A32D]"> Alumni</span>
+                        <span className="text-[#D3A32D]"> Mereka</span>
                     </h2>
 
                     <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-700/90 sm:text-[17px]">

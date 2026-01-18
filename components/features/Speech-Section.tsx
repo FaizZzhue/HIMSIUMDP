@@ -7,57 +7,10 @@ export default function SpeechSection() {
   return (
     <div
       id="opening-speech"
-      className="relative isolate overflow-hidden bg-transparent py-20 sm:py-24"
+      className="relative w-full overflow-hidden min-h-screen"
     >
-      {/* objects/pattern layer */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 speech-objects opacity-60" />
-
-      {/* soft center glow */}
-      <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/2 h-[520px] w-[780px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/45 blur-3xl" />
-      </div>
-
-      {/* network */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-40">
-        <svg className="h-full w-full" viewBox="0 0 1400 820" fill="none">
-          <g stroke="white" strokeOpacity="0.42" strokeWidth="1.2">
-            <path d="M80 180 L260 120 L420 210 L600 150 L770 230" />
-            <path d="M120 560 L300 450 L470 560 L640 470 L820 560" />
-            <path d="M860 120 L1030 170 L1180 130 L1320 220" />
-            <path d="M900 260 L1030 170 L1125 290 L1320 220" />
-            <path d="M980 390 L1125 290 L1260 410" />
-            <path d="M1080 520 L1260 410 L1360 560" />
-          </g>
-
-          <g fill="white" fillOpacity="0.55">
-            <circle cx="80" cy="180" r="5" />
-            <circle cx="260" cy="120" r="5" />
-            <circle cx="420" cy="210" r="5" />
-            <circle cx="600" cy="150" r="5" />
-            <circle cx="770" cy="230" r="5" />
-
-            <circle cx="120" cy="560" r="5" />
-            <circle cx="300" cy="450" r="5" />
-            <circle cx="470" cy="560" r="5" />
-            <circle cx="640" cy="470" r="5" />
-            <circle cx="820" cy="560" r="5" />
-
-            <circle cx="860" cy="120" r="5" />
-            <circle cx="1030" cy="170" r="5" />
-            <circle cx="1180" cy="130" r="5" />
-            <circle cx="1320" cy="220" r="5" />
-            <circle cx="900" cy="260" r="5" />
-            <circle cx="1125" cy="290" r="5" />
-            <circle cx="980" cy="390" r="5" />
-            <circle cx="1260" cy="410" r="5" />
-            <circle cx="1080" cy="520" r="5" />
-            <circle cx="1360" cy="560" r="5" />
-          </g>
-        </svg>
-      </div>
-
-      {/* dotted bokeh */}
-      <div
+      {/* <div aria-hidden className="pointer-events-none absolute inset-0 speech-objects opacity-60" /> */}
+      {/* <div
         aria-hidden
         className="pointer-events-none absolute right-[-120px] top-[120px] h-[520px] w-[720px] opacity-35"
         style={{
@@ -70,18 +23,16 @@ export default function SpeechSection() {
         }}
       />
 
-      {/* extra glows */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute -left-28 top-16 h-[520px] w-[520px] rounded-full bg-[#2464A8]/25 blur-3xl" />
         <div className="absolute right-[-160px] top-10 h-[650px] w-[650px] rounded-full bg-[#D3A32D]/28 blur-3xl" />
         <div className="absolute right-[8%] top-[52%] h-[320px] w-[320px] rounded-full bg-[#D3A32D]/16 blur-3xl" />
       </div>
 
-      {/* light streak */}
       <div aria-hidden className="pointer-events-none absolute bottom-12 right-[-18%] w-[120%] -rotate-12">
         <div className="h-[2px] w-full rounded-full bg-gradient-to-r from-transparent via-white/55 to-transparent blur-[0.5px]" />
         <div className="mt-3 h-[120px] w-full rounded-[999px] bg-gradient-to-r from-transparent via-white/10 to-transparent blur-2xl" />
-      </div>
+      </div> */}
 
       {/* content */}
       <div className="relative z-10 mx-auto w-full max-w-[1320px] px-5 sm:px-7 lg:px-10">

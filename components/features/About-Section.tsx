@@ -15,9 +15,9 @@ export default function AboutSection() {
     return (
         <section 
             id="about" 
-            className="relative overflow-hidden himsi-map-about py-20"
+            className="relative w-full overflow-hidden min-h-screen"
         >
-            <div aria-hidden className="pointer-events-none absolute inset-0 about-objects opacity-40">
+            <div aria-hidden className="pointer-events-none absolute inset-0 opacity-50">
                 <svg className="h-full w-full" viewBox="0 0 1400 800" fill="none">
                     <g stroke="white" strokeOpacity="0.45" strokeWidth="1.2">
                         <path d="M880 90 L1020 140 L1160 110 L1320 180" />
@@ -31,10 +31,24 @@ export default function AboutSection() {
 
                     <g fill="white" fillOpacity="0.55">
                         {[
-                            [880, 90],[1020,140],[1160,110],[1320,180],
-                            [900,240],[1110,260],[980,360],[1230,380],[1120,520],[1340,520],
-                            [80,260],[210,210],[360,280],[520,240],
-                            [130,520],[260,440],[410,520],[560,460],
+                            [880, 90],
+                            [1020,140],
+                            [1160,110],
+                            [1320,180],
+                            [900,240],
+                            [1110,260],
+                            [980,360],
+                            [1230,380],
+                            [1120,520],
+                            [1340,520],
+                            [80,260],
+                            [210,210],
+                            [360,280],
+                            [520,240],
+                            [130,520],
+                            [260,440],
+                            [410,520],
+                            [560,460],
                         ].map(([x, y], i) => (
                             <circle key={i} cx={x} cy={y} r="5" />
                         ))}
@@ -42,7 +56,7 @@ export default function AboutSection() {
                 </svg>
             </div>
 
-            <div
+            {/* <div
                 aria-hidden
                 className="pointer-events-none absolute right-[-80px] top-[280px] h-[320px] w-[520px] opacity-35"
                 style={{
@@ -53,9 +67,9 @@ export default function AboutSection() {
                     WebkitMaskImage:
                     "radial-gradient(closest-side, rgba(0,0,0,1), rgba(0,0,0,0))",
                 }}
-            />
+            /> */}
 
-            <div aria-hidden className="pointer-events-none absolute inset-0">
+            {/* <div aria-hidden className="pointer-events-none absolute inset-0">
                 <div className="absolute -left-28 top-24 h-[520px] w-[520px] rounded-full bg-[#2464A8]/25 blur-3xl" />
                 <div className="absolute right-[-140px] top-10 h-[620px] w-[620px] rounded-full bg-[#D3A32D]/28 blur-3xl" />
                 <div className="absolute right-[6%] top-[34%] h-[360px] w-[360px] rounded-full bg-[#D3A32D]/16 blur-3xl" />
@@ -64,7 +78,7 @@ export default function AboutSection() {
             <div aria-hidden className="pointer-events-none absolute bottom-10 right-[-18%] w-[120%] -rotate-12">
                 <div className="h-[2px] w-full rounded-full bg-gradient-to-r from-transparent via-white/55 to-transparent blur-[0.5px]" />
                 <div className="mt-3 h-[120px] w-full rounded-[999px] bg-gradient-to-r from-transparent via-white/10 to-transparent blur-2xl" />
-            </div>
+            </div> */}
 
             <div className="relative z-10 mx-auto w-full max-w-[1320px] px-5 py-20 sm:px-7 lg:px-10 lg:py-24">
                 <div className="mx-auto max-w-3xl text-center">

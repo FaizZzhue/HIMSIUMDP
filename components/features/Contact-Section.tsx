@@ -11,9 +11,34 @@ const cards = [
 
 export default function ContactSocialSection() {
   return (
-    <section className="relative w-full overflow-hidden pt-16 sm:pt-20 pb-24">
-      {/* ===== CONTACT BG (tetap seperti contoh terang) ===== */}
+    <section className="relative w-full overflow-hidden min-h-screen">
+        <div aria-hidden className="pointer-events-none absolute inset-0 opacity-50">
+          <svg className="h-full w-full" viewBox="0 0 1400 800" fill="none">
+            <g stroke="white" strokeOpacity="0.45" strokeWidth="1.2">
+              <path d="M880 90 L1020 140 L1160 110 L1320 180" />
+              <path d="M900 240 L1020 140 L1110 260 L1320 180" />
+              <path d="M980 360 L1110 260 L1230 380" />
+              <path d="M1120 520 L1230 380 L1340 520" />
+
+              <path d="M80 260 L210 210 L360 280 L520 240" />
+              <path d="M130 520 L260 440 L410 520 L560 460" />
+            </g>
+
+            <g fill="white" fillOpacity="0.55">
+              {[
+                [880, 90],[1020,140],[1160,110],[1320,180],
+                [900,240],[1110,260],[980,360],[1230,380],
+                [1120,520],[1340,520],
+                [80,260],[210,210],[360,280],[520,240],
+                [130,520],[260,440],[410,520],[560,460],
+              ].map(([x, y], i) => (
+                <circle key={i} cx={x} cy={y} r="5" />
+              ))}
+            </g>
+          </svg>
+        </div>
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+
         <div
           className="absolute inset-0"
           style={{
@@ -138,7 +163,7 @@ export default function ContactSocialSection() {
                 }}
             />
 
-            <div
+            {/* <div
                 className="absolute inset-0"
                 style={{
                 background:
@@ -148,7 +173,7 @@ export default function ContactSocialSection() {
                 WebkitMaskImage:
                     "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 55%)",
                 }}
-            />
+            /> */}
         </div>
     </section>
   );

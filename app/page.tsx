@@ -10,7 +10,7 @@ import ContactSection from "@/components/features/Contact-Section";
 export default function Home() {
   return (
     <main className="relative overflow-hidden">
-      <div className="himsi-surface">
+      <div className="bg-himsi-hero">
         <NavBar />
         <HeroSection />
         <AboutSection />
@@ -18,7 +18,11 @@ export default function Home() {
         <TestimonialsSection />
         <FAQSection />
         <ContactSection />
-        <FooterHimsi />
+      </div>
+      <div className="relative">
+        <div className="-mt-px">
+          <FooterHimsi />
+        </div>
       </div>
     </main>
   )

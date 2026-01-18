@@ -12,7 +12,7 @@ const quickLinks = [
 
 export default function FooterHimsi() {
   return (
-    <footer className="relative w-full min-h-scren overflow-hidden">
+    <footer className="relative w-full overflow-hidden">
 
       <div className="relative">
         <div
