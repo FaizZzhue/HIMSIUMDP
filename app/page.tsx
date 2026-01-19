@@ -18,11 +18,7 @@ export default function Home() {
         <TestimonialsSection />
         <FAQSection />
         <ContactSection />
-      </div>
-      <div className="relative">
-        <div className="-mt-px">
-          <FooterHimsi />
-        </div>
+        <FooterHimsi />
       </div>
     </main>
   )

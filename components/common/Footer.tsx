@@ -15,7 +15,7 @@ export default function FooterHimsi() {
     <footer className="relative w-full overflow-hidden">
 
       <div className="relative">
-        <div
+        {/* <div
           aria-hidden
           className="absolute inset-0"
           style={{
@@ -41,9 +41,9 @@ export default function FooterHimsi() {
                     )
                 `,
             }}
-        />
+        /> */}
 
-        <div
+        {/* <div
           aria-hidden
           className="absolute inset-0 opacity-35"
           style={{
@@ -51,7 +51,7 @@ export default function FooterHimsi() {
               "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.35) 1px, transparent 2px)",
             backgroundSize: "18px 18px",
           }}
-        />
+        /> */}
 
         <div className="relative mx-auto max-w-[1240px] px-5 py-12 sm:px-7 lg:px-10">
           <div className="rounded-[28px] border border-white/25 bg-white/14 p-6 backdrop-blur-xl sm:p-8">

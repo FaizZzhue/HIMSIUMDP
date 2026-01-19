@@ -11,7 +11,7 @@ const cards = [
 
 export default function ContactSocialSection() {
   return (
-    <section className="relative w-full overflow-hidden min-h-screen">
+    <section className="relative w-full overflow-hidden min-h-screen pt-10">
         <div aria-hidden className="pointer-events-none absolute inset-0 opacity-50">
           <svg className="h-full w-full" viewBox="0 0 1400 800" fill="none">
             <g stroke="white" strokeOpacity="0.45" strokeWidth="1.2">
@@ -132,8 +132,7 @@ export default function ContactSocialSection() {
         </div>
       </div>
 
-      {/* ===== TRANSITION BRIDGE TO FOOTER (HALUS) ===== */}
-        <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-64">
+        {/* <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-64">
             <div
                 className="absolute inset-0"
                 style={{
@@ -162,6 +161,7 @@ export default function ContactSocialSection() {
                     "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.15) 25%, rgba(0,0,0,1) 100%)",
                 }}
             />
+        </div> */}
 
             {/* <div
                 className="absolute inset-0"
@@ -174,7 +174,6 @@ export default function ContactSocialSection() {
                     "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 55%)",
                 }}
             /> */}
-        </div>
     </section>
   );
 }
