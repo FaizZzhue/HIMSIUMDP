@@ -7,7 +7,7 @@ export default function AboutHeroSection() {
         <section className="relative overflow-hidden">
             <div className="bg-himsi-hero">
                 <div className="relative mx-auto max-w-[1240px] px-5 py-20 sm:px-7 lg:px-10">
-                    <div className="max-w-3xl">
+                    <div className="mx-auto max-w-3xl text-center py-10">
                         <p className="text-sm font-medium text-muted-foreground">
                             Tentang HIMSI UMDP
                         </p>
@@ -21,7 +21,7 @@ export default function AboutHeroSection() {
                             dokumentasi kegiatan, serta identitas kabinet.
                         </p>
 
-                        <div className="mt-8 flex flex-wrap gap-3">
+                        <div className="mt-8 flex flex-wrap gap-3 items-center justify-center">
                             <Link
                                 href="#visi-misi"
                                 className="rounded-full bg-[#0A3763] px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95"

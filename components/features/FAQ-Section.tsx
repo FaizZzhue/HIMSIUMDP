@@ -65,7 +65,7 @@ export default function FAQSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <section className="relative w-full overflow-hidden min-h-screen">
+        <section className="relative w-full overflow-hidden min-h-screen pb-10">
         {/* dotted overlay */}
             {/* <div
                 aria-hidden

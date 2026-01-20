@@ -7,7 +7,7 @@ export default function SpeechSection() {
   return (
     <div
       id="opening-speech"
-      className="relative w-full overflow-hidden min-h-screen"
+      className="relative w-full overflow-hidden min-h-screen pb-10"
     >
       {/* <div aria-hidden className="pointer-events-none absolute inset-0 speech-objects opacity-60" /> */}
       {/* <div
