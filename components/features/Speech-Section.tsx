@@ -43,7 +43,7 @@ export default function SpeechSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.55, delay: 0.05 }}
-            className="mt-6 text-4xl font-semibold tracking-tight text-[#0A3763] sm:text-5xl"
+            className="mt-6 text-4xl font-semibold tracking-tight text-[#0A3763] dark:text-[#2464A8] sm:text-5xl"
           >
             Sambutan Ketua    
             <span className="text-[#D3A32D]"> HIMSI</span>
@@ -62,35 +62,35 @@ export default function SpeechSection() {
             className="pointer-events-none absolute -inset-7 rounded-[44px] bg-gradient-to-r from-[#2464A8]/18 via-white/10 to-[#D3A32D]/22 blur-2xl"
           />
 
-          <div className="relative grid gap-8 rounded-[34px] border border-white/45 bg-white/20 p-8 shadow-[0_18px_70px_rgba(0,0,0,0.18)] backdrop-blur-xl md:grid-cols-[1.2fr_0.8fr] md:items-center">
+          <div className="relative grid gap-8 rounded-[34px] border border-white/45 bg-white/20 p-8 shadow-[0_18px_70px_rgba(0,0,0,0.18)] backdrop-blur-xl md:grid-cols-[1.2fr_0.8fr] md:items-center ">
             <div>
-              <p className="max-w-xl whitespace-pre-line text-[15px] leading-relaxed text-slate-700/85 sm:text-base">
+              <p className="max-w-xl whitespace-pre-line text-[15px] leading-relaxed text-foreground sm:text-base">
                 Assalamu’alaikum Warahmatullahi Wabarakatuh,
               </p>
-              
-              <p className="max-w-xl whitespace-pre-line text-[15px] leading-relaxed text-slate-700/85 sm:text-base">
+
+              <p className="max-w-xl whitespace-pre-line text-[15px] leading-relaxed text-foreground sm:text-base">
                 Salam sejahtera bagi kita semua.
                 {"\n"}
                 Saya, Muhammad Akbar ingin menyampaikan apresiasi setinggi-tingginya kepada seluruh jajaran pengurus, anggota, dosen pembina, serta seluruh pihak yang senantiasa mendukung eksistensi dan perkembangan HIMSI dari waktu ke waktu.
               </p>
 
-              <p className="max-w-xl whitespace-pre-line text-[15px] leading-relaxed text-slate-700/85 sm:text-base mt-4">
+              <p className="max-w-xl whitespace-pre-line text-[15px] leading-relaxed text-foreground sm:text-base mt-4">
                 HIMSI memiliki peran strategis sebagai wadah pengembangan potensi, intelektualitas, serta jiwa kepemimpinan mahasiswa Sistem Informasi. Melalui berbagai program kerja, kegiatan akademik maupun non-akademik, HIMSI berkomitmen untuk menciptakan ekosistem yang mendorong kolaborasi, inovasi, serta kontribusi nyata terhadap lingkungan kampus dan masyarakat luas.
               </p>
 
-              <p className="max-w-xl whitespace-pre-line text-[15px] leading-relaxed text-slate-700/85 sm:text-base mt-4">
+              <p className="max-w-xl whitespace-pre-line text-[15px] leading-relaxed text-foreground sm:text-base mt-4">
                 Akhir kata, besar harapan kami agar HIMSI senantiasa menjadi organisasi yang membawa manfaat, membangun karakter, dan menciptakan perubahan positif di lingkungan akademik maupun masyarakat luas.
               </p>
 
-              <p className="max-w-xl whitespace-pre-line text-[15px] leading-relaxed text-slate-700/85 sm:text-base mt-4">
+              <p className="max-w-xl whitespace-pre-line text-[15px] leading-relaxed text-foreground sm:text-base mt-4">
                 Wassalamu’alaikum Warahmatullahi Wabarakatuh.
               </p>
 
               <div className="mt-8">
-                <div className="text-2xl font-semibold tracking-tight text-[#0A3763]">
+                <div className="text-2xl font-semibold tracking-tight text-[#0A3763] dark:text-[#2464A8]">
                   Muhammad Akbar.
                 </div>
-                <div className="mt-1 text-sm font-medium text-[#2464A8]/80">
+                <div className="mt-1 text-sm font-medium text-[#D3A32D]/80">
                   Ketua Umum, 2025/2026
                 </div>
               </div>

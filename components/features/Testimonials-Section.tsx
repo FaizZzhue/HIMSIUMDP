@@ -112,12 +112,12 @@ export default function TestimonialsSection() {
             <div className="relative z-10 mx-auto w-full max-w-[1240px] px-5 sm:px-7 lg:px-10">
                 {/* Header */}
                 <div className="text-center">
-                    <h2 className="mt-5 text-4xl font-semibold tracking-tight text-[#0A3763] sm:text-5xl">
+                    <h2 className="mt-5 text-4xl font-semibold tracking-tight text-[#0A3763] dark:text-[#2464A8] sm:text-5xl">
                         Apa Kata 
                         <span className="text-[#D3A32D]"> Mereka</span>
                     </h2>
 
-                    <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-700/90 sm:text-[17px]">
+                    <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-foreground sm:text-[17px]">
                         Dengarkan pengalaman dan cerita dari para alumni HIMSI yang telah sukses dalam karir
                         mereka
                     </p>
@@ -215,12 +215,12 @@ export default function TestimonialsSection() {
                                             {item.quoteTitle}
                                         </p>
 
-                                        <p className="mt-3 text-[15px] leading-relaxed text-slate-700/90">
+                                        <p className="mt-3 text-[15px] leading-relaxed text-foreground">
                                             {item.quoteText}
                                         </p>
 
                                         {item.note ? (
-                                            <p className="mt-6 text-[14px] leading-relaxed text-slate-700/80">
+                                            <p className="mt-6 text-[14px] leading-relaxed text-foreground">
                                                 {item.note.split("pelajari,").length > 1 ? (
                                                     <>
                                                         Banyak hal yang saya{" "}
@@ -237,7 +237,7 @@ export default function TestimonialsSection() {
 
                                         <button
                                             type="button"
-                                            className="mt-6 inline-flex text-sm font-medium text-[#2464A8] underline underline-offset-4 hover:opacity-90"
+                                            className="mt-6 inline-flex text-sm font-medium text-[#D3A32D] underline underline-offset-4 hover:opacity-90"
                                         >
                                             Read more
                                         </button>
@@ -250,10 +250,10 @@ export default function TestimonialsSection() {
                                                 </div>
 
                                                 <div className="min-w-0">
-                                                    <p className="text-lg font-semibold leading-tight text-[#0A3763] truncate">
+                                                    <p className="text-lg font-semibold leading-tight text-foreground truncate">
                                                         {item.name}
                                                     </p>
-                                                    <p className="mt-1 text-sm text-[#2464A8]/80 line-clamp-2">
+                                                    <p className="mt-1 text-sm text-[#D3A32D] line-clamp-2">
                                                         {item.role}
                                                     </p>
                                                 </div>

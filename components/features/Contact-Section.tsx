@@ -74,7 +74,7 @@ export default function ContactSocialSection() {
       <div className="mx-auto w-full max-w-[1240px] px-5 pb-24 sm:px-7 lg:px-10">
         {/* HEADER */}
         <div className="text-center">
-          <h2 className="text-4xl font-semibold tracking-tight text-[#0A3763] sm:text-5xl">
+          <h2 className="text-4xl font-semibold tracking-tight text-[#0A3763] dark:text-[#2464A8] sm:text-5xl">
             Kontak & <span className="text-[#D3A32D]">Media Sosial</span>
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-slate-700/90 sm:text-[17px]">

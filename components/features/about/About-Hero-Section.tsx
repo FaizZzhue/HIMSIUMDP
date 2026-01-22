@@ -23,16 +23,16 @@ export default function AboutHeroSection() {
 
                         <div className="mt-8 flex flex-wrap gap-3 items-center justify-center">
                             <Link
-                                href="#visi-misi"
+                                href="#profile"
                                 className="rounded-full bg-[#0A3763] px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95"
                             >
-                                Lihat Visi & Misi
+                                Lihat Profile
                             </Link>
                             <Link
-                                href="#kepengurusan"
+                                href="#visi-misi"
                                 className="rounded-full border border-black/10 bg-white/60 px-5 py-3 text-sm font-semibold text-foreground backdrop-blur hover:bg-white/75 dark:border-white/15 dark:bg-white/10 dark:hover:bg-white/15"
                             >
-                                Lihat Kepengurusan
+                                Lihat Visi & Misi
                             </Link>
                         </div>
                     </div>

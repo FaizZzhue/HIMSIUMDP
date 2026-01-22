@@ -101,8 +101,9 @@ export default function FAQSection() {
             <div className="relative z-10 mx-auto w-full max-w-[1240px] px-5 sm:px-7 lg:px-10">
                 {/* header */}
                 <div className="text-center">
-                    <h2 className="mt-5 text-4xl font-semibold tracking-tight text-[#0A3763] sm:text-5xl">
-                        FAQ <span className="text-[#D3A32D]">Singkat</span>
+                    <h2 className="mt-5 text-4xl font-semibold tracking-tight text-[#0A3763] dark:text-[#2464A8] sm:text-5xl">
+                        Frequently Asked 
+                        <span className="text-[#D3A32D]"> Questions</span>
                     </h2>
 
                     <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-700/90 sm:text-[17px]">

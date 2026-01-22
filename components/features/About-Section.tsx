@@ -88,7 +88,7 @@ export default function AboutSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.5 }}
                         transition={{ duration: 0.55, delay: 0.05 }}
-                        className="mt-6 text-4xl font-semibold tracking-tight text-[#0A3763] sm:text-5xl"
+                        className="mt-6 text-4xl font-semibold tracking-tight text-[#0A3763] dark:text-[#2464A8] sm:text-5xl"
                     >
                         Tentang 
                         <span className="text-[#D3A32D]"> HIMSI</span>
@@ -99,7 +99,7 @@ export default function AboutSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.5 }}
                         transition={{ duration: 0.55, delay: 0.1 }}
-                        className="mt-6 text-base leading-relaxed text-slate-700/80 sm:text-lg"
+                        className="mt-6 text-base leading-relaxed text-foreground sm:text-lg"
                     >
                         HIMSI UMDP adalah Himpunan Mahasiswa Sistem Informasi Universitas Multi Data
                         Palembang yang hadir sebagai wadah pengembangan diri, kreativitas, serta

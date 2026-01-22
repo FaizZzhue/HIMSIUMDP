@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 export default function HeroSection() {
   return (
     <section className="relative w-full overflow-hidden">
-      {/* network lines */}
       <div aria-hidden className="pointer-events-none absolute inset-0 opacity-50">
         <svg className="h-full w-full" viewBox="0 0 1400 800" fill="none">
           <g stroke="white" strokeOpacity="0.35" strokeWidth="1.2">
@@ -66,17 +65,19 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#071227]/35 via-transparent to-[#071227]/45" />
       </div> */}
 
-      {/* CONTENT WRAPPER */}
       <div className="relative z-10 mx-auto min-h-screen w-full max-w-[1480px] px-6 pb-16 pt-24 sm:px-10 lg:px-12 lg:pb-24 lg:pt-28 xl:pt-32">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* LEFT */}
           <div className="max-w-[680px]">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-3 rounded-full border border-white/40 bg-white/25 px-6 py-2.5 text-sm text-[#0A3763] backdrop-blur"
+              className="
+                inline-flex items-center gap-3 rounded-full px-6 py-2.5 text-sm backdrop-blur
+                border border-black/10 bg-white/70 text-[#0A3763]
+                dark:border-white/25 dark:bg-white/10 dark:text-white
+              "
             >
               <span className="h-2.5 w-2.5 rounded-full bg-[#D3A32D]" />
                 <span className="text-foreground"> Selamat Datang di HIMSI UMDP </span>
@@ -111,14 +112,23 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-9 flex flex-row flex-wrap items-center gap-4"
             >
-              <Button className="h-12 rounded-full bg-[#0A3763] px-9 text-white hover:bg-[#0A3763]/90" asChild>
+              <Button className="
+                  h-12 rounded-full px-9 text-white
+                  bg-[#0A3763] hover:bg-[#0A3763]/90
+                  dark:bg-[#2464A8] dark:hover:bg-[#2464A8]/90
+                "
+                asChild
+              >
                 <Link href="/program">Lihat Program</Link>
               </Button>
 
               <Button
                 variant="outline"
-                className="h-12 rounded-full border-white/50 bg-white/25 px-9 text-foreground hover:bg-white/45"
-                asChild
+                className="
+                  h-12 rounded-full px-9
+                  border border-black/10 bg-white/70 text-[#071227] hover:bg-white/85
+                  dark:border-white/35 dark:bg-white/10 dark:text-white dark:hover:bg-white/15
+                "
               >
                 <Link href="/about">Tentang HIMSI</Link>
               </Button>
@@ -131,14 +141,19 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.28 }}
               className="mt-10 w-full max-w-[620px]"
             >
-              <div className="rounded-2xl border border-white/45 bg-white/25 p-5 backdrop-blur">
+              <div className="
+                  rounded-2xl p-5 backdrop-blur
+                  border border-black/10 bg-white/70
+                  dark:border-white/25 dark:bg-white/10
+                "
+              >
                 <div className="grid grid-cols-3">
                   {[
-                    { value: "100+", label: "Anggota Aktif" },
-                    { value: "20+", label: "Event Tahunan" },
-                    { value: "15+", label: "Program Kerja" },
+                    { value: "51", label: "Anggota Aktif" },
+                    { value: "5", label: "Event Tahunan" },
+                    { value: "15", label: "Program Kerja" },
                   ].map((s, idx) => (
-                    <div key={s.label} className={["px-3 py-2", idx ? "border-l border-white/35" : ""].join(" ")}>
+                    <div key={s.label} className={["px-3 py-2", idx ? "border-l border-black/10 dark:border-white/20" : ""].join(" ")}>
                       <p className="text-[28px] font-semibold leading-none text-[#D3A32D]">{s.value}</p>
                       <p className="mt-2 text-sm text-foreground">{s.label}</p>
                     </div>
@@ -148,7 +163,6 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* RIGHT (bigger + a bit to the right) */}
           <div className="relative flex justify-center lg:justify-end">
             <motion.div
               initial={{ opacity: 0, y: 18 }}
@@ -162,19 +176,19 @@ export default function HeroSection() {
                 className="pointer-events-none absolute -inset-8 rounded-[44px] bg-gradient-to-r from-[#2464A8]/25 via-white/10 to-[#D3A32D]/30 blur-2xl"
               /> */}
 
-              <div className="absolute left-0 top-[18%] h-[60%] w-[70%] rotate-[-4deg] rounded-[28px] border border-white/60 bg-white/20 p-2 shadow-[0_18px_50px_rgba(0,0,0,0.18)] backdrop-blur">
+              <div className="absolute left-0 top-[18%] h-[60%] w-[70%] rotate-[-4deg] rounded-[28px] border border border-black/10 bg-white/70 dark:border-white/25 dark:bg-white/10 p-2 shadow-[0_18px_50px_rgba(0,0,0,0.18)] backdrop-blur">
                 <div className="relative h-full w-full overflow-hidden rounded-[22px]">
                   <Image src="/images/hero/hero-3.jpg" alt="Kegiatan HIMSI" fill className="object-cover" />
                 </div>
               </div>
 
-              <div className="absolute right-[10%] top-[6%] h-[28%] w-[48%] rotate-[6deg] rounded-[24px] border border-white/60 bg-white/20 p-2 shadow-[0_18px_50px_rgba(0,0,0,0.16)] backdrop-blur">
+              <div className="absolute right-[10%] top-[6%] h-[28%] w-[48%] rotate-[6deg] rounded-[24px] border border border-black/10 bg-white/70 dark:border-white/25 dark:bg-white/10 p-2 shadow-[0_18px_50px_rgba(0,0,0,0.16)] backdrop-blur">
                 <div className="relative h-full w-full overflow-hidden rounded-[18px]">
                   <Image src="/images/hero/hero-1.jpg" alt="Kolaborasi" fill className="object-cover" />
                 </div>
               </div>
 
-              <div className="absolute right-0 top-[30%] h-[52%] w-[48%] rotate-[2deg] rounded-[24px] border border-white/60 bg-white/20 p-2 shadow-[0_18px_50px_rgba(0,0,0,0.16)] backdrop-blur">
+              <div className="absolute right-0 top-[30%] h-[52%] w-[48%] rotate-[2deg] rounded-[24px] border border-white/60 bg-white/20 dark:border-white/25 dark:bg-white/10 p-2 shadow-[0_18px_50px_rgba(0,0,0,0.16)] backdrop-blur">
                 <div className="relative h-full w-full overflow-hidden rounded-[18px]">
                   <Image src="/images/hero/hero-2.jpg" alt="Belajar bersama" fill className="object-cover" />
                 </div>
