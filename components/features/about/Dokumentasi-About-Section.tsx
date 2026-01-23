@@ -3,11 +3,11 @@
 import { useEffect, useMemo, useState } from "react";
 
 type GalleryItem = {
-  src: string;
-  alt: string;
-  title: string;     
-  proker: string;    
-  purpose: string;   
+    src: string;
+    alt: string;
+    title: string;     
+    proker: string;    
+    purpose: string;   
 };
 
 const GALLERY: GalleryItem[] = [
@@ -21,16 +21,16 @@ const GALLERY: GalleryItem[] = [
     {
         src: "/images/dokumentasi/2.jpg",
         alt: "Kegiatan HIMSI 2",
-        title: "Prestasi & Apresiasi HIMSI",
-        proker: "Proker: Awarding Day",
-        purpose: "Mengapresiasi capaian anggota dan membangun semangat berprestasi.",
+        title: "Gathering Bersama Mahasiswa Sistem Informasi",
+        proker: "Proker: Kampung Sistem Informasi",
+        purpose: "Meningkatan solidaritas dan kebersamaan antar mahasiswa Sistem Informasi.",
     },
     {
         src: "/images/dokumentasi/3.jpg",
         alt: "Kegiatan HIMSI 3",
-        title: "Kolaborasi Tim & Project",
-        proker: "Proker: Collaboration Lab",
-        purpose: "Melatih teamwork, komunikasi, dan problem solving dalam proyek bersama.",
+        title: "Pengabdian Masyarakat & Sosialisasi",
+        proker: "Proker: HIMSI Berbagi",
+        purpose: "Berbagi pengetahuan dan pengalaman kepada masyarakat.",
     },
     {
         src: "/images/dokumentasi/4.jpg",
@@ -136,9 +136,6 @@ export default function DokumentasiAboutSection() {
                     <h2 className="text-4xl font-semibold tracking-tight text-[#0A3763] dark:text-[#2464A8] sm:text-5xl">
                         Dokumentasi <span className="text-[#D3A32D]">Kegiatan</span>
                     </h2>
-                    <p className="mt-4 text-base text-muted-foreground">
-                        Mini Gallery kegiatan HIMSI dalam berbagai acara & program
-                    </p>
                 </div>
 
                 <div className="relative mt-12">
