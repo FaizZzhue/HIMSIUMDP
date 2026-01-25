@@ -11,10 +11,10 @@ export default function AboutPage() {
     <>
       <Navbar />
       <main>
+        <LogoAboutSection />
         <AboutHeroSection />
         <ProfileAboutSection />
         <VisiMisiAboutSection />
-        <LogoAboutSection />
         <DokumentasiAboutSection />
       </main>
       <Footer />

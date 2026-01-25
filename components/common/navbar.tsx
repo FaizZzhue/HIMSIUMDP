@@ -15,7 +15,7 @@ export default function NavBar() {
     const navItems = [
         { name: "Home", href: "/" },
         { name: "Tentang", href: "/about" },
-        { name: "Kabinet", href: "/contact" },
+        { name: "Kabinet", href: "/kabinet" },
         { name: "Aspirasi", href: "/aspirasi" },
     ];
 
