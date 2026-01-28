@@ -116,9 +116,6 @@ export default function FilosofiKabinetSection() {
               Filosofi
             </span>
           </h2>
-          <p className="mx-auto mt-3 max-w-3xl text-base text-slate-700 sm:text-lg">
-            Penjelasan makna nama, warna, simbol, dan nilai utama Kabinet Harsana Cakra
-          </p>
         </div>
 
         <div className="relative mx-auto mt-12 max-w-6xl">
@@ -163,7 +160,7 @@ export default function FilosofiKabinetSection() {
 
             <div className="order-1 flex flex-col items-center lg:order-2 lg:col-span-4">
               <div className="relative flex w-full flex-col items-center">
-                <div className="relative mx-auto grid h-[320px] w-[320px] place-items-center rounded-full border border-white/70 bg-white/70 shadow-[0_22px_60px_rgba(2,6,23,0.18)] backdrop-blur-xl">
+                <div>
                   <div className="relative h-[230px] w-[230px]">
                     <Image
                       src="/images/logo/logo-kabinet.png"
