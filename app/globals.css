@@ -409,6 +409,39 @@
     mask-image: radial-gradient(closest-side at 65% 45%, rgba(0,0,0,1), rgba(0,0,0,0));
     -webkit-mask-image: radial-gradient(closest-side at 65% 45%, rgba(0,0,0,1), rgba(0,0,0,0));
   }
+  @keyframes profileSwap {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) translateX(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) translateX(0);
+    }
+  }
+
+  @keyframes shineMove {
+    0% {
+      transform: translateX(-45%);
+      opacity: 0.18;
+    }
+    50% {
+      transform: translateX(115%);
+      opacity: 0.35;
+    }
+    100% {
+      transform: translateX(240%);
+      opacity: 0.18;
+    }
+  }
+
+  .shine {
+    animation: shineMove 2.4s ease-in-out infinite;
+  }
+
+  .profile-swap {
+    animation: profileSwap 0.45s ease both;
+  }
 }
 
 @layer base {

@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import type React from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { BidangDetail, Person } from "./Kabinet-Bidang-Pengurus";
 
 function initials(name: string) {
@@ -17,21 +18,30 @@ function polarToXY(cx: number, cy: number, r: number, angleDeg: number) {
   return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
 }
 
-function AvatarCircle({ p, active }: { p: Person; active?: boolean }) {
+function AvatarNode({ p, active }: { p: Person; active?: boolean }) {
   return (
     <div
       className={[
-        "relative grid h-12 w-12 place-items-center overflow-hidden rounded-full border bg-white/10 backdrop-blur",
-        active
-          ? "border-cyan-200/70 ring-4 ring-cyan-300/40 shadow-[0_0_0_10px_rgba(34,211,238,0.10)]"
-          : "border-white/25 hover:border-white/50",
+        "pointer-events-auto rounded-full bg-white p-[7px] shadow-[0_14px_50px_rgba(2,6,23,0.18)]",
+        active ? "shadow-[0_18px_80px_rgba(234,106,26,0.32)]" : "",
       ].join(" ")}
     >
-      {p.avatar ? (
-        <Image src={p.avatar} alt={p.name} fill className="object-cover" />
-      ) : (
-        <span className="text-xs font-bold text-white/80">{initials(p.name)}</span>
-      )}
+      <div
+        className={[
+          "relative grid h-12 w-12 place-items-center overflow-hidden rounded-full border bg-white",
+          active
+            ? "border-transparent ring-4 ring-[#EA6A1A]/35 shadow-[0_0_0_10px_rgba(234,106,26,0.18)]"
+            : "border-slate-200",
+        ].join(" ")}
+      >
+        {p.avatar ? (
+          <Image src={p.avatar} alt={p.name} fill className="object-cover" />
+        ) : (
+          <span className="text-xs font-extrabold text-slate-700">
+            {initials(p.name)}
+          </span>
+        )}
+      </div>
     </div>
   );
 }
@@ -63,6 +73,7 @@ export default function PengurusKabinetSection({
 
   const [activeGroup, setActiveGroup] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [swapKey, setSwapKey] = useState(0);
 
   useEffect(() => {
     setActiveGroup(0);
@@ -72,185 +83,174 @@ export default function PengurusKabinetSection({
   const visiblePeople = groups[activeGroup]?.people ?? [];
   const person = visiblePeople[activeIndex] ?? visiblePeople[0];
 
+  useEffect(() => {
+    if (!bidang) return;
+    if (visiblePeople.length <= 1) return;
+
+    const t = setInterval(() => {
+      setActiveIndex((v) => (v + 1) % visiblePeople.length);
+    }, 1000);
+
+    return () => clearInterval(t);
+  }, [bidang?.id, activeGroup, visiblePeople.length]);
+
+  useEffect(() => {
+    setSwapKey((k) => k + 1);
+  }, [activeGroup, activeIndex]);
+
+  const ringRef = useRef<HTMLDivElement | null>(null);
+  const [ringSize, setRingSize] = useState(980);
+
+  useEffect(() => {
+    if (!ringRef.current) return;
+    if (typeof ResizeObserver === "undefined") return;
+
+    const el = ringRef.current;
+    const ro = new ResizeObserver(() => setRingSize(el.clientWidth));
+    ro.observe(el);
+    setRingSize(el.clientWidth);
+    return () => ro.disconnect();
+  }, []);
+
+  const border = 54; 
+  const cx = ringSize / 2;
+  const cy = ringSize / 2;
+  const r = ringSize / 2 - border / 2 - 10;
+
   const n = Math.max(visiblePeople.length, 1);
-  const start = 220;
-  const end = 330;   
+  const start = 240; 
+  const end = 120; 
   const step = n > 1 ? (end - start) / (n - 1) : 0;
 
   return (
-    <section ref={sectionRef as any} id="anggota-bidang" className="relative overflow-hidden pb-24 pt-10">
-      {/* bg */}
-      {/* <div className="absolute inset-0 bg-gradient-to-r from-[#86BDF0] via-[#F8FAFF] to-[#F8C06B]" />
-      <div
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage:
-            "radial-gradient(rgba(15,23,42,0.18) 1px, transparent 1px)",
-          backgroundSize: "18px 18px",
-        }}
-      /> */}
+    <section
+      ref={sectionRef as any}
+      id="anggota-bidang"
+      className="relative overflow-hidden min-h-screen"
+    >
+      {/* <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_30%,rgba(11,59,130,0.28)_0%,rgba(6,20,38,0)_55%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_90%_60%,rgba(248,192,107,0.18)_0%,rgba(6,20,38,0)_60%)]" /> */}
 
-      <div className="relative mx-auto max-w-6xl px-5 sm:px-7 lg:px-10">
-        <div className="text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-            <span className="text-[#0B3B82]">Profil </span>
-            <span className="text-[#EA6A1A]">Anggota</span>
-          </h2>
-          <p className="mx-auto mt-2 max-w-2xl text-sm text-slate-700 sm:text-base">
-            {!bidang
-              ? "Pilih salah satu bidang pada section sebelumnya untuk menampilkan anggota."
-              : `Menampilkan anggota untuk bidang ${bidang.name}. Klik avatar pada arc untuk memilih profil.`}
-          </p>
-        </div>
-
+      <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-7 lg:px-10">
         {!bidang ? (
-          <div className="mt-10 rounded-3xl border border-white/40 bg-white/65 p-8 text-center shadow-[0_18px_50px_rgba(2,6,23,0.10)] backdrop-blur-xl">
-            <p className="text-sm text-slate-700">Belum ada bidang yang dipilih.</p>
+          <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur">
+            <p className="text-sm text-white/80">
+              Pilih bidang pada section sebelumnya untuk menampilkan anggota.
+            </p>
             <button
               onClick={onBackToBidang}
-              className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/50 bg-white/75 px-5 py-2.5 text-sm font-extrabold text-slate-900 hover:bg-white/90"
+              className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-5 py-2.5 text-sm font-extrabold text-white hover:bg-white/15"
+              type="button"
             >
               Kembali Pilih Bidang
-              <span className="grid h-7 w-7 place-items-center rounded-full bg-white/80">↑</span>
+              <span className="grid h-7 w-7 place-items-center rounded-full bg-white/10">
+                ↑
+              </span>
             </button>
           </div>
         ) : (
-          <div className="mt-10 overflow-hidden rounded-[28px] border border-white/20 bg-white/10 shadow-[0_40px_120px_rgba(2,6,23,0.22)] backdrop-blur-2xl">
-            <div className="grid grid-cols-12">
-              <aside className="relative col-span-12 overflow-hidden bg-[#0B1E33] md:col-span-5">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(56,189,248,0.22)_0%,rgba(11,30,51,0.0)_55%)]" />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(255,176,59,0.16)_0%,rgba(11,30,51,0.0)_60%)]" />
+          <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12">
+            <div className="md:col-span-5">
+              <div className="mt-10">
+                <div className="text-sm font-semibold text-white/60">Bidang</div>
+                <h3 className="mt-2 text-5xl font-extrabold tracking-tight text-[#0B3B82]">
+                  {bidang.name}
+                </h3>
+              </div>
 
-                <div className="relative z-10 flex items-center justify-between p-6">
-                  <div className="flex items-center gap-3">
-                    <div className="relative h-10 w-10 overflow-hidden rounded-xl bg-white/10">
-                      <Image src={himsiLogo} alt="HIMSI" fill className="object-contain p-2" />
-                    </div>
-                    <div className="relative h-10 w-10 overflow-hidden rounded-xl bg-white/10">
-                      <Image src={kabinetLogo} alt="Kabinet" fill className="object-contain p-2" />
-                    </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="relative h-11 w-11 overflow-hidden rounded-2xl border border-white/10 bg-white/10">
+                    <Image src={himsiLogo} alt="HIMSI" fill className="object-contain p-2" />
                   </div>
-
-                  <button
-                    onClick={onBackToBidang}
-                    className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold text-white/85 hover:bg-white/15"
-                  >
-                    Kembali ↩
-                  </button>
-                </div>
-
-                <div className="relative z-10 px-6 pt-2">
-                  <div className="text-sm font-semibold text-white/90">{bidang.name}</div>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {groups.map((g, idx) => {
-                      const active = idx === activeGroup;
-                      return (
-                        <button
-                          key={g.id}
-                          onClick={() => {
-                            setActiveGroup(idx);
-                            setActiveIndex(0);
-                          }}
-                          className={[
-                            "rounded-full border px-4 py-2 text-xs font-semibold transition",
-                            active
-                              ? "border-cyan-200/30 bg-cyan-200/10 text-white"
-                              : "border-white/15 bg-white/5 text-white/80 hover:bg-white/10",
-                          ].join(" ")}
-                        >
-                          {g.label}
-                        </button>
-                      );
-                    })}
+                  <div className="relative h-11 w-11 overflow-hidden rounded-2xl border border-white/10 bg-white/10">
+                    <Image src={kabinetLogo} alt="Kabinet" fill className="object-contain p-2" />
                   </div>
                 </div>
-
-                <div className="relative mt-6 h-[520px] w-full">
-                  <div className="absolute bottom-[-210px] left-[-210px] h-[700px] w-[700px]">
-                    <div className="absolute inset-0 rounded-full border border-white/14" />
-                    <div className="absolute left-[85px] top-[85px] h-[530px] w-[530px] rounded-full border border-white/12" />
-                    <div className="absolute left-[170px] top-[170px] h-[360px] w-[360px] rounded-full border border-white/10" />
-                    <div className="absolute left-[85px] top-[85px] h-[530px] w-[530px] rounded-full border border-cyan-200/20 shadow-[0_0_120px_rgba(34,211,238,0.18)]" />
-
-                    <div className="absolute left-[85px] top-[85px] h-[530px] w-[530px]">
-                      {visiblePeople.map((p, i) => {
-                        const angle = start + step * i;
-                        const { x, y } = polarToXY(265, 265, 235, angle);
-                        const isActive = i === activeIndex;
-
-                        return (
-                          <button
-                            key={`${p.name}-${i}`}
-                            onClick={() => setActiveIndex(i)}
-                            className="absolute -translate-x-1/2 -translate-y-1/2"
-                            style={{ left: x, top: y }}
-                            aria-label={`Pilih ${p.name}`}
-                          >
-                            <AvatarCircle p={p} active={isActive} />
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-6 left-6 right-6 text-xs text-white/60">
-                    Klik avatar pada arc untuk memilih profil.
-                  </div>
-                </div>
-              </aside>
-
-              <main className="col-span-12 flex min-h-[620px] items-center justify-center bg-white px-6 py-12 md:col-span-7 md:px-10">
-                <div className="w-full max-w-xl text-center">
-                  <div className="mx-auto mb-6 w-[240px]">
-                    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-[0_22px_60px_rgba(2,6,23,0.10)]">
-                      {person?.avatar ? (
-                        <Image src={person.avatar} alt={person.name} fill className="object-cover" />
-                      ) : (
-                        <div className="grid h-full w-full place-items-center">
-                          <div className="grid h-24 w-24 place-items-center rounded-full bg-slate-200 text-xl font-extrabold text-slate-700">
-                            {person ? initials(person.name) : "NA"}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  <h3 className="text-3xl font-extrabold tracking-tight text-slate-900">
-                    {person?.name ?? "Nama Anggota"}
-                  </h3>
-                  <p className="mt-1 text-base font-semibold text-emerald-700">
-                    {person?.role ?? "Jabatan"}
-                  </p>
-
-                  <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-slate-600">
-                    {person?.quote ??
-                      "“Bersama, kita belajar dan bertumbuh untuk menciptakan dampak yang nyata.”"}
-                  </p>
-
-                  <div className="mt-8 flex items-center justify-center gap-2">
-                    <button
-                      onClick={() => setActiveIndex((v) => Math.max(v - 1, 0))}
-                      className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50 disabled:opacity-50"
-                      disabled={activeIndex === 0}
-                    >
-                      ← Sebelumnya
-                    </button>
-                    <button
-                      onClick={() =>
-                        setActiveIndex((v) => Math.min(v + 1, visiblePeople.length - 1))
-                      }
-                      className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50 disabled:opacity-50"
-                      disabled={activeIndex >= visiblePeople.length - 1}
-                    >
-                      Berikutnya →
-                    </button>
-                  </div>
-                </div>
-              </main>
+              </div>
             </div>
+            <div className="hidden md:col-span-7 md:block" />
           </div>
         )}
       </div>
+
+      {bidang ? (
+        <div className="pointer-events-none absolute right-0 top-1/2 z-0 -translate-y-1/2 translate-x-1/2">
+          <div
+            ref={ringRef}
+            className="relative aspect-square w-[clamp(760px,70vw,980px)]"
+          >
+            <div className="absolute inset-0 rounded-full bg-[#F8C06B] shadow-[0_55px_160px_rgba(11,59,130,0.25)]" />
+            <div className="absolute inset-0 rounded-full border-[54px] border-[#0B3B82]" />
+
+            <div className="absolute inset-[170px] rounded-full border border-[#0B3B82]/25" />
+            <div className="absolute inset-[320px] rounded-full border border-[#0B3B82]/12" />
+
+            <div className="absolute inset-0 overflow-hidden rounded-full">
+              <div className="shine absolute -left-[50%] top-0 h-full w-[60%] rotate-[18deg] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+            </div>
+
+            <div className="absolute inset-0">
+              {visiblePeople.map((p, i) => {
+                const angle = start + step * i;
+                const { x, y } = polarToXY(cx, cy, r, angle);
+                const isActive = i === activeIndex;
+
+                return (
+                  <button
+                    key={`${p.name}-${i}`}
+                    onClick={() => setActiveIndex(i)}
+                    className="pointer-events-auto absolute -translate-x-1/2 -translate-y-1/2"
+                    style={{ left: x, top: y }}
+                    aria-label={`Pilih ${p.name}`}
+                    type="button"
+                  >
+                    <AvatarNode p={p} active={isActive} />
+                  </button>
+                );
+              })}
+            </div>
+
+            <div
+              key={swapKey}
+              className="pointer-events-auto absolute top-1/2"
+              style={{
+                left: "28%", 
+                transform: "translate(-50%, -50%)",
+                width: "min(460px, 44vw)",
+                animation: "profileSwap .45s ease both",
+              }}
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="relative h-[220px] w-[180px] overflow-hidden rounded-[26px] bg-white/45 ring-1 ring-white/60 shadow-[0_28px_90px_rgba(2,6,23,0.18)] backdrop-blur">
+                  {person?.avatar ? (
+                    <Image src={person.avatar} alt={person.name} fill className="object-cover" />
+                  ) : (
+                    <div className="grid h-full w-full place-items-center">
+                      <div className="grid h-24 w-24 place-items-center rounded-full bg-white/80 text-xl font-extrabold text-slate-700">
+                        {person ? initials(person.name) : "NA"}
+                      </div>
+                    </div>
+                  )}
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.55),transparent_55%)]" />
+                </div>
+
+                <h3 className="mt-8 text-4xl font-extrabold tracking-tight text-[#061426]">
+                  {person?.name ?? "Nama Anggota"}
+                </h3>
+                <p className="mt-2 text-base font-semibold text-[#0B3B82]">
+                  {person?.role ?? "Jabatan"}
+                </p>
+
+                <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-[#061426]/70">
+                  {person?.quote ??
+                    "“Bersama, kita belajar dan bertumbuh untuk menciptakan dampak yang nyata.”"}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 }
