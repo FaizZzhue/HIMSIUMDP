@@ -4,10 +4,6 @@ import { useMemo, useRef, useState } from "react";
 import BidangKabinetSection from "@/components/features/kabinet/Bidang-Kabinet-Section";
 import PengurusKabinetSection from "@/components/features/kabinet/Pengurus-Kabinet-Section";
 
-/* =============================
-   TYPES + DATA (1 tempat)
-   ============================= */
-
 export type Person = {
   name: string;
   role: string;
@@ -65,6 +61,62 @@ const BIDANG: BidangDetail[] = [
       { name: "Nama Wakil PSDM", role: "Wakil Kepala Bidang PSDM" },
     ],
     divisions: [
+      {
+        name: "Internal",
+        members: [
+          { name: "Anggota Internal 1", role: "Staff" },
+          { name: "Anggota Internal 2", role: "Staff" },
+          { name: "Anggota Internal 3", role: "Staff" },
+        ],
+      },
+      {
+        name: "Internal",
+        members: [
+          { name: "Anggota Internal 1", role: "Staff" },
+          { name: "Anggota Internal 2", role: "Staff" },
+          { name: "Anggota Internal 3", role: "Staff" },
+        ],
+      },
+      {
+        name: "Internal",
+        members: [
+          { name: "Anggota Internal 1", role: "Staff" },
+          { name: "Anggota Internal 2", role: "Staff" },
+          { name: "Anggota Internal 3", role: "Staff" },
+        ],
+      },
+      {
+        name: "Internal",
+        members: [
+          { name: "Anggota Internal 1", role: "Staff" },
+          { name: "Anggota Internal 2", role: "Staff" },
+          { name: "Anggota Internal 3", role: "Staff" },
+        ],
+      },
+      {
+        name: "Internal",
+        members: [
+          { name: "Anggota Internal 1", role: "Staff" },
+          { name: "Anggota Internal 2", role: "Staff" },
+          { name: "Anggota Internal 3", role: "Staff" },
+        ],
+      },
+      {
+        name: "Internal",
+        members: [
+          { name: "Anggota Internal 1", role: "Staff" },
+          { name: "Anggota Internal 2", role: "Staff" },
+          { name: "Anggota Internal 3", role: "Staff" },
+        ],
+      },
+      {
+        name: "Internal",
+        members: [
+          { name: "Anggota Internal 1", role: "Staff" },
+          { name: "Anggota Internal 2", role: "Staff" },
+          { name: "Anggota Internal 3", role: "Staff" },
+        ],
+      },
       {
         name: "Internal",
         members: [

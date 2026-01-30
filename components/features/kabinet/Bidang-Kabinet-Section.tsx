@@ -139,12 +139,11 @@ export default function BidangKabinetSection({
       <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-7 lg:px-10">
         <div className="text-center">
           <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-            <span className="text-[#0B3B82]">Bidang </span>
-            <span className="text-[#EA6A1A]">& Pengurus</span>
+            <span className="text-[#0A3763] dark:text-[#2464A8]">Bidang </span>
+            <span className="text-[#D3A32D]">Eksekutif</span>
           </h2>
-          <p className="mx-auto mt-3 max-w-3xl text-base text-slate-700 sm:text-lg">
-            Pilih bidang untuk melihat deskripsi dan profil anggota di section berikutnya.
-          </p>
+          {/* <p className="mx-auto mt-3 max-w-3xl text-base text-slate-700 sm:text-lg">
+          </p> */}
         </div>
 
         <div className="mt-12 grid grid-cols-12 grid-flow-dense gap-4 sm:gap-5 [grid-auto-rows:140px] sm:[grid-auto-rows:160px] lg:[grid-auto-rows:170px]">
@@ -165,20 +164,14 @@ export default function BidangKabinetSection({
                   <div className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white/90">
                     BPH INTI
                   </div>
-                  <div className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white/80">
-                    Ketua • Wakil • Sekre • Bendahara
-                  </div>
                 </div>
 
                 <div>
                   <div className="text-2xl font-extrabold tracking-tight text-white">
-                    Pengurus Harian
-                  </div>
-                  <div className="mt-1 text-sm font-medium text-white/70">
-                    Struktur inti yang mengkoordinasi seluruh bidang.
+                    BPH INTI
                   </div>
 
-                  <div className="mt-5 flex items-center">
+                  {/* <div className="mt-5 flex items-center">
                     {bph.slice(0, 6).map((p, idx) => (
                       <div
                         key={p.role}
@@ -195,11 +188,7 @@ export default function BidangKabinetSection({
                         )}
                       </div>
                     ))}
-                  </div>
-
-                  <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-bold text-white/90">
-                    Scroll ke bawah untuk detail anggota bidang <span className="opacity-80">↓</span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -209,7 +198,7 @@ export default function BidangKabinetSection({
             <MosaicTile
               className={layoutById.psdm}
               title={psdm.name}
-              subtitle={`${psdm.divisions.length} divisi • ${psdm.leaders.length} leader`}
+              // subtitle={`${psdm.divisions.length} divisi • ${psdm.leaders.length} leader`}
               badge="Bidang"
               icon={psdm.logo}
               cover={(psdm as any).cover}
@@ -221,7 +210,7 @@ export default function BidangKabinetSection({
             <MosaicTile
               className={layoutById.kominfo}
               title={kominfo.name}
-              subtitle={`${kominfo.divisions.length} divisi • ${kominfo.leaders.length} leader`}
+              // subtitle={`${kominfo.divisions.length} divisi • ${kominfo.leaders.length} leader`}
               badge="Bidang"
               icon={kominfo.logo}
               cover={(kominfo as any).cover}
@@ -233,7 +222,7 @@ export default function BidangKabinetSection({
             <MosaicTile
               className={layoutById.litbang}
               title={litbang.name}
-              subtitle={`${litbang.divisions.length} divisi • ${litbang.leaders.length} leader`}
+              // subtitle={`${litbang.divisions.length} divisi • ${litbang.leaders.length} leader`}
               badge="Bidang"
               icon={litbang.logo}
               cover={(litbang as any).cover}
@@ -245,7 +234,7 @@ export default function BidangKabinetSection({
             <MosaicTile
               className={layoutById.sosial}
               title={sosial.name}
-              subtitle={`${sosial.divisions.length} divisi • ${sosial.leaders.length} leader`}
+              // subtitle={`${sosial.divisions.length} divisi • ${sosial.leaders.length} leader`}
               badge="Bidang"
               icon={sosial.logo}
               cover={(sosial as any).cover}
