@@ -152,8 +152,8 @@ export default function PengurusKabinetSection({
           <div className="flex flex-col gap-10 lg:flex-row lg:items-stretch">
             <div className="w-full lg:w-[40%] flex flex-col items-center justify-center text-center lg:text-left lg:items-start lg:justify-center min-h-[320px] lg:min-h-[740px]">
               <div>
-                <div className="text-sm font-semibold text-white/60">Bidang</div>
-                <h3 className="mt-2 text-5xl font-extrabold tracking-tight text-[#0B3B82]">
+                <div className="text-sm font-semibold text-foreground">Bidang</div>
+                <h3 className="mt-2 text-5xl font-extrabold tracking-tight text-[#D3A32D]">
                   {bidang.name}
                 </h3>
               </div>
@@ -190,73 +190,71 @@ export default function PengurusKabinetSection({
                     "lg:w-[clamp(760px,56vw,980px)] lg:translate-x-[30%]",
                   ].join(" ")}
                 >
-                  <div className="absolute inset-0 rounded-full bg-[#F8C06B] shadow-[0_55px_160px_rgba(11,59,130,0.25)]" />
-                  <div className="absolute inset-0 rounded-full border-[54px] border-[#D3A32D]" />
-                  <div className="absolute inset-[170px] rounded-full border border-[#0B3B82]/25" />
-                  <div className="absolute inset-[320px] rounded-full border border-[#0B3B82]/12" />
+                  <div className="absolute inset-0 rounded-s-full border-[60px] border-[#D3A32D]" />
+                  
+                  <div className="absolute inset-0 rounded-s-full z-20 pointer-events-none overflow-visible">
+                    {people.map((p, i) => {
+                      const angle = start + step * i;
 
-                  <div className="absolute inset-0 overflow-hidden rounded-full">
-                    {/* <div className="absolute inset-0">
-                      <div className="shine absolute -left-[50%] top-0 h-full w-[60%] rotate-[18deg] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-                    </div> */}
+                      const rAvatar = ringSize / 2 - border / 2;
 
-                    <div className="absolute inset-0 z-20">
-                      {people.map((p, i) => {
-                        const angle = start + step * i;
-                        const { x, y } = polarToXY(cx, cy, r, angle);
-                        const isActive = i === activeIndex;
+                      const { x, y } = polarToXY(cx, cy, rAvatar, angle);
+                      const isActive = i === activeIndex;
 
-                        return (
-                          <button
-                            key={`${p.name}-${p.role}-${i}`}
-                            onClick={() => setActiveIndex(i)}
-                            className="pointer-events-auto absolute -translate-x-1/2 -translate-y-1/2"
-                            style={{ left: x, top: y }}
-                            aria-label={`Pilih ${p.name}`}
-                            type="button"
-                          >
-                            <AvatarNode p={p} active={isActive} />
-                          </button>
-                        );
-                      })}
-                    </div>
+                      return (
+                        <button
+                          key={`${p.name}-${p.role}-${i}`}
+                          onClick={() => setActiveIndex(i)}
+                          className="pointer-events-auto absolute"
+                          style={{
+                            left: x,
+                            top: y,
+                            transform: "translate(-50%, -50%)",
+                          }}
+                          aria-label={`Pilih ${p.name}`}
+                          type="button"
+                        >
+                          <AvatarNode p={p} active={isActive} />
+                        </button>
+                      );
+                    })}
+                  </div>
 
-                    <div
-                      key={swapKey}
-                      className="pointer-events-auto absolute z-30 top-1/2 lg:left-[45%]"
-                      style={{ animation: "profileSwap .45s ease both" }}
-                    >
-                      <div className="flex flex-col items-center text-center">
-                        <div className="relative h-[210px] w-[170px] overflow-hidden rounded-[26px] bg-white/45 ring-1 ring-white/60 shadow-[0_28px_90px_rgba(2,6,23,0.18)] backdrop-blur">
-                          {person?.avatar ? (
-                            <Image
-                              src={person.avatar}
-                              alt={person.name}
-                              fill
-                              className="object-cover"
-                            />
-                          ) : (
-                            <div className="grid h-full w-full place-items-center">
-                              <div className="grid h-24 w-24 place-items-center rounded-full bg-white/80 text-xl font-extrabold text-slate-700">
-                                {person ? initials(person.name) : "NA"}
-                              </div>
+                  <div
+                    key={swapKey}
+                    className="pointer-events-auto absolute z-30 top-1/2 lg:left-[45%]"
+                    style={{ animation: "profileSwap .45s ease both" }}
+                  >
+                    <div className="flex flex-col items-center text-center">
+                      <div className="relative h-[210px] w-[170px] overflow-hidden rounded-[26px] bg-white/45 ring-1 ring-white/60 shadow-[0_28px_90px_rgba(2,6,23,0.18)] backdrop-blur">
+                        {person?.avatar ? (
+                          <Image
+                            src={person.avatar}
+                            alt={person.name}
+                            fill
+                            className="object-cover"
+                          />
+                        ) : (
+                          <div className="grid h-full w-full place-items-center">
+                            <div className="grid h-24 w-24 place-items-center rounded-full bg-white/80 text-xl font-extrabold text-slate-700">
+                              {person ? initials(person.name) : "NA"}
                             </div>
-                          )}
-                          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.55),transparent_55%)]" />
-                        </div>
-
-                        <h3 className="mt-7 text-3xl sm:text-4xl font-extrabold tracking-tight text-[#061426]">
-                          {person?.name ?? "Nama Anggota"}
-                        </h3>
-                        <p className="mt-2 text-base font-semibold text-[#0B3B82]">
-                          {person?.role ?? "Jabatan"}
-                        </p>
-
-                        <p className="mx-auto mt-4 max-w-[320px] text-sm leading-relaxed text-[#061426]/70">
-                          {person?.quote ??
-                            "“Bersama, kita belajar dan bertumbuh untuk menciptakan dampak yang nyata.”"}
-                        </p>
+                          </div>
+                        )}
+                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.55),transparent_55%)]" />
                       </div>
+
+                      <h3 className="mt-7 text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+                        {person?.name ?? "Nama Anggota"}
+                      </h3>
+                      <p className="mt-2 text-base font-semibold text-[#0B3B82]">
+                        {person?.role ?? "Jabatan"}
+                      </p>
+
+                      <p className="mx-auto mt-4 max-w-[320px] text-sm leading-relaxed text-foreground">
+                        {person?.quote ??
+                          "“Motto”"}
+                      </p>
                     </div>
                   </div>
                 </div>
