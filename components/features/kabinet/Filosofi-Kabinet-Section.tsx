@@ -9,17 +9,17 @@ type FilosofiItem = {
 const LEFT: FilosofiItem[] = [
   {
     title: "Filosofi Nama",
-    desc: "Harsana: niat baik & manfaat.\nCakra: pusat penggerak, keteguhan,\ndan konsistensi.",
+    desc: "Lorem ipsum",
     accent: "blue",
   },
   {
     title: "Makna Warna Biru",
-    desc: "Intelektualitas, ketenangan, dan\nfokus pada pengembangan akademik\nserta teknologi.",
+    desc: "Lorem ipsum",
     accent: "blue",
   },
   {
     title: "Identitas Kabinet",
-    desc: "Logo menegaskan arah kabinet:\nkreatif, profesional, dan siap\nberdampak untuk HIMSI.",
+    desc: "Lorem ipsum",
     accent: "blue",
   },
 ];
@@ -27,17 +27,17 @@ const LEFT: FilosofiItem[] = [
 const RIGHT: FilosofiItem[] = [
   {
     title: "Makna Simbol",
-    desc: "Burung merak melambangkan\nkeanggunan, percaya diri, dan\nsemangat menampilkan karya\nterbaik.",
+    desc: "Lorem ipsum",
     accent: "amber",
   },
   {
     title: "Makna Sayap",
-    desc: "Lapisan sayap menggambarkan proses\nbertumbuh: belajar, berkolaborasi,\nlalu berprestasi.",
+    desc: "Lorem ipsum",
     accent: "amber",
   },
   {
     title: "Makna Warna Emas",
-    desc: "Optimisme, prestasi, serta energi\nuntuk membawa perubahan yang\nberdampak.",
+    desc: "Lorem ipsum",
     accent: "amber",
   },
 ];
@@ -109,10 +109,10 @@ export default function FilosofiKabinetSection() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-7 lg:px-10">
         <div className="text-center">
           <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-            <span className="text-[#0B3B82] drop-shadow-[0_2px_0_rgba(255,255,255,0.9)]">
-              Logo Kabinet &{" "}
+            <span className="text-[#0A3763] dark:text-[#2464A8]">
+              Logo Kabinet & {" "}
             </span>
-            <span className="text-[#EA6A1A] drop-shadow-[0_2px_0_rgba(255,255,255,0.9)]">
+            <span className="text-[#D3A32D]">
               Filosofi
             </span>
           </h2>
@@ -161,7 +161,7 @@ export default function FilosofiKabinetSection() {
             <div className="order-1 flex flex-col items-center lg:order-2 lg:col-span-4">
               <div className="relative flex w-full flex-col items-center">
                 <div>
-                  <div className="relative h-[230px] w-[230px]">
+                  <div className="relative items-center h-[230px] w-[230px]">
                     <Image
                       src="/images/logo/logo-kabinet.png"
                       alt="Logo Kabinet Harsana Cakra"
@@ -171,10 +171,9 @@ export default function FilosofiKabinetSection() {
                     />
                   </div>
                 </div>
-
-                <div className="mt-5 rounded-full border border-white/70 bg-white/75 px-7 py-3 text-center text-xl font-extrabold text-slate-900 shadow-[0_16px_40px_rgba(2,6,23,0.12)] backdrop-blur-xl">
+                {/* <div className="mt-5 rounded-full border border-white/70 bg-white/75 px-7 py-3 text-center text-xl font-extrabold text-slate-900 shadow-[0_16px_40px_rgba(2,6,23,0.12)] backdrop-blur-xl">
                   Kabinet Harsana Cakra
-                </div>
+                </div> */}
               </div>
             </div>
 
