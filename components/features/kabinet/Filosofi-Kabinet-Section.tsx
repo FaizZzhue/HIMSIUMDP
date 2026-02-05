@@ -8,41 +8,41 @@ type FilosofiItem = {
 
 const LEFT: FilosofiItem[] = [
   {
-    title: "Filosofi Nama",
-    desc: "Lorem ipsum",
+    title: "Biru Tua",
+    desc: "Biru muda menggambarkan sikap terbuka dalam menerima gagasan, serta energi anak muda yang dinamis. Warna ini merepresentasikan semangat kabinet untuk menciptakan ruang komunikasi yang aktif dan menyenangkan, serta menjadi wadah yang adil bagi seluruh anggota himpunan.",
     accent: "blue",
   },
   {
-    title: "Makna Warna Biru",
-    desc: "Lorem ipsum",
+    title: "Biru Muda",
+    desc: "Warna biru tua melambangkan sikap profesional, rasa percaya, dan kematangan dalam bertindak. Ini menunjukkan bahwa para pengurus kabinet bekerja secara bertanggung jawab, menjunjung nilai kejujuran, dan siap menjadi pilar kuat bagi organisasi dalam menghadapi berbagai situasi.",
     accent: "blue",
   },
   {
-    title: "Identitas Kabinet",
-    desc: "Lorem ipsum",
+    title: "Kuning",
+    desc: "Kuning mencerminkan semangat, kreativitas, dan optimisme. Kehadirannya menunjukkan bahwa kabinet membawa semangat untuk berinovasi, menyebarkan energi positif, dan menghadirkan perubahan yang terasa manfaatnya bagi himpunan maupun lingkungan kampus.",
     accent: "blue",
   },
 ];
 
 const RIGHT: FilosofiItem[] = [
   {
-    title: "Makna Simbol",
-    desc: "Lorem ipsum",
+    title: "Dua Bulu di Kepala",
+    desc: "Dua helai bulu yang muncul dari kepala merak menggambarkan keseimbangan antara logika dan empati. Ini menunjukkan bahwa keputusan yang diambil kabinet tidak hanya berdasarkan pertimbangan rasional, tetapi juga mempertimbangkan sisi kemanusiaan dan aspirasi anggota. Dua bulu ini juga menyimbolkan perpaduan harmonis antara pemikir dan pelaksana, dua peran penting dalam organisasi.",
     accent: "amber",
   },
   {
-    title: "Makna Sayap",
-    desc: "Lorem ipsum",
+    title: "Tubuh Merak",
+    desc: "Garis melengkung pada tubuh burung merak menunjukkan arah gerak yang progresif namun tetap seimbang. Hal ini merepresentasikan cara kerja kabinet yang adaptif terhadap perubahan, namun tetap berpijak pada prinsip dan tujuan organisasi.",
     accent: "amber",
   },
   {
-    title: "Makna Warna Emas",
-    desc: "Lorem ipsum",
+    title: "Ekor Merak",
+    desc: "Ekor yang terdiri dari pola simetris berlapis-lapis melambangkan kerja sama antar elemen dalam kabinet. Setiap bulu ekor mewakili peran, potensi, dan kekuatan dari masing-masing individu dalam kabinet yang bergerak serempak menuju visi bersama. Bentuk mata pada ekor juga mengandung makna ketajaman pandangan dan kesadaran strategis, simbol dari kepemimpinan yang peka terhadap lingkungan.",
     accent: "amber",
   },
 ];
 
-const VALUES = ["Kolaborasi", "Inovasi", "Integritas", "Profesionalisme", "Adaptif"];
+const VALUES = [" Simbol Keterbukaan dan Semangat Muda", "Lambang Tanggung Jawab dan Keteguhan", "Energi Kreatif dan Harapan Baru"];
 
 function cn(...cls: Array<string | false | undefined>) {
   return cls.filter(Boolean).join(" ");
@@ -81,7 +81,7 @@ function FilosofiCard({ item }: { item: FilosofiItem }) {
 }
 
 function ValuePill({ label, i }: { label: string; i: number }) {
-  const dots = ["bg-[#1E6BD6]", "bg-[#F59E0B]", "bg-slate-500", "bg-[#EA580C]", "bg-emerald-500"];
+  const dots = ["bg-[#0A3763]", "bg-[#2464A8]", "bg-[#D3A32D]"];
   return (
     <div className="flex items-center gap-2 rounded-full border border-white/60 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-900 shadow-[0_10px_26px_rgba(2,6,23,0.10)] backdrop-blur-xl">
       <span className={cn("h-2.5 w-2.5 rounded-full", dots[i % dots.length])} />
@@ -119,7 +119,7 @@ export default function FilosofiKabinetSection() {
         </div>
 
         <div className="relative mx-auto mt-12 max-w-6xl">
-          <svg
+          {/* <svg
             className="pointer-events-none absolute inset-0 hidden lg:block"
             viewBox="0 0 1000 520"
             preserveAspectRatio="none"
@@ -141,15 +141,15 @@ export default function FilosofiKabinetSection() {
 
             {[
               [430, 210],
-              [430, 260],
-              [430, 310],
+              [430, 360],
+              [430, 520],
               [570, 210],
               [570, 260],
               [570, 310],
             ].map(([x, y], idx) => (
               <circle key={idx} cx={x} cy={y} r="6" fill="url(#g1)" />
             ))}
-          </svg>
+          </svg> */}
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
             <div className="order-2 space-y-5 lg:order-1 lg:col-span-4">
@@ -158,22 +158,15 @@ export default function FilosofiKabinetSection() {
               ))}
             </div>
 
-            <div className="order-1 flex flex-col items-center lg:order-2 lg:col-span-4">
-              <div className="relative flex w-full flex-col items-center">
-                <div>
-                  <div className="relative items-center h-[230px] w-[230px]">
-                    <Image
-                      src="/images/logo/logo-kabinet.png"
-                      alt="Logo Kabinet Harsana Cakra"
-                      fill
-                      className="object-contain"
-                      priority
-                    />
-                  </div>
-                </div>
-                {/* <div className="mt-5 rounded-full border border-white/70 bg-white/75 px-7 py-3 text-center text-xl font-extrabold text-slate-900 shadow-[0_16px_40px_rgba(2,6,23,0.12)] backdrop-blur-xl">
-                  Kabinet Harsana Cakra
-                </div> */}
+            <div className="relative items-center lg:order-2 lg:col-span-4">
+              <div className="h-[230px] w-[230px]">
+                <Image
+                  src="/images/logo/logo-kabinet.png"
+                  alt="Logo Kabinet Harsana Cakra"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
             </div>
 
