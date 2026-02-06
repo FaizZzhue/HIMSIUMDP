@@ -65,7 +65,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#071227]/35 via-transparent to-[#071227]/45" />
       </div> */}
 
-      <div className="relative z-10 mx-auto min-h-screen w-full max-w-[1480px] px-6 pb-16 pt-24 sm:px-10 lg:px-12 lg:pb-24 lg:pt-28 xl:pt-32">
+      <div className="relative z-10 mx-auto min-h-screen w-full max-w-[1480px] px-6 pb-16 pt-24 sm:px-10 lg:px-12 lg:pb-24 lg:pt-28 xl:pt-30">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="max-w-[680px]">
             <motion.div
@@ -134,7 +134,7 @@ export default function HeroSection() {
               </Button>
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
@@ -160,7 +160,7 @@ export default function HeroSection() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
 
           <div className="relative flex justify-center lg:justify-end">
