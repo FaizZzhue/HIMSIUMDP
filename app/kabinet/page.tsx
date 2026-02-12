@@ -5,6 +5,7 @@ import AboutKabinetSection from "@/components/features/kabinet/About-Kabinet-Sec
 import FilosofiKabinetSection from "@/components/features/kabinet/Filosofi-Kabinet-Section";
 import KabinetBidangPengurus from "@/components/features/kabinet/Kabinet-Bidang-Pengurus";
 import LogoKabinetSection from "@/components/features/kabinet/Logo-Kabinet-Section";
+import ProfileKabinetSection from "@/components/features/kabinet/Profile-Kabinet-Section";
 
 export default function KabinetPage() {
     return (
@@ -13,6 +14,7 @@ export default function KabinetPage() {
             <main>
                 <LogoKabinetSection />
                 <AboutKabinetSection />
+                <ProfileKabinetSection />
                 <FilosofiKabinetSection />
                 <KabinetBidangPengurus />
             </main>

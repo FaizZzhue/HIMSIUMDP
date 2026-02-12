@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import type React from "react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import type { BidangDetail, Person } from "./Kabinet-Bidang-Pengurus";
 
 function initials(name: string) {
@@ -13,37 +14,84 @@ function initials(name: string) {
     .join("");
 }
 
-function polarToXY(cx: number, cy: number, r: number, angleDeg: number) {
-  const a = (Math.PI / 180) * angleDeg;
-  return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
-}
-
 function AvatarNode({ p, active }: { p: Person; active?: boolean }) {
   return (
     <div
       className={[
-        "pointer-events-auto rounded-full bg-white p-[7px] shadow-[0_14px_50px_rgba(2,6,23,0.18)]",
-        active ? "shadow-[0_18px_80px_rgba(234,106,26,0.32)]" : "",
+        "pointer-events-auto rounded-full bg-white p-[6px] shadow-[0_12px_40px_rgba(2,6,23,0.18)]",
+        active ? "shadow-[0_18px_70px_rgba(211,163,45,0.25)]" : "",
       ].join(" ")}
     >
       <div
         className={[
-          "relative grid h-12 w-12 place-items-center overflow-hidden rounded-full border bg-white",
+          "relative grid h-11 w-11 place-items-center overflow-hidden rounded-full border bg-white",
           active
-            ? "border-transparent ring-4 ring-[#EA6A1A]/35 shadow-[0_0_0_10px_rgba(234,106,26,0.18)]"
+            ? "border-transparent ring-2 ring-[#D3A32D]/45 shadow-[0_0_0_8px_rgba(211,163,45,0.14)]"
             : "border-slate-200",
         ].join(" ")}
       >
         {p.avatar ? (
           <Image src={p.avatar} alt={p.name} fill className="object-cover" />
         ) : (
-          <span className="text-xs font-extrabold text-slate-700">
+          <span className="text-[11px] font-extrabold text-slate-700">
             {initials(p.name)}
           </span>
         )}
       </div>
     </div>
   );
+}
+
+function getAvatarPositionLeft(
+  index: number,
+  total: number,
+  containerSize: number,
+  avatarSize: number
+) {
+  const cx = containerSize / 2;
+  const cy = containerSize / 2;
+  const radius = containerSize / 2;
+
+  if (total <= 1) {
+    return {
+      x: cx - radius - avatarSize / 2,
+      y: cy - avatarSize / 2,
+    };
+  }
+
+  const t = index / (total - 1);
+  const angle = -Math.PI / 2 + t * Math.PI; 
+
+  const x = cx - radius * Math.cos(angle) - avatarSize / 2;
+  const y = cy + radius * Math.sin(angle) - avatarSize / 2;
+
+  return { x, y };
+}
+
+function getAvatarPositionUp(
+  index: number,
+  total: number,
+  containerSize: number,
+  avatarSize: number
+) {
+  const cx = containerSize / 2;
+  const cy = containerSize / 2;
+  const radius = containerSize / 2;
+
+  if (total <= 1) {
+    return {
+      x: cx - avatarSize / 2,
+      y: cy - radius - avatarSize / 2,
+    };
+  }
+
+  const t = index / (total - 1);
+  const angle = Math.PI - t * Math.PI; // π..0 (left -> right)
+
+  const x = cx + radius * Math.cos(angle) - avatarSize / 2;
+  const y = cy - radius * Math.sin(angle) - avatarSize / 2;
+
+  return { x, y };
 }
 
 export default function PengurusKabinetSection({
@@ -77,53 +125,45 @@ export default function PengurusKabinetSection({
   }, [bidang]);
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [swapKey, setSwapKey] = useState(0);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  useEffect(() => setActiveIndex(0), [bidang?.id]);
+  const activePerson = people[activeIndex] ?? people[0];
+
+  const startAutoSwitch = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    if (!people.length) return;
+
+    intervalRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % people.length);
+    }, 3000);
+  }, [people.length]);
+
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [bidang?.id]);
 
   useEffect(() => {
     if (!people.length) return;
     setActiveIndex((v) => Math.min(v, people.length - 1));
   }, [people.length]);
 
-  const person = people[activeIndex] ?? people[0];
-
   useEffect(() => {
     if (!bidang) return;
     if (people.length <= 1) return;
 
-    const t = setInterval(() => {
-      setActiveIndex((v) => (v + 1) % people.length);
-    }, 1200);
+    startAutoSwitch();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [bidang?.id, people.length, startAutoSwitch]);
 
-    return () => clearInterval(t);
-  }, [bidang?.id, people.length]);
+  const handleSelect = (index: number) => {
+    setActiveIndex(index);
+    startAutoSwitch();
+  };
 
-  useEffect(() => setSwapKey((k) => k + 1), [activeIndex]);
-
-  const ringRef = useRef<HTMLDivElement | null>(null);
-  const [ringSize, setRingSize] = useState(980);
-
-  useEffect(() => {
-    if (!ringRef.current) return;
-    if (typeof ResizeObserver === "undefined") return;
-
-    const el = ringRef.current;
-    const ro = new ResizeObserver(() => setRingSize(el.clientWidth));
-    ro.observe(el);
-    setRingSize(el.clientWidth);
-    return () => ro.disconnect();
-  }, []);
-
-  const border = 54;
-  const cx = ringSize / 2;
-  const cy = ringSize / 2;
-  const r = ringSize / 2 - border / 2 - 10;
-
-  const n = Math.max(people.length, 1);
-  const start = 240;
-  const end = 120;
-  const step = n > 1 ? (end - start) / (n - 1) : 0;
+  const CONTAINER = 520;
+  const AVATAR_SIZE = 44;
 
   return (
     <section
@@ -180,83 +220,127 @@ export default function PengurusKabinetSection({
               </div>
             </div>
 
-            <div className="w-full lg:w-[60%] relative overflow-hidden min-h-[560px] sm:min-h-[680px] lg:min-h-[740px]">
+            <div className="w-full lg:w-[60%] relative overflow-visible min-h-[560px] sm:min-h-[680px] lg:min-h-[740px]">
               <div className="absolute inset-0 flex items-center justify-center lg:justify-end">
                 <div
-                  ref={ringRef}
                   className={[
-                    "pointer-events-none relative aspect-square",
-                    "w-[min(92vw,560px)]",
-                    "lg:w-[clamp(760px,56vw,980px)] lg:translate-x-[30%]",
+                    "relative pointer-events-none",
+                    "w-[min(92vw,520px)] aspect-square",
+                    "lg:w-[clamp(420px,44vw,640px)]",
+                    "lg:translate-x-[10%]",
                   ].join(" ")}
                 >
-                  <div className="absolute inset-0 rounded-s-full border-[60px] border-[#D3A32D]" />
-                  
-                  <div className="absolute inset-0 rounded-s-full z-20 pointer-events-none overflow-visible">
-                    {people.map((p, i) => {
-                      const angle = start + step * i;
-
-                      const rAvatar = ringSize / 2 - border / 2;
-
-                      const { x, y } = polarToXY(cx, cy, rAvatar, angle);
-                      const isActive = i === activeIndex;
-
-                      return (
-                        <button
-                          key={`${p.name}-${p.role}-${i}`}
-                          onClick={() => setActiveIndex(i)}
-                          className="pointer-events-auto absolute"
-                          style={{
-                            left: x,
-                            top: y,
-                            transform: "translate(-50%, -50%)",
-                          }}
-                          aria-label={`Pilih ${p.name}`}
-                          type="button"
-                        >
-                          <AvatarNode p={p} active={isActive} />
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  <div
-                    key={swapKey}
-                    className="pointer-events-auto absolute z-30 top-1/2 lg:left-[45%]"
-                    style={{ animation: "profileSwap .45s ease both" }}
+                  <svg
+                    viewBox={`0 0 ${CONTAINER} ${CONTAINER}`}
+                    className="absolute inset-0 h-full w-full overflow-visible"
+                    fill="none"
+                    aria-hidden="true"
                   >
-                    <div className="flex flex-col items-center text-center">
-                      <div className="relative h-[210px] w-[170px] overflow-hidden rounded-[26px] bg-white/45 ring-1 ring-white/60 shadow-[0_28px_90px_rgba(2,6,23,0.18)] backdrop-blur">
-                        {person?.avatar ? (
-                          <Image
-                            src={person.avatar}
-                            alt={person.name}
-                            fill
-                            className="object-cover"
-                          />
-                        ) : (
-                          <div className="grid h-full w-full place-items-center">
-                            <div className="grid h-24 w-24 place-items-center rounded-full bg-white/80 text-xl font-extrabold text-slate-700">
-                              {person ? initials(person.name) : "NA"}
+                    <path
+                      className="lg:hidden"
+                      d={`M 0 ${CONTAINER / 2} A ${CONTAINER / 2} ${CONTAINER / 2} 0 0 1 ${CONTAINER} ${CONTAINER / 2}`}
+                      stroke="#D3A32D"
+                      strokeWidth="2"
+                      strokeDasharray="6 6"
+                      opacity={0.55}
+                    />
+                    <path
+                      className="hidden lg:block"
+                      d={`M ${CONTAINER / 2} 0 A ${CONTAINER / 2} ${CONTAINER / 2} 0 0 0 ${CONTAINER / 2} ${CONTAINER}`}
+                      stroke="#D3A32D"
+                      strokeWidth="2"
+                      strokeDasharray="6 6"
+                      opacity={0.55}
+                    />
+                  </svg>
+
+                  <div className="pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={`${activePerson?.name}-${activeIndex}`}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="flex flex-col items-center gap-3"
+                      >
+                        <div className="relative h-36 w-36 md:h-44 md:w-44 rounded-full overflow-hidden ring-4 ring-[#D3A32D] shadow-xl shadow-[#D3A32D]/20 bg-white/40 backdrop-blur">
+                          {activePerson?.avatar ? (
+                            <Image
+                              src={activePerson.avatar}
+                              alt={activePerson.name}
+                              fill
+                              className="object-cover"
+                              priority
+                            />
+                          ) : (
+                            <div className="grid h-full w-full place-items-center">
+                              <div className="grid h-20 w-20 place-items-center rounded-full bg-white/85 text-lg font-extrabold text-slate-700">
+                                {activePerson ? initials(activePerson.name) : "NA"}
+                              </div>
                             </div>
-                          </div>
-                        )}
-                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.55),transparent_55%)]" />
-                      </div>
+                          )}
+                        </div>
 
-                      <h3 className="mt-7 text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
-                        {person?.name ?? "Nama Anggota"}
-                      </h3>
-                      <p className="mt-2 text-base font-semibold text-[#0B3B82]">
-                        {person?.role ?? "Jabatan"}
-                      </p>
-
-                      <p className="mx-auto mt-4 max-w-[320px] text-sm leading-relaxed text-foreground">
-                        {person?.quote ??
-                          "“Motto”"}
-                      </p>
-                    </div>
+                        <div className="text-center">
+                          <p className="font-semibold text-foreground text-base">
+                            {activePerson?.name ?? "Nama Anggota"}
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {activePerson?.role ?? "Jabatan"}
+                          </p>
+                        </div>
+                      </motion.div>
+                    </AnimatePresence>
                   </div>
+
+                  {people.map((p, index) => {
+                    const isActive = index === activeIndex;
+                    const pos = getAvatarPositionUp(index, people.length, CONTAINER, AVATAR_SIZE);
+
+                    return (
+                      <motion.button
+                        key={`m-${p.name}-${p.role}-${index}`}
+                        onClick={() => handleSelect(index)}
+                        aria-label={`Pilih ${p.name}`}
+                        type="button"
+                        className="pointer-events-auto absolute z-20 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D3A32D] focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:hidden"
+                        style={{
+                          left: `${(pos.x / CONTAINER) * 100}%`,
+                          top: `${(pos.y / CONTAINER) * 100}%`,
+                        }}
+                        animate={{ scale: isActive ? 1.12 : 1 }}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      >
+                        <AvatarNode p={p} active={isActive} />
+                      </motion.button>
+                    );
+                  })}
+
+                  {people.map((p, index) => {
+                    const isActive = index === activeIndex;
+                    const pos = getAvatarPositionLeft(index, people.length, CONTAINER, AVATAR_SIZE);
+
+                    return (
+                      <motion.button
+                        key={`d-${p.name}-${p.role}-${index}`}
+                        onClick={() => handleSelect(index)}
+                        aria-label={`Pilih ${p.name}`}
+                        type="button"
+                        className="pointer-events-auto absolute z-20 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D3A32D] focus-visible:ring-offset-2 focus-visible:ring-offset-background hidden lg:block"
+                        style={{
+                          left: `${(pos.x / CONTAINER) * 100}%`,
+                          top: `${(pos.y / CONTAINER) * 100}%`,
+                        }}
+                        animate={{ scale: isActive ? 1.12 : 1 }}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      >
+                        <AvatarNode p={p} active={isActive} />
+                      </motion.button>
+                    );
+                  })}
                 </div>
               </div>
             </div>

@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import Snowfall from "react-snowfall";
 
 export default function FormAspirasiSection() {
   const [nama, setNama] = useState("");
@@ -56,6 +57,7 @@ export default function FormAspirasiSection() {
 
   return (
     <section className="relative py-16">
+      <Snowfall />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(900px_600px_at_50%_20%,rgba(211,163,45,0.14),transparent_60%)]" />
       {/* <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(900px_600px_at_50%_80%,rgba(211,163,45,0.10),transparent_60%)]" /> */}
 
