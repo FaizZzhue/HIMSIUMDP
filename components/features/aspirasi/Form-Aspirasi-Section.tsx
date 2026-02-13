@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import Snowfall from "react-snowfall";
+import { toast } from "sonner";
 
 export default function FormAspirasiSection() {
   const [nama, setNama] = useState("");
@@ -43,17 +44,54 @@ export default function FormAspirasiSection() {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!validate()) return;
+
+    if (!validate()) {
+      toast.error("Form belum lengkap", {
+        description: "Periksa kembali input yang masih kosong atau tidak valid.",
+      });
+      return;
+    }
 
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 500));
 
-    setSubmitting(false);
-    setNama("");
-    setEmail("");
-    setCatatan("");
-    setErrors({});
+    try {
+      const res = await fetch("/api/aspirasi", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nama,
+          email,
+          catatan,
+          hp: "", 
+        }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        toast.error("Gagal mengirim", {
+          description: data?.message ?? "Terjadi kesalahan. Silakan coba lagi.",
+        });
+        return;
+      }
+
+      setNama("");
+      setEmail("");
+      setCatatan("");
+      setErrors({});
+
+      toast.success("Aspirasi berhasil dikirim ✅", {
+        description: "Terima kasih! Masukan kamu sudah masuk ke email HIMSI.",
+      });
+    } catch {
+      toast.error("Koneksi bermasalah", {
+        description: "Cek internet kamu lalu coba lagi.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   }
+
 
   return (
     <section className="relative py-16">
