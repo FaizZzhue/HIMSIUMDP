@@ -32,7 +32,7 @@ const data: Testimonial[] = [
         note: "",
         name: "Wasilah ",
         role: "Kepala Bidang PSDM",
-        avatar: "/images/pengurus/psdm/wasilah.png",
+        avatar: "/images/pengurus/psdm/sila.png",
     },
     {
         id: "t3",

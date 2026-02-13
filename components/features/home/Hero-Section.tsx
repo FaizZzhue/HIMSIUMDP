@@ -190,7 +190,7 @@ export default function HeroSection() {
               <div className="absolute right-[10%] top-[6%] h-[28%] w-[48%] rotate-[6deg] rounded-[24px] border border border-black/10 bg-white/70 dark:border-white/25 dark:bg-white/10 p-2 shadow-[0_18px_50px_rgba(0,0,0,0.16)] backdrop-blur">
                 <div className="relative h-full w-full overflow-hidden rounded-[18px]">
                   <Image 
-                    src="/images/hero/hero-1.jpg" 
+                    src="/images/hero/hero1.jpg" 
                     alt="Kolaborasi" 
                     fill 
                     className="object-cover" 
@@ -200,7 +200,7 @@ export default function HeroSection() {
               <div className="absolute right-0 top-[30%] h-[52%] w-[48%] rotate-[2deg] rounded-[24px] border border-white/60 bg-white/20 dark:border-white/25 dark:bg-white/10 p-2 shadow-[0_18px_50px_rgba(0,0,0,0.16)] backdrop-blur">
                 <div className="relative h-full w-full overflow-hidden rounded-[18px]">
                   <Image 
-                    src="/images/hero/hero-3.jpg" 
+                    src="/images/hero/hero3.jpg" 
                     alt="Belajar bersama" 
                     fill 
                     className="object-cover" />
