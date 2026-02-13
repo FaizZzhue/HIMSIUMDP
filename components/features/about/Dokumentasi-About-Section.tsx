@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Snowfall from "react-snowfall";
 
 type GalleryItem = {
     src: string;
@@ -13,25 +14,25 @@ type GalleryItem = {
 export default function DokumentasiAboutSection() {
     const GALLERY: GalleryItem[] = [
         {
-            src: "/images/dokumentasi/1.jpg",
+            src: "/images/dokumentasi/ldo.jpg",
             alt: "Kegiatan HIMSI 1",
-            title: "Sharing Session Sistem Informasi",
-            proker: "Proker: HIMSI Talk",
-            purpose: "Meningkatkan wawasan mahasiswa lewat diskusi dan berbagi pengalaman.",
+            title: "Latihan Dasar Kepemimpinan & Organisasi (LDO)",
+            proker: "Proker: PSDM",
+            purpose: "Meningkatkan wawasan mahasiswa lewat pelatihan kepemimpinan dan organisasi.",
         },
         {
-            src: "/images/dokumentasi/2.jpg",
+            src: "/images/dokumentasi/ksi.jpg",
             alt: "Kegiatan HIMSI 2",
-            title: "Gathering Bersama Mahasiswa Sistem Informasi",
-            proker: "Proker: Kampung Sistem Informasi",
+            title: "Kampung Sistem Informasi (KSI)",
+            proker: "Proker: Umum",
             purpose: "Meningkatan solidaritas dan kebersamaan antar mahasiswa Sistem Informasi.",
         },
         {
-            src: "/images/dokumentasi/3.jpg",
+            src: "/images/dokumentasi/pkkmb.jpg",
             alt: "Kegiatan HIMSI 3",
-            title: "Pengabdian Masyarakat & Sosialisasi",
-            proker: "Proker: HIMSI Berbagi",
-            purpose: "Berbagi pengetahuan dan pengalaman kepada masyarakat.",
+            title: "Perkenalan Kehidupan Kampus Mahasiswa Baru (PKKMB)",
+            proker: "Proker: Umum",
+            purpose: "Memperkenalkan kehidupan kampus kepada mahasiswa baru terutama Mahasiswa Prodi Sistem Informasi.",
         },
         {
             src: "/images/dokumentasi/4.jpg",
@@ -56,57 +57,57 @@ export default function DokumentasiAboutSection() {
         },
     ];
 
-    const GALLERY_MORE: GalleryItem[] = [
-        {
-            src: "/images/dokumentasi/1.jpg",
-            alt: "Kegiatan HIMSI 1 (Lanjutan)",
-            title: "Sharing Session Sistem Informasi",
-            proker: "Proker: HIMSI Talk",
-            purpose: "Meningkatkan wawasan mahasiswa lewat diskusi dan berbagi pengalaman.",
-        },
-        {
-            src: "/images/dokumentasi/2.jpg",
-            alt: "Kegiatan HIMSI 2 (Lanjutan)",
-            title: "Prestasi & Apresiasi HIMSI",
-            proker: "Proker: Awarding Day",
-            purpose: "Mengapresiasi capaian anggota dan membangun semangat berprestasi.",
-        },
-        {
-            src: "/images/dokumentasi/3.jpg",
-            alt: "Kegiatan HIMSI 3 (Lanjutan)",
-            title: "Kolaborasi Tim & Project",
-            proker: "Proker: Collaboration Lab",
-            purpose: "Melatih teamwork, komunikasi, dan problem solving dalam proyek bersama.",
-        },
-        {
-            src: "/images/dokumentasi/4.jpg",
-            alt: "Kegiatan HIMSI 4 (Lanjutan)",
-            title: "Seminar / Workshop Internal",
-            proker: "Proker: Skill Up",
-            purpose: "Mengembangkan skill teknis dan non-teknis melalui materi terstruktur.",
-        },
-        {
-            src: "/images/dokumentasi/5.jpg",
-            alt: "Kegiatan HIMSI 5 (Lanjutan)",
-            title: "Kegiatan Sosial & Pengabdian",
-            proker: "Proker: HIMSI Care",
-            purpose: "Menumbuhkan kepedulian sosial dan kolaborasi lewat aksi nyata.",
-        },
-        {
-            src: "/images/dokumentasi/6.jpg",
-            alt: "Kegiatan HIMSI 6 (Lanjutan)",
-            title: "Games & Bonding Anggota",
-            proker: "Proker: HIMSI Gathering",
-            purpose: "Menguatkan solidaritas, kebersamaan, dan suasana kekeluargaan.",
-        },
-    ];
+    // const GALLERY_MORE: GalleryItem[] = [
+    //     {
+    //         src: "/images/dokumentasi/1.jpg",
+    //         alt: "Kegiatan HIMSI 1 (Lanjutan)",
+    //         title: "Sharing Session Sistem Informasi",
+    //         proker: "Proker: HIMSI Talk",
+    //         purpose: "Meningkatkan wawasan mahasiswa lewat diskusi dan berbagi pengalaman.",
+    //     },
+    //     {
+    //         src: "/images/dokumentasi/2.jpg",
+    //         alt: "Kegiatan HIMSI 2 (Lanjutan)",
+    //         title: "Prestasi & Apresiasi HIMSI",
+    //         proker: "Proker: Awarding Day",
+    //         purpose: "Mengapresiasi capaian anggota dan membangun semangat berprestasi.",
+    //     },
+    //     {
+    //         src: "/images/dokumentasi/3.jpg",
+    //         alt: "Kegiatan HIMSI 3 (Lanjutan)",
+    //         title: "Kolaborasi Tim & Project",
+    //         proker: "Proker: Collaboration Lab",
+    //         purpose: "Melatih teamwork, komunikasi, dan problem solving dalam proyek bersama.",
+    //     },
+    //     {
+    //         src: "/images/dokumentasi/4.jpg",
+    //         alt: "Kegiatan HIMSI 4 (Lanjutan)",
+    //         title: "Seminar / Workshop Internal",
+    //         proker: "Proker: Skill Up",
+    //         purpose: "Mengembangkan skill teknis dan non-teknis melalui materi terstruktur.",
+    //     },
+    //     {
+    //         src: "/images/dokumentasi/5.jpg",
+    //         alt: "Kegiatan HIMSI 5 (Lanjutan)",
+    //         title: "Kegiatan Sosial & Pengabdian",
+    //         proker: "Proker: HIMSI Care",
+    //         purpose: "Menumbuhkan kepedulian sosial dan kolaborasi lewat aksi nyata.",
+    //     },
+    //     {
+    //         src: "/images/dokumentasi/6.jpg",
+    //         alt: "Kegiatan HIMSI 6 (Lanjutan)",
+    //         title: "Games & Bonding Anggota",
+    //         proker: "Proker: HIMSI Gathering",
+    //         purpose: "Menguatkan solidaritas, kebersamaan, dan suasana kekeluargaan.",
+    //     },
+    // ];
 
     const [expanded, setExpanded] = useState(false);
     const [open, setOpen] = useState(false);
     const [active, setActive] = useState<GalleryItem | null>(null);
 
     const allItems = useMemo(
-        () => (expanded ? [...GALLERY, ...GALLERY_MORE] : GALLERY),
+        () => (expanded ? [...GALLERY] : GALLERY), 
         [expanded]
     );
 
@@ -130,6 +131,7 @@ export default function DokumentasiAboutSection() {
 
     return (
         <section className="relative overflow-hidden py-20">
+            <Snowfall />
             <div className="mx-auto max-w-[1240px] px-5 sm:px-7 lg:px-10">
                 <div className="mx-auto max-w-3xl text-center">
                     <h2 className="text-4xl font-semibold tracking-tight text-[#0A3763] dark:text-[#2464A8] sm:text-5xl">
@@ -218,7 +220,7 @@ export default function DokumentasiAboutSection() {
                             ))}
                         </div>
 
-                        <div className="mt-10 flex justify-center">
+                        {/* <div className="mt-10 flex justify-center">
                             <button
                                 type="button"
                                 onClick={() => setExpanded((v) => !v)}
@@ -250,7 +252,7 @@ export default function DokumentasiAboutSection() {
                                     ▾
                                 </span>
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

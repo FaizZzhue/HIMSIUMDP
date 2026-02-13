@@ -1,3 +1,4 @@
+"use client";
 
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
@@ -6,6 +7,7 @@ import FilosofiKabinetSection from "@/components/features/kabinet/Filosofi-Kabin
 import KabinetBidangPengurus from "@/components/features/kabinet/Kabinet-Bidang-Pengurus";
 import LogoKabinetSection from "@/components/features/kabinet/Logo-Kabinet-Section";
 import ProfileKabinetSection from "@/components/features/kabinet/Profile-Kabinet-Section";
+import Snowfall from "react-snowfall";
 
 export default function KabinetPage() {
     return (

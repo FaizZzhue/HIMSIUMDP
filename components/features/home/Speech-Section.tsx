@@ -97,26 +97,26 @@ export default function SpeechSection() {
             </div>
 
             <div className="relative">
-              <div className="relative mx-auto w-full max-w-[360px] rotate-[1.2deg]">
-                <div className="rounded-[28px] bg-white/45 p-3 shadow-[0_18px_60px_rgba(0,0,0,0.18)]">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-[22px] bg-white">
+              <div className="group relative mx-auto w-full max-w-[360px] transition-transform duration-500 hover:rotate-0 rotate-[1.2deg]">
+                <div className="relative z-10 rounded-[28px] bg-white/70 backdrop-blur-md p-3 shadow-[0_20px_50px_rgba(0,0,0,0.15)] ring-1 ring-white/50">
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-[20px] bg-slate-100">
                     <Image
-                      src="/images/speech/ketua.jpg"
+                      src="/images/pengurus/bph/akbar.png"
                       alt="Ketua HIMSI"
                       fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 90vw, 360px"
+                      className="object-cover transition-scale duration-700 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, 360px"
                       priority={false}
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none" />
                   </div>
                 </div>
-
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute -inset-1 rounded-[30px] border border-white/40"
+                  className="pointer-events-none absolute -inset-2 rounded-[32px] border border-white/30 bg-white/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 />
               </div>
-            </div>
+            </div>  
           </div>
         </motion.div>
       </div>

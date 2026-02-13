@@ -67,7 +67,7 @@ export default function FormAspirasiSection() {
           <h2 className="text-4xl font-extrabold tracking-tight">
             <span className="text-[var(--himsi-gold)]">Form</span> Aspirasi
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-xl text-sm text-foreground">
             Bagikan aspirasi, saran, dan ide Anda untuk membantu kami tumbuh dan berkembang. Pendapat Anda sangat berarti bagi kemajuan bersama.
           </p>
         </div>

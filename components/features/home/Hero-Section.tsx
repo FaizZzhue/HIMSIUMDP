@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import StarBorder from "@/lib/animations/StarBorder";
+import { Star } from "lucide-react";
 
 export default function HeroSection() {
   return (
@@ -162,6 +164,10 @@ export default function HeroSection() {
               </div>
             </motion.div> */}
           </div>
+            {/* <div
+              aria-hidden
+              className="pointer-events-none absolute -inset-8 rounded-[44px] bg-gradient-to-r from-[#2464A8]/25 via-white/10 to-[#D3A32D]/30 blur-2xl"
+            /> */}
 
           <div className="relative flex justify-center lg:justify-end">
             <motion.div
@@ -171,29 +177,35 @@ export default function HeroSection() {
               transition={{ duration: 0.65, delay: 0.1 }}
               className="relative h-[420px] w-full max-w-[640px] sm:h-[520px] lg:h-[640px] lg:max-w-[760px] lg:translate-x-6"
             >
-              {/* <div
-                aria-hidden
-                className="pointer-events-none absolute -inset-8 rounded-[44px] bg-gradient-to-r from-[#2464A8]/25 via-white/10 to-[#D3A32D]/30 blur-2xl"
-              /> */}
-
               <div className="absolute left-0 top-[18%] h-[60%] w-[70%] rotate-[-4deg] rounded-[28px] border border border-black/10 bg-white/70 dark:border-white/25 dark:bg-white/10 p-2 shadow-[0_18px_50px_rgba(0,0,0,0.18)] backdrop-blur">
                 <div className="relative h-full w-full overflow-hidden rounded-[22px]">
-                  <Image src="/images/hero/hero-3.jpg" alt="Kegiatan HIMSI" fill className="object-cover" />
+                  <Image 
+                    src="/images/hero/hero3.jpg" 
+                    alt="Kegiatan HIMSI" 
+                    fill 
+                    className="object-cover" 
+                  />
                 </div>
               </div>
-
               <div className="absolute right-[10%] top-[6%] h-[28%] w-[48%] rotate-[6deg] rounded-[24px] border border border-black/10 bg-white/70 dark:border-white/25 dark:bg-white/10 p-2 shadow-[0_18px_50px_rgba(0,0,0,0.16)] backdrop-blur">
                 <div className="relative h-full w-full overflow-hidden rounded-[18px]">
-                  <Image src="/images/hero/hero-1.jpg" alt="Kolaborasi" fill className="object-cover" />
+                  <Image 
+                    src="/images/hero/hero-1.jpg" 
+                    alt="Kolaborasi" 
+                    fill 
+                    className="object-cover" 
+                  />
                 </div>
               </div>
-
               <div className="absolute right-0 top-[30%] h-[52%] w-[48%] rotate-[2deg] rounded-[24px] border border-white/60 bg-white/20 dark:border-white/25 dark:bg-white/10 p-2 shadow-[0_18px_50px_rgba(0,0,0,0.16)] backdrop-blur">
                 <div className="relative h-full w-full overflow-hidden rounded-[18px]">
-                  <Image src="/images/hero/hero-2.jpg" alt="Belajar bersama" fill className="object-cover" />
+                  <Image 
+                    src="/images/hero/hero-3.jpg" 
+                    alt="Belajar bersama" 
+                    fill 
+                    className="object-cover" />
                 </div>
               </div>
-
               <div aria-hidden className="pointer-events-none absolute right-0 top-[42%] h-1 w-[80%] -rotate-12 rounded-full bg-white/25 blur-[1px]" />
             </motion.div>
           </div>

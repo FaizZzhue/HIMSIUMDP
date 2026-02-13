@@ -1,13 +1,14 @@
 "use client";
 
-
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Snowfall from "react-snowfall";
 
 export default function ProfileKabinetSection() {
     return (
-        <section>
+        <section className="relative overflow-hidden">
             <div className="mt-40">
+                <Snowfall />
                 <motion.div
                     initial={{ opacity: 0, y: 14 }}                                                           
                     whileInView={{ opacity: 1, y: 0 }}

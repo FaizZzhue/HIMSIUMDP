@@ -31,7 +31,7 @@ export default function AboutSection() {
   const items = useMemo(() => data.map((d, idx) => ({ ...d, id: idx })), []);
 
   return (
-    <section id="about" className="relative w-full overflow-hidden min-h-screen">
+    <section id="about" className="relative w-full overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 opacity-50">
         <svg className="h-full w-full" viewBox="0 0 1400 800" fill="none">
           <g stroke="white" strokeOpacity="0.45" strokeWidth="1.2">
@@ -108,13 +108,13 @@ export default function AboutSection() {
                   onFocus={() => setHovered(it.id)}
                   onBlur={() => setHovered(null)}
                   className={[
-                    "glass-card relative overflow-hidden rounded-2xl border border-white/10",
+                    "glass-effect-sm relative overflow-hidden rounded-2xl border border-white/10",
                     "px-5 py-6 sm:px-6 sm:py-7",
                     "transition-all duration-200",
                     "min-h-[150px] sm:min-h-[190px]",
                     "outline-none",
                   ].join(" ")}
-                  whileHover={{ y: -2 }}
+                  whileHover={{ y: -12 }}
                 >
                   <AnimatePresence>
                     {isHover ? (

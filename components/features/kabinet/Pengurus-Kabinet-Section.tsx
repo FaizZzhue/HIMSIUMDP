@@ -5,6 +5,7 @@ import type React from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { BidangDetail, Person } from "./Kabinet-Bidang-Pengurus";
+import Snowfall from "react-snowfall";
 
 function initials(name: string) {
   return name
@@ -86,7 +87,7 @@ function getAvatarPositionUp(
   }
 
   const t = index / (total - 1);
-  const angle = Math.PI - t * Math.PI; // π..0 (left -> right)
+  const angle = Math.PI - t * Math.PI;
 
   const x = cx + radius * Math.cos(angle) - avatarSize / 2;
   const y = cy - radius * Math.sin(angle) - avatarSize / 2;
@@ -171,6 +172,7 @@ export default function PengurusKabinetSection({
       id="anggota-bidang"
       className="relative overflow-hidden min-h-screen"
     >
+      <Snowfall />x``
       <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-7 lg:px-10 py-10">
         {!bidang ? (
           <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur">
@@ -258,35 +260,41 @@ export default function PengurusKabinetSection({
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={`${activePerson?.name}-${activeIndex}`}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="flex flex-col items-center gap-3"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                        className="flex flex-col items-center"
                       >
-                        <div className="relative h-36 w-36 md:h-44 md:w-44 rounded-full overflow-hidden ring-4 ring-[#D3A32D] shadow-xl shadow-[#D3A32D]/20 bg-white/40 backdrop-blur">
-                          {activePerson?.avatar ? (
-                            <Image
-                              src={activePerson.avatar}
-                              alt={activePerson.name}
-                              fill
-                              className="object-cover"
-                              priority
-                            />
-                          ) : (
-                            <div className="grid h-full w-full place-items-center">
-                              <div className="grid h-20 w-20 place-items-center rounded-full bg-white/85 text-lg font-extrabold text-slate-700">
-                                {activePerson ? initials(activePerson.name) : "NA"}
+                        <div className="glass-card relative h-[240px] w-[200px] md:h-[300px] md:w-[240px] overflow-hidden p-3 transition-all duration-500">
+                          <div className="relative h-full w-full overflow-hidden rounded-[28px] bg-slate-200/50 dark:bg-slate-800/50">
+                            {activePerson?.avatar ? (
+                              <Image
+                                src={activePerson.avatar}
+                                alt={activePerson.name}
+                                fill
+                                className="object-cover transition-transform duration-700 hover:scale-110"
+                                priority
+                              />
+                            ) : (
+                              <div className="grid h-full w-full place-items-center bg-gradient-to-br from-slate-100 to-slate-300 dark:from-slate-700 dark:to-slate-900">
+                                <span className="text-4xl font-black text-slate-400 opacity-40">
+                                  {activePerson ? initials(activePerson.name) : "NA"}
+                                </span>
                               </div>
-                            </div>
-                          )}
+                            )}
+
+                            <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-60" />
+                          </div>
+
+                          <div className="shine absolute inset-0 pointer-events-none bg-gradient-to-r from-transparent via-white/20 to-transparent w-1/2 -skew-x-12" />
                         </div>
 
-                        <div className="text-center">
-                          <p className="font-semibold text-foreground text-base">
+                        <div className="mt-6 text-center">
+                          <h4 className="text-xl md:text-2xl font-black tracking-tight text-[#0A3763] dark:text-[#D3A32D]">
                             {activePerson?.name ?? "Nama Anggota"}
-                          </p>
-                          <p className="text-sm text-muted-foreground">
+                          </h4>
+                          <p className="mt-1 text-sm md:text-base font-bold uppercase tracking-widest text-[#2464A8] dark:text-slate-400">
                             {activePerson?.role ?? "Jabatan"}
                           </p>
                         </div>

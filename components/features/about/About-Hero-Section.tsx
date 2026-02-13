@@ -10,17 +10,17 @@ export default function AboutHeroSection() {
             <Snowfall />
                 <div className="relative mx-auto max-w-[1240px] px-5 py-20 sm:px-7 lg:px-10">
                     <div className="mx-auto max-w-3xl text-center py-10">
-                        <p className="text-sm font-medium text-muted-foreground">
+                        <p className="text-sm font-medium text-foreground">
                             Tentang HIMSI UMDP
                         </p>
 
                         <h1 className="mt-3 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-                            Kenali HIMSI lebih dekat
+                            Kenali 
+                            <span className="text-[#D3A32D]"> HIMSI</span> lebih dekat
                         </h1>
 
-                        <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-[17px]">
-                            Halaman ini berisi profil HIMSI, visi & misi, struktur kepengurusan,
-                            dokumentasi kegiatan, serta identitas kabinet.
+                        <p className="mt-5 text-base leading-relaxed text-foreground sm:text-[17px]">
+                            Jelajahi HIMSI lebih dekat mulai dari Profil sampai Kegiatan yang dapat menjadi arah gerak kami.
                         </p>
 
                         <div className="mt-8 flex flex-wrap gap-3 items-center justify-center">

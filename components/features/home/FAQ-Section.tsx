@@ -11,11 +11,11 @@ type FAQ = {
 const faqs: FAQ[] = [
     {
         q: "Gimana cara daftar HIMSI?",
-        a: "Kamu bisa daftar saat Open Recruitment (Oprec) yang diumumkan di media sosial HIMSI UMDP. Isi formulir pendaftaran, ikuti seleksi/ wawancara (jika ada), lalu konfirmasi bergabung.",
+        a: "Kamu bisa daftar saat Open Recruitment (Oprec) yang diumumkan di media sosial HIMSI UMDP. Isi formulir pendaftaran, selanjutnya ikuti seleksi yang ada.",
     },
     {
         q: "Apakah ada syarat semester?",
-        a: "Umumnya terbuka untuk mahasiswa Sistem Informasi UMDP dari berbagai semester. Saat Oprec, syarat detail akan diumumkan (misalnya minimal semester tertentu).",
+        a: "Umumnya terbuka untuk mahasiswa Sistem Informasi UMDP dari 2 - 4. Saat Oprec.",
     },
     {
         q: "Kegiatannya seberapa sering?",
@@ -99,21 +99,18 @@ export default function FAQSection() {
 
 
             <div className="relative z-10 mx-auto w-full max-w-[1240px] px-5 sm:px-7 lg:px-10">
-                {/* header */}
                 <div className="text-center">
                     <h2 className="mt-5 text-4xl font-semibold tracking-tight text-[#0A3763] dark:text-[#2464A8] sm:text-5xl">
                         Frequently Asked 
                         <span className="text-[#D3A32D]"> Questions</span>
                     </h2>
 
-                    <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-700/90 sm:text-[17px]">
+                    {/* <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-700/90 sm:text-[17px]">
                         Pertanyaan umum terkait cara bergabung dan kegiatan di HIMSI UMDP
-                    </p>
+                    </p> */}
                 </div>
 
-                {/* panel */}
                 <div className="relative mt-10 sm:mt-12">
-                {/* outer glow frame */}
                     <div
                         aria-hidden
                         className="pointer-events-none absolute -inset-4 rounded-[34px] bg-gradient-to-r from-[#2464A8]/18 via-white/8 to-[#D3A32D]/18 blur-2xl"
@@ -151,7 +148,7 @@ export default function FAQSection() {
                                                     transition={{ duration: 0.25 }}
                                                     className="overflow-hidden"
                                                 >
-                                                    <div className="px-6 pb-6 pt-0 text-[15px] leading-relaxed text-slate-700/90 sm:text-base">
+                                                    <div className="px-6 pb-6 pt-0 text-[15px] leading-relaxed text-foreground sm:text-base">
                                                         {item.a}
                                                     </div>
                                                 </motion.div>

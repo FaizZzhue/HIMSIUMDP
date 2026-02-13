@@ -3,6 +3,7 @@
 import Image from "next/image";
 import type React from "react";
 import type { BPH, BidangDetail } from "./Kabinet-Bidang-Pengurus";
+import Snowfall from "react-snowfall";
 
 function initials(name: string) {
   return name
@@ -119,8 +120,8 @@ export default function BidangKabinetSection({
   const layoutById: Record<string, string> = {
     psdm: "col-span-12 sm:col-span-6 lg:col-span-4 lg:row-span-2",
     kominfo: "col-span-12 sm:col-span-6 lg:col-span-4 lg:row-span-2",
-    litbang: "col-span-12 lg:col-span-6 lg:row-span-2",
-    sosial: "col-span-12 lg:col-span-6 lg:row-span-2",
+    litbang: "col-span-12 lg:col-span-6 lg:col-span-4 lg:row-span-2",
+    sosial: "col-span-12 lg:col-span-6 lg:col-span-4 lg:row-span-2",
   };
 
   const getBidang = (id: string) => bidangList.find((b) => b.id === id);
@@ -136,72 +137,33 @@ export default function BidangKabinetSection({
       id="bidang"
       className="relative overflow-hidden pt-20 pb-12"
     >
+      <Snowfall />
       <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-7 lg:px-10">
         <div className="text-center">
           <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
             <span className="text-[#0A3763] dark:text-[#2464A8]">Bidang </span>
             <span className="text-[#D3A32D]">Eksekutif</span>
           </h2>
-          {/* <p className="mx-auto mt-3 max-w-3xl text-base text-slate-700 sm:text-lg">
-          </p> */}
         </div>
 
         <div className="mt-12 grid grid-cols-12 grid-flow-dense gap-4 sm:gap-5 [grid-auto-rows:140px] sm:[grid-auto-rows:160px] lg:[grid-auto-rows:170px]">
-          <div className="col-span-12 lg:col-span-4 lg:row-span-2">
-            <div className="relative h-full overflow-hidden rounded-[22px] border border-white/30 bg-white/10 shadow-[0_18px_60px_rgba(2,6,23,0.18)] backdrop-blur-xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0B1E33]/85 via-[#0B1E33]/55 to-[#EA6A1A]/25" />
-              <div
-                className="absolute inset-0 opacity-25"
-                style={{
-                  backgroundImage:
-                    "radial-gradient(rgba(255,255,255,0.28) 1px, transparent 1px)",
-                  backgroundSize: "18px 18px",
-                }}
-              />
-
-              <div className="relative flex h-full flex-col justify-between p-6">
-                <div className="flex items-start justify-between gap-3">
-                  <div className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white/90">
-                    BPH INTI
-                  </div>
-                </div>
-
-                <div>
-                  <div className="text-2xl font-extrabold tracking-tight text-white">
-                    BPH INTI
-                  </div>
-
-                  {/* <div className="mt-5 flex items-center">
-                    {bph.slice(0, 6).map((p, idx) => (
-                      <div
-                        key={p.role}
-                        className="relative -ml-2 first:ml-0 h-12 w-12 overflow-hidden rounded-full border border-white/35 bg-white/10"
-                        style={{ zIndex: 10 - idx }}
-                        title={`${p.name} • ${p.role}`}
-                      >
-                        {p.avatar ? (
-                          <Image src={p.avatar} alt={p.name} fill className="object-cover" />
-                        ) : (
-                          <div className="grid h-full w-full place-items-center text-xs font-extrabold text-white/85">
-                            {initials(p.name)}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div> */}
-                </div>
-              </div>
-            </div>
-          </div>
+          
+          <MosaicTile
+            title="BPH"
+            // subtitle="Badan Pengurus Harian"
+            badge="BPH"
+            cover="/images/bidang/bph.png"
+            className="col-span-12 lg:col-span-4 lg:row-span-2"
+            onClick={() => onClickAnggota("bph")} 
+          />
 
           {psdm && (
             <MosaicTile
               className={layoutById.psdm}
               title={psdm.name}
-              // subtitle={`${psdm.divisions.length} divisi • ${psdm.leaders.length} leader`}
-              badge="Bidang"
+              badge="PSDM"
               icon={psdm.logo}
-              cover={(psdm as any).cover}
+              cover="/images/bidang/psdm.png"
               onClick={() => onClickAnggota(psdm.id)}
             />
           )}
@@ -210,10 +172,9 @@ export default function BidangKabinetSection({
             <MosaicTile
               className={layoutById.kominfo}
               title={kominfo.name}
-              // subtitle={`${kominfo.divisions.length} divisi • ${kominfo.leaders.length} leader`}
-              badge="Bidang"
+              badge="Kominfo"
               icon={kominfo.logo}
-              cover={(kominfo as any).cover}
+              cover="/images/bidang/kominfo.png"
               onClick={() => onClickAnggota(kominfo.id)}
             />
           )}
@@ -222,10 +183,9 @@ export default function BidangKabinetSection({
             <MosaicTile
               className={layoutById.litbang}
               title={litbang.name}
-              // subtitle={`${litbang.divisions.length} divisi • ${litbang.leaders.length} leader`}
-              badge="Bidang"
+              badge="Litbang IT"
               icon={litbang.logo}
-              cover={(litbang as any).cover}
+              cover="/images/bidang/litbang.png"
               onClick={() => onClickAnggota(litbang.id)}
             />
           )}
@@ -234,10 +194,9 @@ export default function BidangKabinetSection({
             <MosaicTile
               className={layoutById.sosial}
               title={sosial.name}
-              // subtitle={`${sosial.divisions.length} divisi • ${sosial.leaders.length} leader`}
               badge="Bidang"
               icon={sosial.logo}
-              cover={(sosial as any).cover}
+              cover="/images/bidang/sosial.png"
               onClick={() => onClickAnggota(sosial.id)}
             />
           )}

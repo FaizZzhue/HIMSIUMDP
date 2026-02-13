@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import Snowfall from "react-snowfall";
 
 type FilosofiItem = {
   title: string;
@@ -8,17 +11,17 @@ type FilosofiItem = {
 
 const LEFT: FilosofiItem[] = [
   {
-    title: "Biru Tua",
+    title: "Simbol Keterbukaan dan Semangat Muda",
     desc: "Biru muda menggambarkan sikap terbuka dalam menerima gagasan, serta energi anak muda yang dinamis. Warna ini merepresentasikan semangat kabinet untuk menciptakan ruang komunikasi yang aktif dan menyenangkan, serta menjadi wadah yang adil bagi seluruh anggota himpunan.",
     accent: "blue",
   },
   {
-    title: "Biru Muda",
+    title: "Lambang Tanggung Jawab dan Keteguhan",
     desc: "Warna biru tua melambangkan sikap profesional, rasa percaya, dan kematangan dalam bertindak. Ini menunjukkan bahwa para pengurus kabinet bekerja secara bertanggung jawab, menjunjung nilai kejujuran, dan siap menjadi pilar kuat bagi organisasi dalam menghadapi berbagai situasi.",
     accent: "blue",
   },
   {
-    title: "Kuning",
+    title: "Energi Kreatif dan Harapan Baru",
     desc: "Kuning mencerminkan semangat, kreativitas, dan optimisme. Kehadirannya menunjukkan bahwa kabinet membawa semangat untuk berinovasi, menyebarkan energi positif, dan menghadirkan perubahan yang terasa manfaatnya bagi himpunan maupun lingkungan kampus.",
     accent: "blue",
   },
@@ -42,7 +45,7 @@ const RIGHT: FilosofiItem[] = [
   },
 ];
 
-const VALUES = [" Simbol Keterbukaan dan Semangat Muda", "Lambang Tanggung Jawab dan Keteguhan", "Energi Kreatif dan Harapan Baru"];
+// const VALUES = [" ", "", ""];
 
 function cn(...cls: Array<string | false | undefined>) {
   return cls.filter(Boolean).join(" ");
@@ -80,19 +83,20 @@ function FilosofiCard({ item }: { item: FilosofiItem }) {
   );
 }
 
-function ValuePill({ label, i }: { label: string; i: number }) {
-  const dots = ["bg-[#0A3763]", "bg-[#2464A8]", "bg-[#D3A32D]"];
-  return (
-    <div className="flex items-center gap-2 rounded-full border border-white/60 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-900 shadow-[0_10px_26px_rgba(2,6,23,0.10)] backdrop-blur-xl">
-      <span className={cn("h-2.5 w-2.5 rounded-full", dots[i % dots.length])} />
-      {label}
-    </div>
-  );
-}
+// function ValuePill({ label, i }: { label: string; i: number }) {
+//   const dots = ["bg-[#0A3763]", "bg-[#2464A8]", "bg-[#D3A32D]"];
+//   return (
+//     <div className="flex items-center gap-2 rounded-full border border-white/60 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-900 shadow-[0_10px_26px_rgba(2,6,23,0.10)] backdrop-blur-xl">
+//       <span className={cn("h-2.5 w-2.5 rounded-full", dots[i % dots.length])} />
+//       {label}
+//     </div>
+//   );
+// }
 
 export default function FilosofiKabinetSection() {
   return (
     <section className="relative overflow-hidden py-20">
+      <Snowfall />
       {/* <div className="absolute inset-0 bg-gradient-to-r from-[#86BDF0] via-[#F8FAFF] to-[#F8C06B]" />
 
       <div
@@ -107,6 +111,7 @@ export default function FilosofiKabinetSection() {
       {/* <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.55)_35%,rgba(255,255,255,0)_70%)]" /> */}
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-7 lg:px-10">
+
         <div className="text-center">
           <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
             <span className="text-[#0A3763] dark:text-[#2464A8]">
@@ -177,11 +182,11 @@ export default function FilosofiKabinetSection() {
             </div>
           </div>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
+          {/* <div className="mt-10 flex flex-wrap justify-center gap-3">
             {VALUES.map((v, i) => (
               <ValuePill key={v} label={v} i={i} />
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

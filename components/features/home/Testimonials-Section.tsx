@@ -4,46 +4,66 @@ import Image from "next/image";
 import { useMemo } from "react";
 
 type Testimonial = {
-  id: string;
-  quoteTitle: string;
-  quoteText: string;
-  note: string;
-  name: string;
-  role: string;
-  avatar: string;
+    id: string;
+    quoteTitle: string;
+    quoteText: string;
+    note: string;
+    name: string;
+    role: string;
+    avatar: string;
 };
 
 const data: Testimonial[] = [
-  {
-    id: "t1",
-    quoteTitle: "Menjadi Ketua HIMSI",
-    quoteText:
-      "Universitas Multi Data Palembang selama satu periode jadi salah satu pengalaman paling berkesan.",
-    note: "Banyak hal yang saya pelajari, terutama tentang kepemimpinan dan teamwork.",
-    name: "Putra Ulung",
-    role: "Ketua Himpunan Mahasiswa Sistem Informasi",
-    avatar: "/images/testimonials/1.jpg",
-  },
-  {
-    id: "t2",
-    quoteTitle: "Keputusan yang tepat",
-    quoteText:
-      "Merupakan keputusan tepat bagi saya untuk bergabung dengan HIMSI. Tidak hanya mendapat relasi yang luas tetapi juga pengalaman baru yang menyenangkan.",
-    note: "Banyak hal yang saya pelajari, terutama tentang kepemimpinan dan teamwork.",
-    name: "Wasilah",
-    role: "Sekretaris Umum 2",
-    avatar: "/images/testimonials/2.jpg",
-  },
-  {
-    id: "t3",
-    quoteTitle: "Riset & inovasi",
-    quoteText:
-      "Di HIMSI UMDP, saya merasakan bagaimana riset dan inovasi berpadu dalam harmoni, menantang batas konvensional dan mengubah gagasan menjadi kenyataan.",
-    note: "Banyak hal yang saya pelajari, terutama tentang kepemimpinan dan teamwork.",
-    name: "Adit Jans",
-    role: "Kepala Bidang",
-    avatar: "/images/testimonials/3.jpg",
-  },
+    {
+        id: "t1",
+        quoteTitle: "Menjadi Ketua HIMSI",
+        quoteText:
+            "Universitas Multi Data Palembang selama satu periode jadi salah satu pengalaman paling berkesan.",
+        note: "Banyak hal yang saya pelajari, terutama tentang kepemimpinan dan teamwork.",
+        name: "Muhammad Akbar",
+        role: "Ketua Himpunan Mahasiswa Sistem Informasi",
+        avatar: "/images/pengurus/bph/akbar.png",
+    },
+    {
+        id: "t2",
+        quoteTitle: "Keputusan yang tepat",
+        quoteText:
+            "Merupakan keputusan tepat bagi saya untuk bergabung dengan HIMSI. Tidak hanya mendapat relasi yang luas tetapi juga pengalaman baru yang menyenangkan.",
+        note: "",
+        name: "Wasilah ",
+        role: "Kepala Bidang PSDM",
+        avatar: "/images/pengurus/psdm/wasilah.png",
+    },
+    {
+        id: "t3",
+        quoteTitle: "Riset & inovasi",
+        quoteText:
+            "Di HIMSI UMDP, saya merasakan bagaimana riset dan inovasi berpadu dalam harmoni, menantang batas konvensional dan mengubah gagasan menjadi kenyataan.",
+        note: "",
+        name: "Adit Jans",
+        role: "Kepala Bidang Litbang",
+        avatar: "/images/pengurus/litbang/adit.png",
+    },
+    {
+        id: "t4",
+        quoteTitle: "As queen of leadership",
+        quoteText:
+            "Satu periode di HIMSI UMDP menjadi pengalaman paling berkesan yang membentuk cara saya memimpin, mengambil keputusan, dan menggerakkan tim.",
+        note: "Saya belajar menjaga arah organisasi sambil tetap merangkul semua anggota.",
+        name: "Tria Nanda Mughni",
+        role: "Wakil Ketua Himpunan Mahasiswa Sistem Informasi",
+        avatar: "/images/pengurus/bph/tria.png",
+    },
+    {
+        id: "t5",
+        quoteTitle: "Pengalaman Berharga",
+        quoteText:
+            "Bergabung dengan HIMSI adalah keputusan terbaik—saya mendapat relasi baru, pengalaman organisasi yang nyata, dan ruang untuk berkembang setiap harinya.",
+        note: "Dari sini saya belajar disiplin, komunikasi, dan tanggung jawab dalam setiap tugas.",
+        name: "Muhammad Tegar R",
+        role: "Kepala Bidang Sosial",
+        avatar: "/images/pengurus/sosial/tegar.png",
+    },  
 ];
 
 function Card({ item }: { item: Testimonial }) {
