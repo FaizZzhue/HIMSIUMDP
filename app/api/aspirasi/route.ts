@@ -33,11 +33,11 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: true });
     }
 
-    const host = env("SMTP_HOST");
-    const port = Number(env("SMTP_PORT"));
-    const user = env("SMTP_USER");
-    const pass = env("SMTP_PASS");
-    const to = process.env.ASPIRASI_TO || user;
+    const host = env("NEXT_PUBLIC_SMTP_HOST");
+    const port = Number(env("NEXT_PUBLIC_SMTP_PORT"));
+    const user = env("NEXT_PUBLIC_SMTP_USER");
+    const pass = env("NEXT_PUBLIC_SMTP_PASS");
+    const to = process.env.NEXT_PUBLIC_ASPIRASI_TO || user;
 
     const secure = port === 465;
 
