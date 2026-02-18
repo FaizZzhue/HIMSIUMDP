@@ -1,23 +1,24 @@
+
 import Navbar from "@/components/common/Navbar";
-import AboutHeroSection from "@/components/features/about/About-Hero-Section";
-import ProfileAboutSection from "@/components/features/about/Profile-About-Section";
-import VisiMisiAboutSection from "@/components/features/about/Visi-Misi-About-Section";
-import LogoAboutSection from "@/components/features/about/Logo-About-Section";
-import DokumentasiAboutSection from "@/components/features/about/Dokumentasi-About-Section";
 import Footer from "@/components/common/Footer";
+import Logo from "@/components/features/about/Logo";
+import HeroAbout from "@/components/features/about/Hero-About";
+import Profile from "@/components/features/about/Profile";
+import Dokumentasi from "@/components/features/about/Dokumentasi";
+import VisiMisi from "@/components/features/about/Visi-Misi";
 
 export default function AboutPage() {
-  return (
-    <>
+    return (
+      <>
       <Navbar />
       <main>
-        <LogoAboutSection />
-        <AboutHeroSection />
-        <ProfileAboutSection />
-        <VisiMisiAboutSection />
-        <DokumentasiAboutSection />
+        <Logo />
+        <HeroAbout />
+        <Profile />
+        <VisiMisi />
+        <Dokumentasi />
       </main>
       <Footer />
-    </>
-  );
+      </>
+    );
 }

@@ -6,6 +6,10 @@ export type AboutStat = {
     Icon: ElementType;
 };
 
+export type AboutStatCardProps = {
+    item: AboutStat;
+};
+
 export type Testimonial = {
     id: string;
     quoteTitle: string;

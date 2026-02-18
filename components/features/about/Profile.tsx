@@ -1,28 +1,10 @@
 "use client";
 
 import Snowfall from "react-snowfall";
-import {
-    Users,
-    Layers3,
-    Boxes,
-    ClipboardList,
-} from "lucide-react";
-import TiltedCard from "@/lib/animations/TiltedCard";
+import { AboutStatCard } from "./modules/About-Card";
+import { CONTENT } from "./../../../types/content";
 
-type Stat = {
-    value: string;
-    label: string;
-    Icon: React.ElementType;
-};
-
-const STATS: Stat[] = [
-    { value: "50+", label: "Anggota Aktif", Icon: Users },
-    { value: "4", label: "Bidang", Icon: Layers3 },
-    { value: "10", label: "Divisi", Icon: Boxes },
-    { value: "15+", label: "Program Kerja", Icon: ClipboardList },
-];
-
-export default function ProfileAboutSection() {
+export default function Profile() {
     return (
         <section className="relative overflow-hidden" id="profile">
             <Snowfall />
@@ -53,28 +35,9 @@ export default function ProfileAboutSection() {
 
                         <div className="relative sm:p-7">
                             <div className="mt-6 grid grid-cols-2 gap-6">
-                                {STATS.map((s) => {
-                                    const Icon = s.Icon;
-                                    return (
-                                        <TiltedCard
-                                            key={s.label}
-                                            showTooltip={false}
-                                            showMobileWarning={false}
-                                            rotateAmplitude={12}
-                                            scaleOnHover={1.05}
-                                            containerHeight="160px" 
-                                            containerWidth="100%"
-                                        >
-                                            <div className="flex flex-col items-center justify-center rounded-2xl border border-black/10 bg-white/75 p-6 text-center backdrop-blur transition dark:border-white/15 dark:bg-white/10 w-full h-full shadow-sm">
-                                                <div className="mx-auto mb-3 grid h-10 w-10 place-items-center rounded-xl bg-[#D3A32D]/12 text-[#D3A32D] ring-1 ring-[#D3A32D]/25">
-                                                    <Icon className="h-5 w-5" />
-                                                </div>
-                                                <p className="text-xl font-bold text-[#D3A32D]">{s.value}</p>
-                                                <p className="text-[12px] text-foreground font-medium uppercase tracking-wider">{s.label}</p>
-                                            </div>
-                                        </TiltedCard>
-                                    );
-                                })}
+                                {CONTENT.about.stats.map((item) => (
+                                    <AboutStatCard key={item.label} item={item} />
+                                ))}
                             </div>
                         </div>
                     </div>

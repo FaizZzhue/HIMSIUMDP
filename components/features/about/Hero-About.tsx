@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Snowfall from "react-snowfall";
 
-export default function AboutHeroSection() {
+export default function HeroAbout() {
     return (
         <section className="relative overflow-hidden">
             <div className="bg-himsi-hero">
