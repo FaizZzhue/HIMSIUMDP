@@ -4,7 +4,7 @@ import Image from "next/image";
 import type React from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import type { BidangDetail, Person } from "./Kabinet-Bidang-Pengurus";
+import type { BidangDetail, Person } from "@/types/types";
 import Snowfall from "react-snowfall";
 
 function initials(name: string) {
@@ -95,7 +95,7 @@ function getAvatarPositionUp(
   return { x, y };
 }
 
-export default function PengurusKabinetSection({
+export default function Pengurus({
   sectionRef,
   bidang,
   onBackToBidang,

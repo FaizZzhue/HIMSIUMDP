@@ -1,6 +1,4 @@
-
-
-export default function LogoKabinetSection() {
+export default function LogoKabinet() {
     return (
         <section className="relative overflow-hidden">
             <div className="px-5 py-20 sm:px-7 lg:px-10">

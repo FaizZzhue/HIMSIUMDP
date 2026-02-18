@@ -1,17 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import type React from "react";
-import type { BPH, BidangDetail } from "./Kabinet-Bidang-Pengurus";
+import type { ElementType, Ref } from "react";
+import type { BidangDetail } from "@/types/types";
 import Snowfall from "react-snowfall";
 
-function initials(name: string) {
-  return name
-    .split(" ")
-    .slice(0, 2)
-    .map((n) => n[0]?.toUpperCase())
-    .join("");
-}
 
 function MosaicTile({
   title,
@@ -30,7 +23,7 @@ function MosaicTile({
   className?: string;
   onClick?: () => void;
 }) {
-  const Wrapper: any = onClick ? "button" : "div";
+  const Wrapper: ElementType = onClick ? "button" : "div";
 
   return (
     <Wrapper
@@ -105,14 +98,12 @@ function MosaicTile({
   );
 }
 
-export default function BidangKabinetSection({
+export default function Bidang({
   sectionRef,
-  bph,
   bidangList,
   onClickAnggota,
 }: {
-  sectionRef: React.RefObject<HTMLElement | null>;
-  bph: BPH[];
+  sectionRef: Ref<HTMLElement>;
   bidangList: BidangDetail[];
   onClickAnggota: (id: BidangDetail["id"]) => void;
 }) {
@@ -133,7 +124,7 @@ export default function BidangKabinetSection({
 
   return (
     <section
-      ref={sectionRef as any}
+      ref={sectionRef}
       id="bidang"
       className="relative overflow-hidden pt-20 pb-12"
     >

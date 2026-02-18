@@ -3,8 +3,7 @@
 import Link from "next/link";
 import Snowfall from "react-snowfall";
 
-
-export default function AboutKabinetSection() {
+export default function AboutKabinet() {
     return (
         <section className="relative overflow-hidden">
             <div className="bg-himsi-hero">

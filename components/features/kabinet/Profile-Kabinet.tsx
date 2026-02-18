@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Snowfall from "react-snowfall";
 
-export default function ProfileKabinetSection() {
+export default function ProfileKabinet() {
     return (
         <section className="relative overflow-hidden">
             <div className="mt-40">
