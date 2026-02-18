@@ -1,25 +1,25 @@
-import NavBar from "@/components/common/Navbar";
-import HeroSection from "@/components/features/home/Hero-Section";
-import AboutSection from "@/components/features/home/About-Section";
-import SpeechSection from "@/components/features/home/Speech-Section";
-import TestimonialsSection from "@/components/features/home/Testimonials-Section";
-import FAQSection from "@/components/features/home/FAQ-Section";
-import FooterHimsi from "@/components/common/Footer";
-import ContactSection from "@/components/features/home/Contact-Section";
+import Footer from "@/components/common/Footer";
+import Navbar from "@/components/common/Navbar";
+import HomeAbout from "@/components/features/home/About";
+import HomeContact from "@/components/features/home/Contact";
+import HomeFaq from "@/components/features/home/Faq";
+import HomeHero from "@/components/features/home/Hero";
+import HomeSpeech from "@/components/features/home/Speech";
+import HomeTestimonials from "@/components/features/home/Testimonials";
 
 export default function Home() {
   return (
     <main className="relative overflow-hidden">
       <div className="bg-himsi-hero">
-        <NavBar />
-        <HeroSection />
-        <AboutSection />
-        <SpeechSection />
-        <TestimonialsSection />
-        <FAQSection />
-        <ContactSection />
-        <FooterHimsi />
+        <Navbar />
+        <HomeHero />
+        <HomeAbout />
+        <HomeSpeech />
+        <HomeTestimonials />
+        <HomeFaq />
+        <HomeContact />
+        <Footer />
       </div>
     </main>
-  )
+  );
 }

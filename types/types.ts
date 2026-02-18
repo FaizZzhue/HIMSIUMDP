@@ -1,0 +1,91 @@
+import type { ElementType } from "react";
+
+export type AboutStat = {
+    value: string;
+    label: string;
+    Icon: ElementType;
+};
+
+export type Testimonial = {
+    id: string;
+    quoteTitle: string;
+    quoteText: string;
+    note: string;
+    name: string;
+    role: string;
+    avatar: string;
+};
+
+export type MarqueeColumnProps = {
+    items: Testimonial[];
+    duration?: number;
+    offset?: number;
+    reverse?: boolean;
+};
+
+export type FaqItem = {
+    q: string;
+    a: string;
+};
+
+export type ContactCard = {
+    title: string;
+    value: string;
+    href: string;
+    tint: string;
+    iconColor: string;
+    Icon: ElementType;
+};
+
+export type GalleryItem = {
+    src: string;
+    alt: string;
+    title: string;
+    proker: string;
+    purpose: string;
+};
+
+export type Person = {
+    name: string;
+    role: string;
+    avatar?: string;
+    quote?: string;
+};
+
+export type Division = {
+    name: string;
+    members: Person[];
+};
+
+export type BidangId = "bph" | "psdm" | "litbang" | "sosial" | "kominfo";
+
+export type BidangName =
+    | "BPH"
+    | "Badan Pengurus Harian"
+    | "PSDM"
+    | "Litbang IT"
+    | "Sosial"
+    | "Kominfo";
+
+export type BidangDetail = {
+    id: BidangId;
+    name: BidangName;
+    logo: string;
+    desc: string;
+    leaders: Person[];
+    divisions: Division[];
+};
+
+export type BPHRole =
+    | "Ketua"
+    | "Wakil Ketua"
+    | "Sekretaris 1"
+    | "Sekretaris 2"
+    | "Bendahara 1"
+    | "Bendahara 2";
+
+export type BPH = {
+    name: string;
+    role: BPHRole;
+    avatar?: string;
+};
