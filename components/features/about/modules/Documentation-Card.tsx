@@ -39,7 +39,7 @@ export function DocumentationCard({ item, onClick }: DocumentationCardProps) {
 
             <div className="mt-3 px-1">
                 <p className="line-clamp-1 text-sm font-semibold text-foreground">{item.title}</p>
-                <p className="mt-1 line-clamp-1 text-xs text-muted-foreground">{item.proker}</p>
+                {/* <p className="mt-1 line-clamp-1 text-xs text-muted-foreground">{item.proker}</p> */}
             </div>
         </button>
     );

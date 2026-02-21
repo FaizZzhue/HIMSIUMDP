@@ -71,7 +71,7 @@ export default function Dokumentasi() {
                 </div>
             </div>
 
-            {open && active ? <DocumentationModal active={active} onClose={closeModal} /> : null}
+            {/* {open && active ? <DocumentationModal active={active} onClose={closeModal} /> : null} */}
         </section>
     );
 }
