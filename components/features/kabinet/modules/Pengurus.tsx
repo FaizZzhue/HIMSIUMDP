@@ -4,8 +4,9 @@ import Image from "next/image";
 import type React from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import type { BidangDetail, Person } from "@/types/types";
+import type { BidangDetail, Person, WorkProgram } from "@/types/types";
 import Snowfall from "react-snowfall";
+import { DocumentationProker } from "./Documentation-Proker";
 
 function initials(name: string) {
   return name
@@ -111,6 +112,8 @@ export default function Pengurus({
   kabinetLogo: string;
 }) {
   const [viewMode, setViewMode] = useState<ViewMode>("kepengurusan");
+  const [open, setOpen] = useState(false);
+  const [activeProgram, setActiveProgram] = useState<WorkProgram | null>(null);
 
   const people = useMemo<Person[]>(() => {
     if (!bidang) return [];
@@ -169,6 +172,26 @@ export default function Pengurus({
     setActiveIndex(index);
     startAutoSwitch();
   };
+
+  const openModal = (program: WorkProgram) => {
+    setActiveProgram(program);
+    setOpen(true);
+  };
+
+  const closeModal = useCallback(() => {
+    setOpen(false);
+    setActiveProgram(null);
+  }, []);
+
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeModal();
+    };
+
+    if (open) window.addEventListener("keydown", onKey);
+
+    return () => window.removeEventListener("keydown", onKey);
+  }, [closeModal, open]);
 
   const CONTAINER = 520;
   const AVATAR_SIZE = 44;
@@ -413,26 +436,35 @@ export default function Pengurus({
                         key={program.title}
                         className="overflow-hidden glass-effect-sm rounded-2xl border border-white/15 bg-white/10"
                       >
-                        <div className="relative h-44 w-full">
-                          <Image
-                            src={program.image}
-                            alt={program.title}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                        <div className="p-4">
-                          <h5 className="text-base font-extrabold text-[#D3A32D]">
-                            {program.title}
-                          </h5>
-                          <p className="mt-2 text-foreground">
-                            {program.description}
-                          </p>
-                        </div>
+                        <button
+                          type="button"
+                          className="block w-full text-left"
+                          onClick={() => openModal(program)}
+                        >
+                          <div className="relative h-44 w-full">
+                            <Image
+                              src={program.image}
+                              alt={program.title}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                          <div className="p-4">
+                            <h5 className="text-base font-extrabold text-[#D3A32D]">
+                              {program.title}
+                            </h5>
+                            <p className="mt-2 text-foreground">
+                              {program.description}
+                            </p>
+                          </div>
+                        </button>
                       </article>
                     ))}
                   </div>
                 </div>
+                {open && activeProgram ? (
+                  <DocumentationProker active={activeProgram} onClose={closeModal} />
+                ) : null}
               </div>
             ) : null}
           </>

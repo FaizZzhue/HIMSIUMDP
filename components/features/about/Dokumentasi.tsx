@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Snowfall from "react-snowfall";
 import { DocumentationCard } from "./modules/Documentation-Card";
-import { DocumentationModal } from "./modules/Documentation-Modal";
 import { CONTENT } from "@/types/content";
 import type { GalleryItem } from "@/types/types";
 
