@@ -18,6 +18,7 @@ function buildBphBidangDetail(): BidangDetail {
             avatar: person.avatar,
         })),
         divisions: [],
+        workPrograms: [],
     };
 }
 
@@ -54,6 +55,7 @@ export default function BidangPengurus() {
             />
 
             <PengurusKabinetSection
+                key={selectedBidang?.id ?? "empty"}
                 sectionRef={anggotaRef}
                 bidang={selectedBidang}
                 onBackToBidang={backToBidang}

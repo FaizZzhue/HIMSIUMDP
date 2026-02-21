@@ -299,6 +299,28 @@ const KABINET_BIDANG: BidangDetail[] = [
         ],
       },
     ],
+    workPrograms: [
+      {
+        title: "Latihan Dasar Kepemimpinan & Organisasi (LDO)",
+        image: "/images/dokumentasi/ldo.jpg",
+        description: "Pelatihan kepemimpinan dasar untuk membangun karakter, kedisiplinan, dan budaya organisasi anggota.",
+      },
+      {
+        title: "Mentoring Internal Anggota",
+        image: "/images/dokumentasi/ksi.jpg",
+        description: "Program pendampingan rutin untuk membantu anggota baru beradaptasi dan berkembang dalam organisasi.",
+      },
+      {
+        title: "Sharing Session Pengembangan Soft Skill",
+        image: "/images/dokumentasi/podcast.jpeg",
+        description: "Forum berbagi pengalaman terkait komunikasi, manajemen waktu, dan kerja tim.",
+      },
+      {
+        title: "Pembinaan Kader dan Evaluasi Berkala",
+        image: "/images/dokumentasi/safari.jpg",
+        description: "Evaluasi perkembangan kader secara periodik agar kualitas SDM bidang terus meningkat.",
+      },
+    ],
   },
   {
     id: "litbang",
@@ -362,6 +384,28 @@ const KABINET_BIDANG: BidangDetail[] = [
             avatar: "/images/pengurus/litbang/angel.png" 
           },
         ],
+      },
+    ],
+    workPrograms: [
+      {
+        title: "Workshop Pengembangan Web Aplikasi",
+        image: "/images/dokumentasi/lomba.jpeg",
+        description: "Pelatihan teknis pengembangan aplikasi web dari perancangan hingga implementasi.",
+      },
+      {
+        title: "Kelas Desain Interaktif",
+        image: "/images/dokumentasi/pkkmb.jpg",
+        description: "Kelas praktik desain antarmuka dan pengalaman pengguna untuk meningkatkan kualitas produk digital.",
+      },
+      {
+        title: "Riset dan Implementasi Teknologi Baru",
+        image: "/images/dokumentasi/safari.jpg",
+        description: "Eksplorasi teknologi terbaru dan penerapan hasil riset dalam proyek internal HIMSI.",
+      },
+      {
+        title: "Pendampingan Lomba Teknologi",
+        image: "/images/dokumentasi/lomba.jpeg",
+        description: "Pendampingan persiapan tim lomba agar anggota siap berkompetisi di bidang teknologi.",
       },
     ],
   },
@@ -441,12 +485,34 @@ const KABINET_BIDANG: BidangDetail[] = [
             role: "Staff Kolaborasi dan Kemitraan Sosial",
             avatar: "/images/pengurus/sosial/sri.png"
           },
-          { 
-            name: "Muhammad Arsya P.", 
-            role: "Staff Kolaborasi dan Kemitraan Sosial",
-            avatar: "/images/pengurus/sosial/arsya.png"
-          },
+          // { 
+          //   name: "Muhammad Arsya P.", 
+          //   role: "Staff Kolaborasi dan Kemitraan Sosial",
+          //   avatar: "/images/pengurus/sosial/arsya.png"
+          // },
         ],
+      },
+    ],
+    workPrograms: [
+      {
+        title: "Bakti Sosial Mahasiswa",
+        image: "/images/dokumentasi/safari.jpg",
+        description: "Kegiatan sosial untuk menumbuhkan kepedulian mahasiswa terhadap lingkungan sekitar.",
+      },
+      {
+        title: "Program Donasi dan Dana Usaha",
+        image: "/images/dokumentasi/ksi.jpg",
+        description: "Penggalangan dana kreatif untuk mendukung program sosial berkelanjutan.",
+      },
+      {
+        title: "Kolaborasi Pengabdian bersama Mitra Sosial",
+        image: "/images/dokumentasi/pkkmb.jpg",
+        description: "Kolaborasi dengan komunitas atau lembaga sosial untuk memperluas dampak kegiatan.",
+      },
+      {
+        title: "Aksi Sosial untuk Masyarakat Sekitar",
+        image: "/images/dokumentasi/ldo.jpg",
+        description: "Program langsung ke masyarakat melalui edukasi, bantuan, dan kegiatan pemberdayaan.",
       },
     ],
   },
@@ -532,6 +598,28 @@ const KABINET_BIDANG: BidangDetail[] = [
             avatar: "/images/pengurus/kominfo/vito.png"
           },
         ],
+      },
+    ],
+    workPrograms: [
+      {
+        title: "Kupas KSI",
+        image: "/images/dokumentasi/podcast.jpeg",
+        description: "Program diskusi interaktif yang membahas topik sistem informasi dan organisasi mahasiswa.",
+      },
+      {
+        title: "Publikasi Konten Edukasi HIMSI",
+        image: "/images/dokumentasi/pkkmb.jpg",
+        description: "Produksi konten informatif untuk media sosial agar informasi himpunan tersampaikan jelas.",
+      },
+      {
+        title: "Dokumentasi Kegiatan Internal & Eksternal",
+        image: "/images/dokumentasi/ksi.jpg",
+        description: "Pendokumentasian foto dan video seluruh kegiatan sebagai arsip dan materi publikasi.",
+      },
+      {
+        title: "Kampanye Branding Digital HIMSI",
+        image: "/images/dokumentasi/lomba.jpeg",
+        description: "Strategi komunikasi digital untuk memperkuat identitas dan citra positif HIMSI.",
       },
     ],
   },

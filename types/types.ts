@@ -71,6 +71,12 @@ export type BidangName =
     | "Sosial"
     | "Kominfo";
 
+export type WorkProgram = {
+    title: string;
+    image: string;
+    description: string;
+};
+
 export type BidangDetail = {
     id: BidangId;
     name: BidangName;
@@ -78,6 +84,7 @@ export type BidangDetail = {
     desc: string;
     leaders: Person[];
     divisions: Division[];
+    workPrograms?: WorkProgram[];
 };
 
 export type BPHRole =

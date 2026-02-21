@@ -40,7 +40,7 @@ function MosaicTile({
     >
       <div className="absolute inset-0">
         {cover ? (
-          <Image src={cover} alt={title} fill className="object-cover scale-[1.04]" />
+          <Image src={cover} alt={title} fill className="object-cover scale-[1.00]" />
         ) : (
           <div className="h-full w-full bg-gradient-to-br from-[#0B3B82]/35 via-white/10 to-[#EA6A1A]/30" />
         )}
@@ -60,7 +60,7 @@ function MosaicTile({
       </div>
 
       <div className="relative flex h-full flex-col justify-between p-5 sm:p-6">
-        <div className="flex items-start justify-between gap-3">
+        {/* <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-semibold text-white/90">
             {icon ? (
               <span className="relative h-4 w-4 overflow-hidden rounded-md bg-white/10">
@@ -92,7 +92,7 @@ function MosaicTile({
               Lihat Anggota <span className="opacity-80">↗</span>
             </div>
           ) : null}
-        </div>
+        </div> */}
       </div>
     </Wrapper>
   );
@@ -111,8 +111,8 @@ export default function Bidang({
   const layoutById: Record<string, string> = {
     psdm: "col-span-12 sm:col-span-6 lg:col-span-4 lg:row-span-2",
     kominfo: "col-span-12 sm:col-span-6 lg:col-span-4 lg:row-span-2",
-    litbang: "col-span-12 lg:col-span-6 lg:col-span-4 lg:row-span-2",
-    sosial: "col-span-12 lg:col-span-6 lg:col-span-4 lg:row-span-2",
+    litbang: "col-span-12 sm:col-span-6 lg:col-span-4 lg:row-span-2",
+    sosial: "col-span-12 sm:col-span-6 lg:col-span-4 lg:row-span-2",
   };
 
   const getBidang = (id: string) => bidangList.find((b) => b.id === id);
@@ -143,7 +143,7 @@ export default function Bidang({
             title="BPH"
             // subtitle="Badan Pengurus Harian"
             badge="BPH"
-            cover="/images/bidang/bph.png"
+            cover="/images/logo/logo-himsi.png"
             className="col-span-12 lg:col-span-4 lg:row-span-2"
             onClick={() => onClickAnggota("bph")} 
           />
@@ -151,13 +151,22 @@ export default function Bidang({
           {psdm && (
             <MosaicTile
               className={layoutById.psdm}
-              title={psdm.name}
+              title=""
               badge="PSDM"
               icon={psdm.logo}
-              cover="/images/bidang/psdm.png"
+              cover="/images/logo/logo-psdm.jpeg"
               onClick={() => onClickAnggota(psdm.id)}
             />
           )}
+
+          <MosaicTile
+            title="BPH"
+            // subtitle="Badan Pengurus Harian"
+            badge="BPH"
+            cover="/images/logo/logo-kabinet.png"
+            className="col-span-12 lg:col-span-4 lg:row-span-2"
+            onClick={() => onClickAnggota("bph")} 
+          />
 
           {kominfo && (
             <MosaicTile
@@ -165,7 +174,7 @@ export default function Bidang({
               title={kominfo.name}
               badge="Kominfo"
               icon={kominfo.logo}
-              cover="/images/bidang/kominfo.png"
+              cover="/images/logo/logo-kominfo.jpeg"
               onClick={() => onClickAnggota(kominfo.id)}
             />
           )}
@@ -176,7 +185,7 @@ export default function Bidang({
               title={litbang.name}
               badge="Litbang IT"
               icon={litbang.logo}
-              cover="/images/bidang/litbang.png"
+              cover="/images/logo/logo-litbang.png"
               onClick={() => onClickAnggota(litbang.id)}
             />
           )}
@@ -187,7 +196,7 @@ export default function Bidang({
               title={sosial.name}
               badge="Bidang"
               icon={sosial.logo}
-              cover="/images/bidang/sosial.png"
+              cover="/images/logo/logo-sosial.png"
               onClick={() => onClickAnggota(sosial.id)}
             />
           )}
