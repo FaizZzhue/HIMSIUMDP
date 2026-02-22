@@ -1,6 +1,6 @@
 "use client";
 
-import TiltedCard from "@/lib/animations/TiltedCard";
+import TiltedCard from "@/components/common/TiltedCard";
 import { AboutStatCardProps } from "@/types/types";
 
 

@@ -5,13 +5,13 @@ import type { ElementType, Ref } from "react";
 import type { BidangDetail } from "@/types/types";
 import Snowfall from "react-snowfall";
 
-
 function MosaicTile({
   title,
   subtitle,
   badge,
   icon,
   cover,
+  coverContain = false,
   className = "",
   onClick,
 }: {
@@ -20,79 +20,60 @@ function MosaicTile({
   badge?: string;
   icon?: string;
   cover?: string;
+  coverContain?: boolean;
   className?: string;
   onClick?: () => void;
 }) {
   const Wrapper: ElementType = onClick ? "button" : "div";
+  const displayTitle = title || badge || "Bidang";
 
   return (
     <Wrapper
       onClick={onClick}
       type={onClick ? "button" : undefined}
-      aria-label={onClick ? `Buka anggota ${title}` : undefined}
+      aria-label={onClick ? `Buka anggota ${displayTitle}` : undefined}
       className={[
-        "group relative w-full overflow-hidden rounded-[22px] border border-white/30",
-        "bg-white/10 shadow-[0_18px_60px_rgba(2,6,23,0.18)] backdrop-blur-xl",
-        "transition hover:-translate-y-[2px] hover:border-white/50 hover:shadow-[0_24px_80px_rgba(2,6,23,0.22)]",
-        onClick ? "text-left cursor-pointer" : "",
+        "group relative w-full overflow-hidden rounded-[16px] border border-[rgba(7,18,39,0.1)]",
+        "bg-[linear-gradient(180deg,rgba(255,255,255,0.82)_0%,rgba(255,255,255,0.60)_100%)]",
+        "shadow-[0_14px_40px_rgba(7,18,39,0.12),inset_0_1px_0_rgba(255,255,255,0.65)] backdrop-blur-[20px] saturate-125",
+        "transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_56px_rgba(7,18,39,0.16),inset_0_1px_0_rgba(255,255,255,0.75)]",
+        onClick ? "cursor-pointer text-left" : "",
         className,
       ].join(" ")}
     >
       <div className="absolute inset-0">
         {cover ? (
-          <Image src={cover} alt={title} fill className="object-cover scale-[1.00]" />
+          <Image
+            src={cover}
+            alt={displayTitle}
+            fill
+            className={[
+              "h-full w-full transition-transform duration-500 ease-out group-hover:scale-[1.03]",
+              coverContain ? "object-contain p-2.5 sm:p-3.5" : "object-cover",
+            ].join(" ")}
+          />
         ) : (
           <div className="h-full w-full bg-gradient-to-br from-[#0B3B82]/35 via-white/10 to-[#EA6A1A]/30" />
         )}
 
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/15 to-transparent" />
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/20 to-transparent transition-opacity duration-300 group-hover:from-slate-950/80" />
 
         <div
-          className="absolute inset-0 opacity-35"
+          className="absolute inset-0 opacity-25"
           style={{
             backgroundImage:
-              "radial-gradient(rgba(255,255,255,0.32) 1px, transparent 1px)",
+              "radial-gradient(rgba(255,255,255,0.28) 1px, transparent 1px)",
             backgroundSize: "18px 18px",
           }}
-        />
-
-        <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(115deg,transparent_0%,rgba(255,255,255,0.28)_40%,transparent_70%)]" />
+        /> */}
       </div>
 
-      <div className="relative flex h-full flex-col justify-between p-5 sm:p-6">
-        {/* <div className="flex items-start justify-between gap-3">
-          <div className="flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-semibold text-white/90">
-            {icon ? (
-              <span className="relative h-4 w-4 overflow-hidden rounded-md bg-white/10">
-                <Image src={icon} alt="" fill className="object-contain p-[2px]" />
-              </span>
-            ) : null}
-            <span>{badge ?? "Kabinet"}</span>
-          </div>
-
-          {onClick ? (
-            <span className="grid h-9 w-9 place-items-center rounded-full border border-white/25 bg-white/10 text-white/90 transition group-hover:bg-white/15">
-              →
-            </span>
-          ) : null}
+      <div className="pointer-events-none absolute inset-0 flex justify-center opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+        <div className="w-full h-full border border-white/25 bg-slate-900/58 px-3 py-1.5 shadow-[0_16px_45px_rgba(2,6,23,0.6)] backdrop-blur-md flex items-center justify-center">
+          <p className="text-center text-xs font-bold tracking-wide text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] sm:text-3xl">
+            {displayTitle}
+          </p>
         </div>
-
-        <div>
-          <div className="text-lg font-extrabold tracking-tight text-white sm:text-xl">
-            {title}
-          </div>
-          {subtitle ? (
-            <div className="mt-1 text-xs font-medium text-white/75 sm:text-sm">
-              {subtitle}
-            </div>
-          ) : null}
-
-          {onClick ? (
-            <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-bold text-white/90">
-              Lihat Anggota <span className="opacity-80">↗</span>
-            </div>
-          ) : null}
-        </div> */}
       </div>
     </Wrapper>
   );
@@ -107,7 +88,6 @@ export default function Bidang({
   bidangList: BidangDetail[];
   onClickAnggota: (id: BidangDetail["id"]) => void;
 }) {
-
   const layoutById: Record<string, string> = {
     psdm: "col-span-12 sm:col-span-6 lg:col-span-4 lg:row-span-2",
     kominfo: "col-span-12 sm:col-span-6 lg:col-span-4 lg:row-span-2",
@@ -126,7 +106,7 @@ export default function Bidang({
     <section
       ref={sectionRef}
       id="bidang"
-      className="relative overflow-hidden pt-20 pb-12"
+      className="relative overflow-hidden pb-12 pt-20"
     >
       <Snowfall />
       <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-7 lg:px-10">
@@ -137,21 +117,20 @@ export default function Bidang({
           </h2>
         </div>
 
-        <div className="mt-12 grid grid-cols-12 grid-flow-dense gap-4 sm:gap-5 [grid-auto-rows:140px] sm:[grid-auto-rows:160px] lg:[grid-auto-rows:170px]">
-          
+        <div className="mt-12 grid grid-cols-12 grid-flow-dense gap-3.5 sm:gap-4 [grid-auto-rows:112px] sm:[grid-auto-rows:132px] lg:[grid-auto-rows:142px]">
           <MosaicTile
-            title="BPH"
-            // subtitle="Badan Pengurus Harian"
-            badge="BPH"
+            title="BPI"
+            badge="BPI"
             cover="/images/logo/logo-himsi.png"
+            coverContain
             className="col-span-12 lg:col-span-4 lg:row-span-2"
-            onClick={() => onClickAnggota("bph")} 
+            onClick={() => onClickAnggota("bpi")}
           />
 
           {psdm && (
             <MosaicTile
               className={layoutById.psdm}
-              title=""
+              title={psdm.name}
               badge="PSDM"
               icon={psdm.logo}
               cover="/images/logo/logo-psdm.jpeg"
@@ -160,12 +139,12 @@ export default function Bidang({
           )}
 
           <MosaicTile
-            title="BPH"
-            // subtitle="Badan Pengurus Harian"
-            badge="BPH"
+            title="BPI"
+            badge="BPI"
             cover="/images/logo/logo-kabinet.png"
+            coverContain
             className="col-span-12 lg:col-span-4 lg:row-span-2"
-            onClick={() => onClickAnggota("bph")} 
+            onClick={() => onClickAnggota("bpi")}
           />
 
           {kominfo && (

@@ -231,36 +231,40 @@ export default function Pengurus({
                 </div>
 
                 <div className="mt-6 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setViewMode("kepengurusan");
-                      setActiveIndex(0);
-                    }}
-                    className={[
-                      "rounded-full border px-4 py-2 text-sm font-bold transition",
-                      viewMode === "kepengurusan"
-                        ? "border-[#D3A32D] bg-[#D3A32D] text-[#0A3763]"
-                        : "glass-card text-foreground hover:bg-white/15",
-                    ].join(" ")}
-                  >
-                    Kepengurusan
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setViewMode("staff");
-                      setActiveIndex(0);
-                    }}
-                    className={[
-                      "rounded-full border px-4 py-2 text-sm font-bold transition",
-                      viewMode === "staff"
-                        ? "border-[#D3A32D] bg-[#D3A32D] text-[#0A3763]"
-                        : "glass-card text-foreground hover:bg-white/15",
-                    ].join(" ")}
-                  >
-                    Anggota
-                  </button>
+                  {bidang.id !== "bpi" && (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setViewMode("kepengurusan");
+                          setActiveIndex(0);
+                        }}
+                        className={[
+                          "rounded-full border px-4 py-2 text-sm font-bold transition",
+                          viewMode === "kepengurusan"
+                            ? "border-[#D3A32D] bg-[#D3A32D] text-[#0A3763]"
+                            : "glass-card text-foreground hover:bg-white/15",
+                        ].join(" ")}
+                      >
+                        Kepengurusan
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setViewMode("staff");
+                          setActiveIndex(0);
+                        }}
+                        className={[
+                          "rounded-full border px-4 py-2 text-sm font-bold transition",
+                          viewMode === "staff"
+                            ? "border-[#D3A32D] bg-[#D3A32D] text-[#0A3763]"
+                            : "glass-card text-foreground hover:bg-white/15",
+                        ].join(" ")}
+                      >
+                        Anggota
+                      </button>
+                    </>
+                  )}
                 </div>
 
                 <div className="mt-10 flex items-center justify-center gap-7">

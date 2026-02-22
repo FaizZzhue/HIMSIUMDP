@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import StarBorder from "@/lib/animations/StarBorder";
+import StarBorder from "@/components/common/StarBorder";
 import { Star } from "lucide-react";
 
 export default function HeroSection() {

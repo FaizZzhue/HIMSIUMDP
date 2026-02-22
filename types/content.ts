@@ -13,7 +13,7 @@ import {
 
 import type {
     AboutStat,
-    BPH,
+    BPI,
     BidangDetail,
     ContactCard,
     FaqItem,
@@ -198,7 +198,7 @@ const ABOUT_GALLERY: GalleryItem[] = [
   },
 ];
 
-const KABINET_BPH_DATA: BPH[] = [
+const KABINET_BPI_DATA: BPI[] = [
   {
     name: "Muhammad Akbar",
     role: "Ketua",
@@ -637,7 +637,7 @@ export const CONTENT = {
         gallery: ABOUT_GALLERY,
     },
     kabinet: {
-        bph: KABINET_BPH_DATA,
+        bpi: KABINET_BPI_DATA,
         bidang: KABINET_BIDANG,
     },
     aspirasi: {},

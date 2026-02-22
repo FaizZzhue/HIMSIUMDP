@@ -1,7 +1,7 @@
 "use client";
 
 import Snowfall from "react-snowfall";
-import TiltedCard from "@/lib/animations/TiltedCard";
+import TiltedCard from "@/components/common/TiltedCard";
 
 export default function VisiMisi() {
     return (

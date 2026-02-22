@@ -1,13 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -94,19 +88,19 @@ export default function FormAspirasiSection() {
 
 
   return (
-    <section className="relative py-16">
+    <section className="relative py-26">
       <Snowfall />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(900px_600px_at_50%_20%,rgba(211,163,45,0.14),transparent_60%)]" />
       {/* <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(900px_600px_at_50%_80%,rgba(211,163,45,0.10),transparent_60%)]" /> */}
 
       <div className="mx-auto max-w-2xl px-5 sm:px-7">
         <div className="text-center">
-          <div className="mx-auto mb-3 h-1 w-16 rounded-full bg-[var(--himsi-gold)]/80" />
+          {/* <div className="mx-auto mb-3 h-1 w-16 rounded-full bg-[var(--himsi-gold)]/80" /> */}
           <h2 className="text-4xl font-extrabold tracking-tight">
             <span className="text-[var(--himsi-gold)]">Form</span> Aspirasi
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm text-foreground">
-            Bagikan aspirasi, saran, dan ide Anda untuk membantu kami tumbuh dan berkembang. Pendapat Anda sangat berarti bagi kemajuan bersama.
+            Suarakan aspirasi dan ide kreatif Anda untuk membantu kami terus bertumbuh. Masukan Anda adalah energi utama di balik setiap langkah kemajuan kita.
           </p>
         </div>
 

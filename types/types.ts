@@ -61,11 +61,11 @@ export type Division = {
     members: Person[];
 };
 
-export type BidangId = "bph" | "psdm" | "litbang" | "sosial" | "kominfo";
+export type BidangId = "bpi" | "psdm" | "litbang" | "sosial" | "kominfo";
 
 export type BidangName =
-    | "BPH"
-    | "Badan Pengurus Harian"
+    | "BPI"
+    | "Badan Pengurus Inti"
     | "PSDM"
     | "Litbang IT"
     | "Sosial"
@@ -87,7 +87,7 @@ export type BidangDetail = {
     workPrograms?: WorkProgram[];
 };
 
-export type BPHRole =
+export type BPIRole =
     | "Ketua"
     | "Wakil Ketua"
     | "Sekretaris 1"
@@ -95,8 +95,8 @@ export type BPHRole =
     | "Bendahara 1"
     | "Bendahara 2";
 
-export type BPH = {
+export type BPI = {
     name: string;
-    role: BPHRole;
+    role: BPIRole;
     avatar?: string;
 };

@@ -6,13 +6,13 @@ import type { BidangDetail } from "@/types/types";
 import BidangKabinetSection from "./modules/Bidang";
 import PengurusKabinetSection from "./modules/Pengurus";
 
-function buildBphBidangDetail(): BidangDetail {
+function buildBpiBidangDetail(): BidangDetail {
     return {
-        id: "bph",
-        name: "Badan Pengurus Harian",
+        id: "bpi",
+        name: "Badan Pengurus Inti",
         logo: "/images/logo/logo-himsi.png",
-        desc: "Badan Pengurus Harian yang mengoordinasikan seluruh jalannya organisasi.",
-        leaders: CONTENT.kabinet.bph.map((person) => ({
+        desc: "Badan Pengurus Inti yang mengoordinasikan seluruh jalannya organisasi.",
+        leaders: CONTENT.kabinet.bpi.map((person) => ({
             name: person.name,
             role: person.role,
             avatar: person.avatar,
@@ -25,11 +25,11 @@ function buildBphBidangDetail(): BidangDetail {
 export default function BidangPengurus() {
     const bidangRef = useRef<HTMLElement | null>(null);
     const anggotaRef = useRef<HTMLElement | null>(null);
-    const [selectedId, setSelectedId] = useState<BidangDetail["id"]>("bph");
+    const [selectedId, setSelectedId] = useState<BidangDetail["id"]>("bpi");
 
     const selectedBidang = useMemo(() => {
-        if (selectedId === "bph") {
-            return buildBphBidangDetail();
+        if (selectedId === "bpi") {
+            return buildBpiBidangDetail();
         }
 
         return CONTENT.kabinet.bidang.find((item) => item.id === selectedId) ?? null;
