@@ -165,7 +165,7 @@ const ABOUT_GALLERY: GalleryItem[] = [
     purpose: "Meningkatan solidaritas dan kebersamaan antar mahasiswa Sistem Informasi.",
   },
   {
-    src: "/images/dokumentasi/pkkmb.jpg",
+    src: "/images/dokumentasi/pkkmb.png",
     alt: "Kegiatan HIMSI 3",
     title: "Perkenalan Kehidupan Kampus Mahasiswa Baru (PKKMB)",
     proker: "Proker: Umum",
@@ -394,7 +394,7 @@ const KABINET_BIDANG: BidangDetail[] = [
       },
       {
         title: "Kelas Desain Interaktif",
-        image: "/images/dokumentasi/pkkmb.jpg",
+        image: "/images/dokumentasi/pkkmb.png",
         description: "Kelas praktik desain antarmuka dan pengalaman pengguna untuk meningkatkan kualitas produk digital.",
       },
       {
@@ -506,7 +506,7 @@ const KABINET_BIDANG: BidangDetail[] = [
       },
       {
         title: "Kolaborasi Pengabdian bersama Mitra Sosial",
-        image: "/images/dokumentasi/pkkmb.jpg",
+        image: "/images/dokumentasi/pkkmb.png",
         description: "Kolaborasi dengan komunitas atau lembaga sosial untuk memperluas dampak kegiatan.",
       },
       {
@@ -608,7 +608,7 @@ const KABINET_BIDANG: BidangDetail[] = [
       },
       {
         title: "Publikasi Konten Edukasi HIMSI",
-        image: "/images/dokumentasi/pkkmb.jpg",
+        image: "/images/dokumentasi/pkkmb.png",
         description: "Produksi konten informatif untuk media sosial agar informasi himpunan tersampaikan jelas.",
       },
       {
