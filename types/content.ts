@@ -470,27 +470,32 @@ const KABINET_BIDANG: BidangDetail[] = [
       {
         title: "Redesign Web HIMSI",
         image: "/images/dokumentasi/web.png",
-        description: "Pelatihan teknis pengembangan aplikasi web dari perancangan hingga implementasi.",
+        description:
+          "Proyek perombakan tampilan dan struktur website HIMSI agar lebih modern, responsif, dan mudah digunakan, mulai dari desain hingga implementasi.",
       },
       {
         title: "TRIKOLOGI",
         image: "/images/dokumentasi/trikologi.png",
-        description: "Kelas praktik desain antarmuka dan pengalaman pengguna untuk meningkatkan kualitas produk digital.",
+        description:
+          "Kegiatan publikasi dan dokumentasi media HIMSI melalui konten informasi, desain visual, dan kreativitas branding di berbagai platform.",
       },
       {
         title: "TRIKOLOGI",
         image: "/images/dokumentasi/trikologi1.png",
-        description: "Kelas praktik desain antarmuka dan pengalaman pengguna untuk meningkatkan kualitas produk digital.",
+        description:
+          "Kegiatan publikasi dan dokumentasi media HIMSI melalui konten informasi, desain visual, dan kreativitas branding di berbagai platform.",
       },
       {
         title: "Manage Discord",
         image: "/images/dokumentasi/discord.png",
-        description: "Eksplorasi teknologi terbaru dan penerapan hasil riset dalam proyek internal HIMSI.",
+        description:
+          "Pengelolaan Discord HIMSI sebagai pusat komunikasi, informasi, dan koordinasi anggota, termasuk struktur channel, roles, dan moderasi.",
       },
       {
         title: "Pelatihan OBS",
         image: "/images/dokumentasi/obs.png",
-        description: "Pendampingan persiapan tim lomba agar anggota siap berkompetisi di bidang teknologi.",
+        description:
+          "Pelatihan penggunaan OBS untuk kebutuhan streaming dan produksi acara, mencakup setup scene, audio, overlay, dan teknis siaran.",
       },
       {
         title: "Hack-Hati",
