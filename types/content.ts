@@ -371,24 +371,34 @@ const KABINET_BIDANG: BidangDetail[] = [
     ],
     workPrograms: [
       {
-        title: "Latihan Dasar Kepemimpinan & Organisasi (LDO)",
-        image: "/images/dokumentasi/ldo.jpg",
-        description: "Pelatihan kepemimpinan dasar untuk membangun karakter, kedisiplinan, dan budaya organisasi anggota.",
-      },
-      {
-        title: "CAREER PREPARATION WITH HIMSI",
-        image: "/images/dokumentasi/psdm2.jpeg",
-        description: "Program pendampingan rutin untuk membantu anggota baru beradaptasi dan berkembang dalam organisasi.",
+        title: "Musyawarah Besar",
+        image: "/images/dokumentasi/mubes.png",
+        description:
+          "Forum tertinggi organisasi untuk laporan pertanggungjawaban, evaluasi, pembahasan AD/ART, dan pemilihan kepengurusan periode berikutnya.",
       },
       {
         title: "BUKBER INCLUDE MEET & GREET HIMSI",
         image: "/images/dokumentasi/psdm1.jpg",
-        description: "Forum berbagi pengalaman terkait komunikasi, manajemen waktu, dan kerja tim.",
+        description:
+          "Kegiatan buka puasa bersama sekaligus sesi perkenalan dan keakraban antar anggota untuk mempererat silaturahmi dan kekompakan.",
       },
       {
-        title: "HIMSI REWIND",
-        image: "/images/soon.png",
-        description: "Evaluasi perkembangan kader secara periodik agar kualitas SDM bidang terus meningkat.",
+        title: "Latihan Dasar Kepemimpinan & Organisasi (LDO)",
+        image: "/images/dokumentasi/ldo.jpg",
+        description:
+          "Pelatihan dasar untuk membekali anggota dengan mindset kepemimpinan, etika organisasi, kedisiplinan, dan kerja tim.",
+      },
+      {
+        title: "Carrer Preparation with HIMSI",
+        image: "/images/dokumentasi/psdm3.jpeg",
+        description:
+          "Program pengembangan karier berisi sharing, mentoring, dan persiapan CV/LinkedIn, interview, serta insight dunia kerja dan magang.",
+      },
+      {
+        title: "KUNJUNGAN EKSTERNAL PSDM",
+        image: "/images/dokumentasi/eksternal.png",
+        description:
+          "Kegiatan kunjungan/benchmarking ke organisasi eksternal untuk memperluas relasi, bertukar wawasan, dan belajar sistem pengembangan SDM.",
       },
     ],
   },
@@ -459,23 +469,34 @@ const KABINET_BIDANG: BidangDetail[] = [
     workPrograms: [
       {
         title: "Redesign Web HIMSI",
-        image: "/images/dokumentasi/lomba.jpeg",
+        image: "/images/dokumentasi/web.png",
         description: "Pelatihan teknis pengembangan aplikasi web dari perancangan hingga implementasi.",
       },
       {
         title: "TRIKOLOGI",
-        image: "/images/dokumentasi/pkkmb.png",
+        image: "/images/dokumentasi/trikologi.png",
+        description: "Kelas praktik desain antarmuka dan pengalaman pengguna untuk meningkatkan kualitas produk digital.",
+      },
+      {
+        title: "TRIKOLOGI",
+        image: "/images/dokumentasi/trikologi1.png",
         description: "Kelas praktik desain antarmuka dan pengalaman pengguna untuk meningkatkan kualitas produk digital.",
       },
       {
         title: "Manage Discord",
-        image: "/images/dokumentasi/safari.jpg",
+        image: "/images/dokumentasi/discord.png",
         description: "Eksplorasi teknologi terbaru dan penerapan hasil riset dalam proyek internal HIMSI.",
       },
       {
         title: "Pelatihan OBS",
-        image: "/images/dokumentasi/lomba.jpeg",
+        image: "/images/dokumentasi/obs.png",
         description: "Pendampingan persiapan tim lomba agar anggota siap berkompetisi di bidang teknologi.",
+      },
+      {
+        title: "Hack-Hati",
+        image: "/images/soon.png",
+        description:
+          "Seminar dan workshop berbasis AI untuk siswa SMA, berfokus pada pengenalan teknologi, praktik langsung, dan pengembangan kreativitas digital.",
       },
     ],
   },
@@ -567,22 +588,26 @@ const KABINET_BIDANG: BidangDetail[] = [
       {
         title: "HIMSI Berbagi",
         image: "/images/dokumentasi/sosial1.png",
-        description: "Kegiatan sosial untuk menumbuhkan kepedulian mahasiswa terhadap lingkungan sekitar.",
+        description:
+          "Kegiatan berbagi dan aksi sosial untuk membantu masyarakat sekitar, seperti penyaluran donasi dan program kepedulian HIMSI.",
       },
       {
         title: "Bazar Sosial",
         image: "/images/soon.png",
-        description: "Penggalangan dana kreatif untuk mendukung program sosial berkelanjutan.",
-      },
+        description:
+          "Kegiatan berjualan produk takjil selama Ramadan sebagai bentuk penggalangan dana untuk mendukung program sosial dan kegiatan HIMSI.",
+},
       {
-        title: "Pembuatan Baju & Lanyard",
-        image: "/images/dokumentasi/pkkmb.png",
-        description: "Kolaborasi dengan komunitas atau lembaga sosial untuk memperluas dampak kegiatan.",
+        title: "Dana Pembuatan Baju & Lanyard",
+        image: "/images/dokumentasi/sosial2.jpeg",
+        description:
+          "Program pengadaan dana untuk produksi atribut HIMSI (baju & lanyard) sebagai identitas anggota dan penunjang kegiatan organisasi.",
       },
       {
         title: "Hack-Hati",
         image: "/images/soon.png",
-        description: "Program langsung ke masyarakat melalui edukasi, bantuan, dan kegiatan pemberdayaan.",
+        description:
+          "Seminar dan workshop berbasis AI untuk siswa SMA, berfokus pada pengenalan teknologi, praktik langsung, dan pengembangan kreativitas digital.",
       },
     ],
   },
