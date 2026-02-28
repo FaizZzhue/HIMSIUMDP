@@ -29,13 +29,9 @@ export function TestimonialCard({ item }: { item: Testimonial }) {
                         <p className="mt-0.5 line-clamp-2 text-xs text-[#D3A32D]">{item.role}</p>
                     </div>
                 </div>
-                <p className="text-[16px] font-semibold italic leading-relaxed text-slate-800">{item.quoteTitle}</p>
 
                 <p className="mt-2 text-[14px] leading-relaxed text-foreground">{item.quoteText}</p>
 
-                {item.note ? (
-                    <p className="mt-4 text-[13px] leading-relaxed text-foreground/90">{item.note}</p>
-                ) : null}
             </div>
         </article>
     );

@@ -30,53 +30,123 @@ const HOME_ABOUT_STATS: AboutStat[] = [
 const HOME_TESTIMONIALS: Testimonial[] = [
   {
     id: "t1",
-    quoteTitle: "Menjadi Ketua HIMSI",
     quoteText:
-        "Universitas Multi Data Palembang selama satu periode jadi salah satu pengalaman paling berkesan.",
-    note: "Banyak hal yang saya pelajari, terutama tentang kepemimpinan dan teamwork.",
+        "HIMSI memiliki peran strategis sebagai wadah pengembangan potensi, intelektualitas, serta jiwa kepemimpinan mahasiswa Sistem Informasi. Melalui berbagai program kerja, kegiatan akademik maupun non-akademik, HIMSI berkomitmen untuk menciptakan ekosistem yang mendorong kolaborasi, inovasi, serta kontribusi nyata terhadap lingkungan kampus dan masyarakat luas.",
     name: "Muhammad Akbar",
     role: "Ketua Himpunan Mahasiswa Sistem Informasi",
     avatar: "/images/pengurus/bph/akbar.png",
   },
   {
     id: "t2",
-    quoteTitle: "Keputusan yang tepat",
     quoteText:
-      "Merupakan keputusan tepat bagi saya untuk bergabung dengan HIMSI. Tidak hanya mendapat relasi yang luas tetapi juga pengalaman baru yang menyenangkan.",
-    note: "",
+      "Apresiasi setinggi-tingginya untuk seluruh pengurus dan anggota yang telah bekerja dengan dedikasi, komitmen, dan semangat luar biasa🤍.",
     name: "Wasilah ",
     role: "Kepala Bidang PSDM",
     avatar: "/images/pengurus/psdm/sila.png",
   },
   {
     id: "t3",
-    quoteTitle: "Riset & inovasi",
     quoteText:
       "Di HIMSI UMDP, saya merasakan bagaimana riset dan inovasi berpadu dalam harmoni, menantang batas konvensional dan mengubah gagasan menjadi kenyataan.",
-    note: "",
     name: "Adit Jans",
     role: "Kepala Bidang Litbang",
     avatar: "/images/pengurus/litbang/adit.png",
   },
   {
     id: "t4",
-    quoteTitle: "As queen of leadership",
     quoteText:
       "Satu periode di HIMSI UMDP menjadi pengalaman paling berkesan yang membentuk cara saya memimpin, mengambil keputusan, dan menggerakkan tim.",
-    note: "Saya belajar menjaga arah organisasi sambil tetap merangkul semua anggota.",
     name: "Tria Nanda Mughni",
     role: "Wakil Ketua Himpunan Mahasiswa Sistem Informasi",
     avatar: "/images/pengurus/bph/tria.png",
   },
   {
     id: "t5",
-    quoteTitle: "Pengalaman Berharga",
     quoteText:
       "Bergabung dengan HIMSI adalah keputusan terbaik—saya mendapat relasi baru, pengalaman organisasi yang nyata, dan ruang untuk berkembang setiap harinya.",
-    note: "Dari sini saya belajar disiplin, komunikasi, dan tanggung jawab dalam setiap tugas.",
     name: "Muhammad Tegar R",
     role: "Kepala Bidang Sosial",
     avatar: "/images/pengurus/sosial/tegar.png",
+  },
+  {
+    id: "t6",
+    quoteText:
+      "HIMSI isnt just an a ordinary organization to me but HIMSI is something that change my life. this is the place where i learn about everything not just about campus or organization thing but HIMSI taught me about life too. thank you for every moment, every lesson, every laugh, and every struggle we shared. thank you for accepting me as i am. here, i found my second family and ofc im so proud to be in this journey🤍.",
+    name: "Aulia Syalsabila R.",
+    role: "Koordinator Internal",
+    avatar: "/images/pengurus/psdm/aca.png",
+  },
+  {
+    id: "t7",
+    quoteText:
+      "Terimakasih untuk teman - teman Himsi selama satu periode ini, dan juga untuk kita yang sudah berjalan dan berkembang layaknya keluarga. Himsi from now , tomorow, and beyond 🤍.",
+    name: "Mikhael Vito Wicaksono",
+    role: "Staff Publikasi",
+    avatar: "/images/pengurus/kominfo/vito.png",
+  },
+  {
+    id: "t8",
+    quoteText:
+      "HIMSI marked the beginning of my journey as an active student in the organization. I gained many connections, knowledge, and soft skills that were very useful for me as an individual. Forever thankful that I joined this organization at the right place and at the right time.",
+    name: "Gledys Apriliana",
+    role: "Sekretaris",
+    avatar: "/images/pengurus/bph/gladys.png",
+  },
+  {
+    id: "t9",
+    quoteText:
+      "HIMSI bukan sekadar organisasi, tapi ruang tumbuh bagi mahasiswa Sistem Informasi.",
+    name: "Angelia Oktarini",
+    role: "Staff Publikasi",
+    avatar: "/images/pengurus/kominfo/angel.png",
+  },
+  {
+    id: "t10",
+    quoteText:
+      "Bersama HIMSI, saya belajar arti tanggung jawab, kerja sama, dan profesionalitas. HIMSI mengajarkan bahwa kolaborasi adalah kunci untuk mencapai tujuan bersama. HIMSI memberi saya pengalaman, relasi, dan kenangan yang tak terlupakan. Terima kasih HIMSI, telah menjadi wadah pembentuk karakter dan kepemimpinan.",
+    name: "Rizky Apryandi Triadmojo",
+    role: "Staff Kreatif",
+    avatar: "/images/pengurus/kominfo/mojo.png",
+  },
+  {
+    id: "t11",
+    quoteText:
+      "Masuk HIMSI bukan sekadar hadir untuk belajar. Tapi, berbagi dan berdampak.",
+    name: "Ariadne Clarissa D. O.",
+    role: "Koordinator Pemberdayaan dan Perkembangan Teknologi",
+    avatar: "/images/pengurus/litbang/risa.png",
+  },
+  {
+    id: "t12",
+    quoteText:
+      "to the best crew ever,  Being in the core team can be a lot, but y’all make it look easy. Love you guys for always keeping it real🤍",
+    name: "Alya Putri Rizaldy",
+    role: "Bendahara",
+    avatar: "/images/pengurus/bph/alya.png",
+  },
+  {
+    id: "t13",
+    quoteText:
+      "​HIMSI bukan hanya organisasi, tapi HIMSI juga merupakan ekosistem digital yang hidup, tempat di mana logika bertemu dengan kreativitas untuk mengompilasi masa depan yang lebih bermakna.",
+    name: "Sri Ayu Agustini",
+    role: "Staff Kolaborasi dan Kemitraan Sosial",
+    avatar: "/images/pengurus/sosial/sri.png",
+  },
+  {
+    id: "t14",
+    quoteText:
+      "Himsi tempat tumbuh, belajar, dan saling menguatkan💪🏻💪🏻💪🏻",
+    name: "Rika Rahmawati",
+    role: "Staff Eksternal",
+    avatar: "/images/pengurus/psdm/rika.png",
+  },
+  {
+    id: "t15",
+    quoteText:
+      "Semoga HIMSI tetap berjalan dengan baik, tetap aktif, dan tetap jadi tempat berkembangnya setiap orang yang pernah ada di dalamnya. Bukan cuma soal kegiatan, tapi juga soal kebersamaan dan proses yang dijalani bareng.",
+    name: "Aqila Nike Indriani",
+    role: "Staff Dana Usaha",
+    avatar: "/images/pengurus/sosial/qila.png",
   },
 ];
 
@@ -306,18 +376,18 @@ const KABINET_BIDANG: BidangDetail[] = [
         description: "Pelatihan kepemimpinan dasar untuk membangun karakter, kedisiplinan, dan budaya organisasi anggota.",
       },
       {
-        title: "Mentoring Internal Anggota",
-        image: "/images/dokumentasi/ksi.jpg",
+        title: "CAREER PREPARATION WITH HIMSI",
+        image: "/images/dokumentasi/psdm2.jpeg",
         description: "Program pendampingan rutin untuk membantu anggota baru beradaptasi dan berkembang dalam organisasi.",
       },
       {
-        title: "Sharing Session Pengembangan Soft Skill",
-        image: "/images/dokumentasi/podcast.jpeg",
+        title: "BUKBER INCLUDE MEET & GREET HIMSI",
+        image: "/images/dokumentasi/psdm1.jpg",
         description: "Forum berbagi pengalaman terkait komunikasi, manajemen waktu, dan kerja tim.",
       },
       {
-        title: "Pembinaan Kader dan Evaluasi Berkala",
-        image: "/images/dokumentasi/safari.jpg",
+        title: "HIMSI REWIND",
+        image: "/images/soon.png",
         description: "Evaluasi perkembangan kader secara periodik agar kualitas SDM bidang terus meningkat.",
       },
     ],
@@ -388,22 +458,22 @@ const KABINET_BIDANG: BidangDetail[] = [
     ],
     workPrograms: [
       {
-        title: "Workshop Pengembangan Web Aplikasi",
+        title: "Redesign Web HIMSI",
         image: "/images/dokumentasi/lomba.jpeg",
         description: "Pelatihan teknis pengembangan aplikasi web dari perancangan hingga implementasi.",
       },
       {
-        title: "Kelas Desain Interaktif",
+        title: "TRIKOLOGI",
         image: "/images/dokumentasi/pkkmb.png",
         description: "Kelas praktik desain antarmuka dan pengalaman pengguna untuk meningkatkan kualitas produk digital.",
       },
       {
-        title: "Riset dan Implementasi Teknologi Baru",
+        title: "Manage Discord",
         image: "/images/dokumentasi/safari.jpg",
         description: "Eksplorasi teknologi terbaru dan penerapan hasil riset dalam proyek internal HIMSI.",
       },
       {
-        title: "Pendampingan Lomba Teknologi",
+        title: "Pelatihan OBS",
         image: "/images/dokumentasi/lomba.jpeg",
         description: "Pendampingan persiapan tim lomba agar anggota siap berkompetisi di bidang teknologi.",
       },
@@ -495,23 +565,23 @@ const KABINET_BIDANG: BidangDetail[] = [
     ],
     workPrograms: [
       {
-        title: "Bakti Sosial Mahasiswa",
-        image: "/images/dokumentasi/safari.jpg",
+        title: "HIMSI Berbagi",
+        image: "/images/dokumentasi/sosial1.png",
         description: "Kegiatan sosial untuk menumbuhkan kepedulian mahasiswa terhadap lingkungan sekitar.",
       },
       {
-        title: "Program Donasi dan Dana Usaha",
-        image: "/images/dokumentasi/ksi.jpg",
+        title: "Bazar Sosial",
+        image: "/images/soon.png",
         description: "Penggalangan dana kreatif untuk mendukung program sosial berkelanjutan.",
       },
       {
-        title: "Kolaborasi Pengabdian bersama Mitra Sosial",
+        title: "Pembuatan Baju & Lanyard",
         image: "/images/dokumentasi/pkkmb.png",
         description: "Kolaborasi dengan komunitas atau lembaga sosial untuk memperluas dampak kegiatan.",
       },
       {
-        title: "Aksi Sosial untuk Masyarakat Sekitar",
-        image: "/images/dokumentasi/ldo.jpg",
+        title: "Hack-Hati",
+        image: "/images/soon.png",
         description: "Program langsung ke masyarakat melalui edukasi, bantuan, dan kegiatan pemberdayaan.",
       },
     ],
@@ -607,7 +677,7 @@ const KABINET_BIDANG: BidangDetail[] = [
         description: "Program diskusi interaktif yang membahas topik sistem informasi dan organisasi mahasiswa.",
       },
       {
-        title: "Publikasi Konten Edukasi HIMSI",
+        title: "Himpost",
         image: "/images/dokumentasi/pkkmb.png",
         description: "Produksi konten informatif untuk media sosial agar informasi himpunan tersampaikan jelas.",
       },
@@ -617,7 +687,7 @@ const KABINET_BIDANG: BidangDetail[] = [
         description: "Pendokumentasian foto dan video seluruh kegiatan sebagai arsip dan materi publikasi.",
       },
       {
-        title: "Kampanye Branding Digital HIMSI",
+        title: "Himpromote",
         image: "/images/dokumentasi/lomba.jpeg",
         description: "Strategi komunikasi digital untuk memperkuat identitas dan citra positif HIMSI.",
       },

@@ -7,7 +7,7 @@ import type { MarqueeColumnProps } from "./../../../../types/types";
 
 export function MarqueeColumn({
     items,
-    duration = 18,
+    duration = 40,
     offset = 0,
     reverse = false,
 }: MarqueeColumnProps) {

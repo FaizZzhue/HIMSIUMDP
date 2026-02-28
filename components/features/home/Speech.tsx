@@ -1,40 +1,38 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
+import { AnimatedSection } from "@/components/animation/Animated";
+import { speechVariants, speechImageVariants } from "@/components/animation/presets";
 
 export default function Speech() {
     return (
         <div id="opening-speech" className="relative w-full overflow-hidden min-h-screen pb-10">
             <div className="relative z-10 mx-auto w-full max-w-[1320px] px-5 sm:px-7 lg:px-10">
-                <div className="text-center">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 14 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.6 }}
-                        transition={{ duration: 0.55, delay: 0.05 }}
-                        className="mt-6 text-4xl font-semibold tracking-tight text-[#0A3763] dark:text-[#2464A8] sm:text-5xl"
-                    >
-                        Sambutan Ketua <span className="text-[#D3A32D]">HIMSI</span>
-                    </motion.h1>
-                </div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.35 }}
-                    transition={{ duration: 0.65, delay: 0.05 }}
-                    className="relative mx-auto mt-12 max-w-5xl"
+                <AnimatedSection
+                    variants={speechVariants}
+                    threshold={0.5}
+                    className="text-center"
                 >
+                    <h1 className="mt-6 text-4xl font-semibold tracking-tight text-[#0A3763] dark:text-[#2464A8] sm:text-5xl">
+                        Sambutan Ketua <span className="text-[#D3A32D]">HIMSI</span>
+                    </h1>
+                </AnimatedSection>
+
+                <div className="relative mx-auto mt-12 max-w-5xl">
                     <div
                         aria-hidden
                         className="pointer-events-none absolute -inset-7 rounded-[44px] bg-gradient-to-r from-[#2464A8]/18 via-white/10 to-[#D3A32D]/22 blur-2xl"
                     />
 
                     <div className="relative grid gap-8 rounded-[34px] border border-white/45 bg-white/20 p-8 shadow-[0_18px_70px_rgba(0,0,0,0.18)] backdrop-blur-xl md:grid-cols-[1.2fr_0.8fr] md:items-center">
-                        <div>
+
+                        <AnimatedSection
+                            variants={speechVariants}
+                            threshold={0.2}
+                        >
                             <p className="max-w-xl whitespace-pre-line text-[15px] leading-relaxed text-foreground sm:text-base">
-                                Assalamu’alaikum Warahmatullahi Wabarakatuh,
+                                Assalamualaikum Warahmatullahi Wabarakatuh,
                             </p>
 
                             <p className="max-w-xl whitespace-pre-line text-[15px] leading-relaxed text-foreground sm:text-base">
@@ -60,7 +58,7 @@ export default function Speech() {
                             </p>
 
                             <p className="mt-4 max-w-xl whitespace-pre-line text-[15px] leading-relaxed text-foreground sm:text-base">
-                                Wassalamu’alaikum Warahmatullahi Wabarakatuh.
+                                Wassalamualaikum Warahmatullahi Wabarakatuh.
                             </p>
 
                             <div className="mt-8">
@@ -71,9 +69,13 @@ export default function Speech() {
                                     Ketua Umum, 2025/2026
                                 </div>
                             </div>
-                        </div>
+                        </AnimatedSection>
 
-                        <div className="relative">
+                        <AnimatedSection
+                            variants={speechImageVariants}
+                            threshold={0.2}
+                            className="relative"
+                        >
                             <div className="group relative mx-auto w-full max-w-[360px] rotate-[1.2deg] transition-transform duration-500 hover:rotate-0">
                                 <div className="relative z-10 rounded-[28px] bg-white/70 p-3 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.15)] ring-1 ring-white/50">
                                     <div className="relative aspect-[3/4] overflow-hidden rounded-[20px] bg-slate-100">
@@ -88,15 +90,15 @@ export default function Speech() {
                                         <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/5 to-transparent" />
                                     </div>
                                 </div>
-
                                 <div
                                     aria-hidden
                                     className="pointer-events-none absolute -inset-2 rounded-[32px] border border-white/30 bg-white/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                                 />
                             </div>
-                        </div>
+                        </AnimatedSection>
+
                     </div>
-                </motion.div>
+                </div>
             </div>
         </div>
     );
