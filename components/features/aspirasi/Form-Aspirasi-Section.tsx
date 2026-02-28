@@ -95,7 +95,6 @@ export default function FormAspirasiSection() {
 
       <div className="mx-auto max-w-2xl px-5 sm:px-7">
 
-        {/* Heading — slide dari atas (sama seperti FAQ) */}
         <AnimatedSection variants={faqVariants} threshold={0.3} className="text-center">
           <h2 className="text-4xl font-extrabold tracking-tight">
             <span className="text-[var(--himsi-gold)]">Form</span> Aspirasi
@@ -105,7 +104,6 @@ export default function FormAspirasiSection() {
           </p>
         </AnimatedSection>
 
-        {/* Card form — stagger fields (sama seperti FAQ items) */}
         <AnimatedSection variants={faqContainerVariants} threshold={0.1} className="mt-10">
           <Card className="border-border/60 shadow-sm">
             <CardContent>

@@ -46,16 +46,16 @@ export default function AboutKabinet() {
                             <AnimatedItem variants={heroChildVariants}>
                                 <div className="mt-8 flex flex-wrap gap-3 items-center justify-center">
                                     <Link
-                                        href="#profile"
+                                        href="#anggota"
                                         className="rounded-full bg-[#0A3763] px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95"
                                     >
                                         Struktur Kabinet
                                     </Link>
                                     <Link
-                                        href="#visi-misi"
+                                        href="#bidang"
                                         className="rounded-full border border-black/10 bg-white/60 px-5 py-3 text-sm font-semibold text-foreground backdrop-blur hover:bg-white/75 dark:border-white/15 dark:bg-white/10 dark:hover:bg-white/15"
                                     >
-                                        Lihat Program Kerja
+                                        Lihat Bidang
                                     </Link>
                                 </div>
                             </AnimatedItem>

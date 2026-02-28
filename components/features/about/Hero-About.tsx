@@ -11,7 +11,10 @@ import {
 
 export default function HeroAbout() {
     return (
-        <section className="relative overflow-hidden">
+        <section
+            id="about" 
+            className="relative overflow-hidden"
+        >
             <div className="bg-himsi-hero">
                 <Snowfall />
                 <div className="relative mx-auto max-w-[1240px] px-5 py-20 sm:px-7 lg:px-10">

@@ -105,8 +105,6 @@ const footerCopyrightVariants: Variants = {
   exit: { opacity: 0, transition: { duration: 0.3 } },
 };
 
-// ── Quick links ───────────────────────────────────────────────────────────────
-
 const quickLinks = [
   { label: "Home",     href: "/" },
   { label: "Tentang",  href: "/about" },
@@ -114,14 +112,11 @@ const quickLinks = [
   { label: "Aspirasi", href: "/aspirasi" },
 ];
 
-// ── Komponen ──────────────────────────────────────────────────────────────────
-
 export default function FooterHimsi() {
   return (
     <footer className="relative w-full overflow-hidden">
       <div className="relative mx-auto max-w-[1240px] px-5 py-12 sm:px-7 lg:px-10">
 
-        {/* ── Glass card dengan animasi wrapper masuk dari bawah ── */}
         <AnimatedSection
           variants={footerWrapperVariants}
           threshold={0.1}
@@ -130,7 +125,6 @@ export default function FooterHimsi() {
         >
           <div className="grid gap-10 lg:grid-cols-12">
 
-            {/* ── Kolom Logo ── */}
             <AnimatedItem
               variants={footerLogoVariants}
               className="lg:col-span-4"
@@ -153,7 +147,6 @@ export default function FooterHimsi() {
               </p>
             </AnimatedItem>
 
-            {/* ── Kolom Menu dengan stagger per item ── */}
             <AnimatedItem
               variants={footerMenuContainerVariants}
               className="lg:col-span-3"
@@ -176,7 +169,6 @@ export default function FooterHimsi() {
               </ul>
             </AnimatedItem>
 
-            {/* ── Kolom Info dengan stagger per baris ── */}
             <AnimatedItem
               variants={footerInfoContainerVariants}
               className="lg:col-span-5 text-muted-foreground"

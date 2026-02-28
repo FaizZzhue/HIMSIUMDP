@@ -87,7 +87,7 @@ export default function HeroSection() {
                                 className="h-12 rounded-full px-9 text-white bg-[#0A3763] hover:bg-[#0A3763]/90 dark:bg-[#2464A8] dark:hover:bg-[#2464A8]/90"
                                 asChild
                             >
-                                <Link href="/program">Lihat Program</Link>
+                                <Link href="/kabinet">Lihat Program</Link>
                             </Button>
 
                             <Button

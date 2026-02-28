@@ -121,7 +121,7 @@ export default function Pengurus({
     const hasProgramKerja = Boolean(bidang?.workPrograms?.length);
 
     return (
-        <section ref={sectionRef} id="anggota-bidang" className="relative overflow-hidden min-h-screen">
+        <section ref={sectionRef} id="anggota" className="relative overflow-hidden min-h-screen">
             <Snowfall />
             <div className="relative z-10 mx-auto max-w-6xl px-5 py-10 sm:px-7 lg:px-10">
                 {!bidang ? (
@@ -138,7 +138,6 @@ export default function Pengurus({
                     <>
                         <div className="flex flex-col gap-10 lg:flex-row lg:items-stretch">
 
-                            {/* Info panel — slide dari kiri */}
                             <AnimatedSection
                                 variants={pengurusInfoVariants}
                                 threshold={0.15}
@@ -174,7 +173,6 @@ export default function Pengurus({
                                 </div>
                             </AnimatedSection>
 
-                            {/* Orbital panel — slide dari kanan */}
                             <AnimatedSection
                                 variants={pengurusOrbitalVariants}
                                 threshold={0.1}
@@ -219,7 +217,6 @@ export default function Pengurus({
                                                 </AnimatePresence>
                                             </div>
 
-                                            {/* Mobile arc */}
                                             {people.map((p, index) => {
                                                 const isActive = index === normalizedActiveIndex;
                                                 const pos = getAvatarPositionUp(index, people.length, CONTAINER, AVATAR_SIZE);
@@ -233,7 +230,6 @@ export default function Pengurus({
                                                 );
                                             })}
 
-                                            {/* Desktop arc */}
                                             {people.map((p, index) => {
                                                 const isActive = index === normalizedActiveIndex;
                                                 const pos = getAvatarPositionLeft(index, people.length, CONTAINER, AVATAR_SIZE);
@@ -256,7 +252,6 @@ export default function Pengurus({
                             </AnimatedSection>
                         </div>
 
-                        {/* Program Kerja */}
                         {hasProgramKerja && (
                             <div className="mt-4">
                                 <AnimatedSection variants={aboutVariants} threshold={0.2}>

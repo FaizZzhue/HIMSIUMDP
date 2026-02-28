@@ -100,7 +100,6 @@ export default function Filosofi() {
                             ))}
                         </AnimatedSection>
 
-                        {/* Tengah — scale + rotate */}
                         <AnimatedSection
                             variants={filosofiCenterVariants}
                             threshold={0.3}

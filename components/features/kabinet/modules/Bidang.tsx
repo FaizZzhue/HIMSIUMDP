@@ -98,7 +98,6 @@ export default function Bidang({
             <Snowfall />
             <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-7 lg:px-10">
 
-                {/* Heading */}
                 <AnimatedSection variants={filosofiHeadingVariants} threshold={0.3} className="text-center">
                     <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
                         <span className="text-[#0A3763] dark:text-[#2464A8]">Bidang </span>
@@ -106,7 +105,6 @@ export default function Bidang({
                     </h2>
                 </AnimatedSection>
 
-                {/* Mosaic grid — stagger spring pop */}
                 <AnimatedSection
                     variants={bidangContainerVariants}
                     threshold={0.1}
