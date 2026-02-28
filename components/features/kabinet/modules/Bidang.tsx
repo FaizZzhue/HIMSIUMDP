@@ -81,10 +81,10 @@ export default function Bidang({
     onClickAnggota: (id: BidangDetail["id"]) => void;
 }) {
     const layoutById: Record<string, string> = {
-        psdm:    "col-span-12 sm:col-span-6 lg:col-span-4 lg:row-span-2",
-        kominfo: "col-span-12 sm:col-span-6 lg:col-span-4 lg:row-span-2",
-        litbang: "col-span-12 sm:col-span-6 lg:col-span-4 lg:row-span-2",
-        sosial:  "col-span-12 sm:col-span-6 lg:col-span-4 lg:row-span-2",
+        psdm:    "col-span-1 sm:col-span-6 lg:col-span-4 lg:row-span-2",
+        kominfo: "col-span-1 sm:col-span-6 lg:col-span-4 lg:row-span-2",
+        litbang: "col-span-1 sm:col-span-6 lg:col-span-4 lg:row-span-2",
+        sosial:  "col-span-1 sm:col-span-6 lg:col-span-4 lg:row-span-2",
     };
 
     const getBidang = (id: string) => bidangList.find((b) => b.id === id);
@@ -109,9 +109,9 @@ export default function Bidang({
                     variants={bidangContainerVariants}
                     threshold={0.1}
                     rootMargin="-40px 0px -40px 0px"
-                    className="mt-12 grid grid-cols-12 grid-flow-dense gap-3.5 sm:gap-4 [grid-auto-rows:112px] sm:[grid-auto-rows:132px] lg:[grid-auto-rows:142px]"
+                    className="mt-12 grid grid-cols-2 sm:grid-cols-12 grid-flow-dense gap-3.5 sm:gap-4 [grid-auto-rows:120px] sm:[grid-auto-rows:132px] lg:[grid-auto-rows:142px]"
                 >
-                    <AnimatedItem variants={bidangTileVariants} className="col-span-12 lg:col-span-4 lg:row-span-2">
+                    <AnimatedItem variants={bidangTileVariants} className="col-span-1 sm:col-span-6 lg:col-span-4 lg:row-span-2">
                         <MosaicTile title="BPI" badge="BPI" cover="/images/logo/logo-himsi.png" coverContain className="h-full" onClick={() => onClickAnggota("bpi")} />
                     </AnimatedItem>
 
@@ -121,7 +121,7 @@ export default function Bidang({
                         </AnimatedItem>
                     )}
 
-                    <AnimatedItem variants={bidangTileVariants} className="col-span-12 lg:col-span-4 lg:row-span-2">
+                    <AnimatedItem variants={bidangTileVariants} className="col-span-1 sm:col-span-6 lg:col-span-4 lg:row-span-2">
                         <MosaicTile title="BPI" badge="BPI" cover="/images/logo/logo-kabinet.png" coverContain className="h-full" onClick={() => onClickAnggota("bpi")} />
                     </AnimatedItem>
 
