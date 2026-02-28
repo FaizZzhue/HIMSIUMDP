@@ -8,6 +8,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import Snowfall from "react-snowfall";
 import { toast } from "sonner";
+import { AnimatedSection, AnimatedItem } from "@/components/animation/Animated";
+import { faqVariants, faqContainerVariants, faqItemVariants } from "@/components/animation/presets";
 
 export default function FormAspirasiSection() {
   const [nama, setNama] = useState("");
@@ -56,7 +58,7 @@ export default function FormAspirasiSection() {
           nama,
           email,
           catatan,
-          hp: "", 
+          hp: "",
         }),
       });
 
@@ -86,87 +88,91 @@ export default function FormAspirasiSection() {
     }
   }
 
-
   return (
     <section className="relative py-26">
       <Snowfall />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(900px_600px_at_50%_20%,rgba(211,163,45,0.14),transparent_60%)]" />
-      {/* <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(900px_600px_at_50%_80%,rgba(211,163,45,0.10),transparent_60%)]" /> */}
 
       <div className="mx-auto max-w-2xl px-5 sm:px-7">
-        <div className="text-center">
-          {/* <div className="mx-auto mb-3 h-1 w-16 rounded-full bg-[var(--himsi-gold)]/80" /> */}
+
+        {/* Heading — slide dari atas (sama seperti FAQ) */}
+        <AnimatedSection variants={faqVariants} threshold={0.3} className="text-center">
           <h2 className="text-4xl font-extrabold tracking-tight">
             <span className="text-[var(--himsi-gold)]">Form</span> Aspirasi
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm text-foreground">
             Suarakan aspirasi dan ide kreatif Anda untuk membantu kami terus bertumbuh. Masukan Anda adalah energi utama di balik setiap langkah kemajuan kita.
           </p>
-        </div>
+        </AnimatedSection>
 
-        <Card className="mt-10 border-border/60 shadow-sm">
-          <CardContent>
-            <form onSubmit={onSubmit} className="space-y-10"> 
-              <div className="space-y-2">
-                <Label htmlFor="nama">Nama</Label>
-                <Input
-                  id="nama"
-                  value={nama}
-                  onChange={(e) => setNama(e.target.value)}
-                  placeholder="Nama lengkap"
-                  className={
-                    errors.nama ? "border-destructive focus-visible:ring-destructive/20" : ""
-                  }
-                />
-                {errors.nama && <p className="text-xs text-destructive">{errors.nama}</p>}
-              </div>
+        {/* Card form — stagger fields (sama seperti FAQ items) */}
+        <AnimatedSection variants={faqContainerVariants} threshold={0.1} className="mt-10">
+          <Card className="border-border/60 shadow-sm">
+            <CardContent>
+              <form onSubmit={onSubmit} className="space-y-10">
 
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="nama@email.com"
-                  className={
-                    errors.email ? "border-destructive focus-visible:ring-destructive/20" : ""
-                  }
-                />
-                {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
-              </div>
+                <AnimatedItem variants={faqItemVariants}>
+                  <div className="space-y-2">
+                    <Label htmlFor="nama">Nama</Label>
+                    <Input
+                      id="nama"
+                      value={nama}
+                      onChange={(e) => setNama(e.target.value)}
+                      placeholder="Nama lengkap"
+                      className={errors.nama ? "border-destructive focus-visible:ring-destructive/20" : ""}
+                    />
+                    {errors.nama && <p className="text-xs text-destructive">{errors.nama}</p>}
+                  </div>
+                </AnimatedItem>
 
-              <div className="space-y-2">
-                <Label htmlFor="catatan">Catatan</Label>
-                <Textarea
-                  id="catatan"
-                  value={catatan}
-                  onChange={(e) => setCatatan(e.target.value)}
-                  placeholder="Tulis aspirasi/catatan kamu..."
-                  rows={6}
-                  className={
-                    errors.catatan ? "border-destructive focus-visible:ring-destructive/20" : ""
-                  }
-                />
-                {errors.catatan && (
-                  <p className="text-xs text-destructive">{errors.catatan}</p>
-                )}
-              </div>
+                <AnimatedItem variants={faqItemVariants}>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="nama@email.com"
+                      className={errors.email ? "border-destructive focus-visible:ring-destructive/20" : ""}
+                    />
+                    {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
+                  </div>
+                </AnimatedItem>
 
-              <Button
-                type="submit"
-                disabled={submitting}
-                className="w-full font-semibold bg-[#0A3763] dark:bg-[#2464A8]"
-              >
-                {submitting ? "Mengirim..." : "Kirim"}
-              </Button>
+                <AnimatedItem variants={faqItemVariants}>
+                  <div className="space-y-2">
+                    <Label htmlFor="catatan">Catatan</Label>
+                    <Textarea
+                      id="catatan"
+                      value={catatan}
+                      onChange={(e) => setCatatan(e.target.value)}
+                      placeholder="Tulis aspirasi/catatan kamu..."
+                      rows={6}
+                      className={errors.catatan ? "border-destructive focus-visible:ring-destructive/20" : ""}
+                    />
+                    {errors.catatan && <p className="text-xs text-destructive">{errors.catatan}</p>}
+                  </div>
+                </AnimatedItem>
 
-              <p className="text-center text-xs text-muted-foreground">
-                Terima kasih sudah membantu HIMSI menjadi lebih baik.
-              </p>
-            </form>
-          </CardContent>
-        </Card>
+                <AnimatedItem variants={faqItemVariants}>
+                  <Button
+                    type="submit"
+                    disabled={submitting}
+                    className="w-full font-semibold bg-[#0A3763] dark:bg-[#2464A8]"
+                  >
+                    {submitting ? "Mengirim..." : "Kirim"}
+                  </Button>
+                  <p className="mt-4 text-center text-xs text-muted-foreground">
+                    Terima kasih sudah membantu HIMSI menjadi lebih baik.
+                  </p>
+                </AnimatedItem>
+
+              </form>
+            </CardContent>
+          </Card>
+        </AnimatedSection>
+
       </div>
     </section>
   );

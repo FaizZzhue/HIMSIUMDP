@@ -1,6 +1,5 @@
 "use client";
 
-
 import { motion, useReducedMotion, useInView } from "framer-motion";
 import { useRef } from "react";
 import type { Variants, HTMLMotionProps } from "framer-motion";
@@ -24,7 +23,7 @@ export function AnimatedSection({
     variants,
     as = "div",
     threshold = 0.15,
-    rootMargin = "0px 0px -60px 0px",
+    rootMargin = "-60px 0px -60px 0px",
     className,
     children,
     ...rest
@@ -35,10 +34,10 @@ export function AnimatedSection({
     const isInView = useInView(ref, {
         margin: rootMargin as `${number}px ${number}px ${number}px ${number}px`,
         amount: threshold,
+        once: false,
     });
 
     const activeVariants = shouldReduceMotion ? reducedVariants : variants;
-
     const animate = isInView ? "enter" : "exit";
 
     const MotionComponent = motion[as as keyof typeof motion] as typeof motion.div;
@@ -74,5 +73,40 @@ export function AnimatedItem({
         >
             {children}
         </motion.div>
+    );
+}
+
+export function AnimatedList<T>({
+    containerVariants,
+    itemVariants,
+    items,
+    renderItem,
+    className,
+    itemClassName,
+    threshold,
+    rootMargin,
+}: {
+    containerVariants: Variants;
+    itemVariants: Variants;
+    items: T[];
+    renderItem: (item: T, index: number) => React.ReactNode;
+    className?: string;
+    itemClassName?: string;
+    threshold?: number;
+    rootMargin?: string;
+}) {
+    return (
+        <AnimatedSection
+            variants={containerVariants}
+            className={className}
+            threshold={threshold}
+            rootMargin={rootMargin}
+        >
+            {items.map((item, i) => (
+                <AnimatedItem key={i} variants={itemVariants} className={itemClassName}>
+                    {renderItem(item, i)}
+                </AnimatedItem>
+            ))}
+        </AnimatedSection>
     );
 }

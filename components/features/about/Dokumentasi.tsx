@@ -5,6 +5,12 @@ import Snowfall from "react-snowfall";
 import { DocumentationCard } from "./modules/Documentation-Card";
 import { CONTENT } from "@/types/content";
 import type { GalleryItem } from "@/types/types";
+import { AnimatedSection, AnimatedItem } from "@/components/animation/Animated";
+import {
+    aboutVariants,
+    aboutContainerVariants,
+    aboutCardVariants,
+} from "@/components/animation/presets";
 
 export default function Dokumentasi() {
     const [open, setOpen] = useState(false);
@@ -24,7 +30,6 @@ export default function Dokumentasi() {
         const onKey = (e: KeyboardEvent) => {
             if (e.key === "Escape") closeModal();
         };
-
         if (open) window.addEventListener("keydown", onKey);
         return () => window.removeEventListener("keydown", onKey);
     }, [open]);
@@ -33,11 +38,16 @@ export default function Dokumentasi() {
         <section className="relative overflow-hidden py-20">
             <Snowfall />
             <div className="mx-auto max-w-[1240px] px-5 sm:px-7 lg:px-10">
-                <div className="mx-auto max-w-3xl text-center">
+
+                <AnimatedSection
+                    variants={aboutVariants}
+                    threshold={0.3}
+                    className="mx-auto max-w-3xl text-center"
+                >
                     <h2 className="text-4xl font-semibold tracking-tight text-[#0A3763] dark:text-[#2464A8] sm:text-5xl">
                         Dokumentasi <span className="text-[#D3A32D]">Kegiatan</span>
                     </h2>
-                </div>
+                </AnimatedSection>
 
                 <div className="relative mt-12">
                     <div
@@ -45,9 +55,7 @@ export default function Dokumentasi() {
                         className="pointer-events-none absolute -inset-6 rounded-[44px] bg-gradient-to-r from-[#2464A8]/18 via-white/8 to-[#D3A32D]/20 blur-2xl"
                     />
 
-                    <div
-                        className=" relative rounded-[40px] border border-black/10 bg-white/28 p-6 backdrop-blur-xl shadow-[0_18px_60px_rgba(7,18,39,0.12)] dark:border-white/14 dark:bg-white/10 dark:shadow-[0_26px_80px_rgba(0,0,0,0.40)] sm:p-7"
-                    >
+                    <div className="relative rounded-[40px] border border-black/10 bg-white/28 p-6 backdrop-blur-xl shadow-[0_18px_60px_rgba(7,18,39,0.12)] dark:border-white/14 dark:bg-white/10 dark:shadow-[0_26px_80px_rgba(0,0,0,0.40)] sm:p-7">
                         <div
                             aria-hidden
                             className="pointer-events-none absolute inset-0 rounded-[40px] opacity-60"
@@ -61,16 +69,21 @@ export default function Dokumentasi() {
                             }}
                         />
 
-                        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                        <AnimatedSection
+                            variants={aboutContainerVariants}
+                            threshold={0.1}
+                            className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+                        >
                             {CONTENT.about.gallery.map((item, index) => (
-                                <DocumentationCard key={`${item.title}-${index}`} item={item} onClick={() => openModal(item)} />
+                                <AnimatedItem key={`${item.title}-${index}`} variants={aboutCardVariants}>
+                                    <DocumentationCard item={item} onClick={() => openModal(item)} />
+                                </AnimatedItem>
                             ))}
-                        </div>
+                        </AnimatedSection>
                     </div>
                 </div>
-            </div>
 
-            {/* {open && active ? <DocumentationModal active={active} onClose={closeModal} /> : null} */}
+            </div>
         </section>
     );
 }

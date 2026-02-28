@@ -4,6 +4,7 @@ import LogoKabinet from "@/components/features/kabinet/Logo-Kabinet";
 import AboutKabinet from "@/components/features/kabinet/About-Kabinet";
 import BidangPengurus from "@/components/features/kabinet/Bidang-Pengurusan";
 import Footer from "@/components/common/Footer";
+import Filosofi from "@/components/features/kabinet/Filosofi";
 
 export default function KabinetPage() {
     return (
@@ -12,6 +13,7 @@ export default function KabinetPage() {
             <main>
                 <LogoKabinet />
                 <AboutKabinet />
+                <Filosofi /> 
                 <Profile />
                 <BidangPengurus />
             </main>
