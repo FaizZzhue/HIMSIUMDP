@@ -251,7 +251,7 @@ const ABOUT_GALLERY: GalleryItem[] = [
       "Sharing & Evaluasi antar ormawa untuk meningkatkan sinergi dan kolaborasi di lingkungan kampus.",
   },
   {
-    src: "/images/dokumentasi/lomba.jpeg",
+    src: "/images/dokumentasi/lomba.png",
     alt: "Kegiatan HIMSI 5",
     title: "Lomba & Kompetisi Antar Mahasiswa",
     proker: "",
@@ -704,22 +704,38 @@ const KABINET_BIDANG: BidangDetail[] = [
       {
         title: "Kupas KSI",
         image: "/images/dokumentasi/podcast.jpeg",
-        description: "Program diskusi interaktif yang membahas topik sistem informasi dan organisasi mahasiswa.",
+        description:
+          "Program diskusi/podcast yang membahas seputar kegiatan Kampung Sistem Informasi (KSI), termasuk persiapan, rundown, highlight acara",
       },
       {
-        title: "Himpost",
-        image: "/images/dokumentasi/pkkmb.png",
-        description: "Produksi konten informatif untuk media sosial agar informasi himpunan tersampaikan jelas.",
+        title: "HimPost",
+        image: "/images/dokumentasi/himpost.jpeg",
+        description:
+          "Konten informatif untuk menyampaikan pengumuman, informasi kegiatan, dan update internal HIMSI secara jelas di media sosial.",
       },
       {
         title: "Dokumentasi Kegiatan Internal & Eksternal",
-        image: "/images/dokumentasi/ksi.jpg",
-        description: "Pendokumentasian foto dan video seluruh kegiatan sebagai arsip dan materi publikasi.",
+        image: "/images/dokumentasi/internal.jpeg",
+        description:
+          "Pendokumentasian foto dan video seluruh kegiatan sebagai arsip himpunan sekaligus materi publikasi dan laporan.",
       },
       {
-        title: "Himpromote",
-        image: "/images/dokumentasi/lomba.jpeg",
-        description: "Strategi komunikasi digital untuk memperkuat identitas dan citra positif HIMSI.",
+        title: "HimPromote",
+        image: "/images/dokumentasi/lomba.png",
+        description:
+          "Pembuatan materi promosi untuk meningkatkan awareness kegiatan HIMSI, seperti poster, teaser, dan publikasi lomba/event.",
+      },
+      {
+        title: "HimFeed",
+        image: "/images/dokumentasi/himfeed.jpeg",
+        description:
+          "Pembuatan dan penjadwalan konten feed media sosial HIMSI (informasi, edukasi, dan dokumentasi) agar tampilan rapi, konsisten, dan mudah dipahami.",
+      },
+      {
+        title: "Design Lanyard",
+        image: "/images/dokumentasi/lanyard.jpeg",
+        description:
+          "Perancangan desain lanyard sebagai identitas resmi HIMSI yang selaras dengan branding, warna, dan kebutuhan atribut kegiatan.",
       },
     ],
   },

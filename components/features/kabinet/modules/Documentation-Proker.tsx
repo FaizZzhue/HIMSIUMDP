@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import type { WorkProgram } from "@/types/types";
 
 type DocumentationProkerProps = {
@@ -9,6 +10,8 @@ type DocumentationProkerProps = {
 };
 
 export function DocumentationProker({ active, onClose }: DocumentationProkerProps) {
+  const [naturalSize, setNaturalSize] = useState<{ width: number; height: number } | null>(null);
+
   return (
     <div
       className="fixed inset-0 z-[80] flex items-center justify-center px-4 py-10"
@@ -36,8 +39,37 @@ export function DocumentationProker({ active, onClose }: DocumentationProkerProp
         </div>
 
         <div className="grid gap-0 lg:grid-cols-5">
-          <div className="relative aspect-[16/10] w-full lg:col-span-3">
-            <Image src={active.image} alt={active.title} fill className="object-cover" />
+          <div className="relative w-full overflow-hidden lg:col-span-3">
+            {naturalSize ? (
+              <div
+                className="relative w-full"
+                style={{ paddingBottom: `${(naturalSize.height / naturalSize.width) * 100}%` }}
+              >
+                <Image
+                  src={active.image}
+                  alt={active.title}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                />
+              </div>
+            ) : (
+
+              <div className="relative aspect-video w-full bg-white/5">
+                <img
+                  src={active.image}
+                  alt={active.title}
+                  className="absolute inset-0 h-full w-full object-contain"
+                  onLoad={(e) => {
+                    const img = e.currentTarget;
+                    setNaturalSize({
+                      width: img.naturalWidth,
+                      height: img.naturalHeight,
+                    });
+                  }}
+                />
+              </div>
+            )}
           </div>
 
           <div className="p-5 lg:col-span-2">
