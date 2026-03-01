@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Snowfall from "react-snowfall";
+import { motion } from "framer-motion";
 import { AnimatedSection, AnimatedItem } from "@/components/animation/Animated";
 import {
     filosofiHeadingVariants,
@@ -60,15 +61,55 @@ function cn(...cls: Array<string | false | undefined>) {
 
 function FilosofiCard({ item }: { item: FilosofiItem }) {
     const isBlue = item.accent === "blue";
+
     return (
-        <div className="relative rounded-2xl border bg-white/65 p-5 shadow-[0_16px_40px_rgba(2,6,23,0.12)] backdrop-blur-xl border-white/70">
+        <motion.div
+            className="relative rounded-2xl border bg-white/65 p-5 shadow-[0_16px_40px_rgba(2,6,23,0.12)] backdrop-blur-xl border-white/70 cursor-default overflow-hidden"
+            whileHover={{
+                y: -6,
+                scale: 1.02,
+                boxShadow: isBlue
+                    ? "0 24px 60px rgba(30,107,214,0.18), 0 4px 16px rgba(2,6,23,0.10)"
+                    : "0 24px 60px rgba(245,158,11,0.18), 0 4px 16px rgba(2,6,23,0.10)",
+                transition: { type: "spring", stiffness: 320, damping: 22 },
+            }}
+            whileTap={{
+                scale: 0.98,
+                transition: { type: "spring", stiffness: 400, damping: 20 },
+            }}
+            transition={{ type: "spring", stiffness: 260, damping: 24 }}
+        >
+            <motion.div
+                className={cn(
+                    "pointer-events-none absolute -inset-px rounded-2xl opacity-0",
+                    isBlue
+                        ? "bg-gradient-to-br from-[#1E6BD6]/10 via-transparent to-transparent"
+                        : "bg-gradient-to-br from-[#F59E0B]/10 via-transparent to-transparent"
+                )}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+            />
+
             <div className="absolute left-5 top-5 flex items-center gap-3">
-                <span className={cn("h-4 w-4 rounded-full", isBlue ? "bg-[#1E6BD6]" : "bg-[#F59E0B]")} />
-                <span className={cn("h-[3px] w-44 rounded-full", isBlue ? "bg-[#1E6BD6]" : "bg-[#F59E0B]")} />
+                <motion.span
+                    className={cn("h-4 w-4 rounded-full", isBlue ? "bg-[#1E6BD6]" : "bg-[#F59E0B]")}
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", stiffness: 400, damping: 18, delay: 0.1 }}
+                />
+                <motion.span
+                    className={cn("h-[3px] rounded-full", isBlue ? "bg-[#1E6BD6]" : "bg-[#F59E0B]")}
+                    initial={{ width: 0 }}
+                    whileInView={{ width: 176 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.55, ease: "easeOut", delay: 0.18 }}
+                />
             </div>
+
             <h3 className="mt-7 text-lg font-semibold text-slate-900">{item.title}</h3>
-            <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-slate-700">{item.desc}</p>
-        </div>
+            <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-foreground">{item.desc}</p>
+        </motion.div>
     );
 }
 
@@ -105,7 +146,17 @@ export default function Filosofi() {
                             threshold={0.3}
                             className="relative flex items-center justify-center lg:order-2 lg:col-span-4"
                         >
-                            <div className="relative h-[230px] w-[230px]">
+                            <motion.div
+                                className="relative h-[230px] w-[230px]"
+                                animate={{ y: [0, -10, 0] }}
+                                transition={{
+                                    duration: 4,
+                                    ease: "easeInOut",
+                                    repeat: Infinity,
+                                    repeatType: "loop",
+                                }}
+                                whileHover={{ scale: 1.08, rotate: 3 }}
+                            >
                                 <Image
                                     src="/images/logo/logo-kabinet.png"
                                     alt="Logo Kabinet Harsana Cakra"
@@ -113,7 +164,7 @@ export default function Filosofi() {
                                     className="object-contain"
                                     priority
                                 />
-                            </div>
+                            </motion.div>
                         </AnimatedSection>
 
                         <AnimatedSection
